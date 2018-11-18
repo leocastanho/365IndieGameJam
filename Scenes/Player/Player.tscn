@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Art/Characters/hitman1_stand.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/ShakingCamera.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.7319
+height = 21.3329
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "idle"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "take_damage"
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "walk"
+length = 1.0
+loop = false
+step = 0.1
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+weapon_scene_path = "res://Scenes/Weapons/Sword.tscn"
+knockbackDuration = 0.2
+knockbackDistance = 50
+max_health = 5
+dashVelocityMultiplier = 6
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -1.42396, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 2 )
+anims/take_damage = SubResource( 3 )
+anims/walk = SubResource( 4 )
+blend_times = [  ]
+
+[node name="Tween" type="Tween" parent="." index="3"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Dash" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.04
+one_shot = false
+autostart = false
+
+[node name="DashCD" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = false
+autostart = false
+
+[node name="WeaponSpawnPoint" type="Node2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 30.2573, -0.902626 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WeaponAnchorPoint" type="Node2D" parent="WeaponSpawnPoint" index="0"]
+
+[node name="ShakingCamera" parent="." index="7" instance=ExtResource( 3 )]
+
+[node name="PlayerSFX" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+
+[connection signal="timeout" from="Dash" to="." method="_on_Dash_timeout"]
+
+[connection signal="timeout" from="DashCD" to="." method="_on_DashCD_timeout"]
+
+
