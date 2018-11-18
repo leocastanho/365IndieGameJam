@@ -14,7 +14,7 @@ extents = Vector2( 32.4148, 32.3752 )
 custom_solver_bias = 0.0
 radius = 125.935
 
-[node name="MonsterMelee" type="RigidBody2D" index="0" groups=[
+[node name="MonsterMelee" type="RigidBody2D" groups=[
 "Monsters",
 ]]
 

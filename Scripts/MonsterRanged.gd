@@ -50,8 +50,7 @@ func _draw():
 	pass
 
 func _on_MonsterRanged_body_shape_entered(body_id, body, body_shape, local_shape):
-	
-	if(body.is_in_group("Player")):
+
 		
 	
 	pass # replace with function body
