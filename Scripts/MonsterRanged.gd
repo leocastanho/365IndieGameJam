@@ -4,22 +4,39 @@ extends RigidBody2D
 # var a = 2
 # var b = "textvar"
 var laser_color = Color(1.0, .329, .298)
-var target 
+onready var bullet = preload("res://Scenes/Bullet.tscn")
+
+onready var target = get_node("../Help")
+
 var hit_pos
-var can_shoot
-var life
+var can_shoot = false
+var direction
+var damage
+
+var life = 100
+var speed = 0
+
+var timeReload = 3
+var timePassed = 0
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	life = 100
+	$LifeBar.max_value = life
+	$LifeBar.value = life
+	
 	pass
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
+	timePassed += delta
+	if(timePassed > timeReload):
+		can_shoot = true
+		timePassed = 0
+		
+	
 	update()
-	target = get_node("../Help")
 	if(target):
 		aim()
 		
@@ -32,13 +49,19 @@ func aim():
 		hit_pos = result.position
 		if result.collider.name == "Help":
 			rotation = (target.position - position).angle()
-			if can_shoot:
-				shoot(target.positon)
+			if(can_shoot):
+				shoot()
+				can_shoot = false
 	
 	pass
 
 func shoot():
-	
+	var shoot = bullet.instance()
+	shoot.position = position 
+	shoot.rotation = rotation
+	$Bullets.add_child(shoot)
+	shoot.changeDirection(target.position - position)
+
 	pass
 
 func _draw():

@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ 0.0, 0.0 ]
 }
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0" groups=[
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
 "character",
 ]]
 
@@ -37,9 +37,6 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-weapon_scene_path = "res://Scenes/Weapons/Sword.tscn"
-knockbackDuration = 0.2
-knockbackDistance = 50
 max_health = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
