@@ -31,7 +31,7 @@ length = 1.0
 loop = false
 step = 0.1
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

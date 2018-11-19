@@ -12,8 +12,8 @@ export var dashVelocityMultiplier = 6 #option 1
 #export var dashDistance = 130  #option 2 and 3
 #export var dashDuration = 0.2 #option 3
 
-func _ready():
-	Global.Player = self
+#func _ready():
+#	Global.Player = self
 
 func _physics_process(delta):
 #	Movement option 1
@@ -27,6 +27,10 @@ func _input(event):
 #		_change_state(STAGGER)
 		$ShakingCamera.set_duration(0.1)
 		$ShakingCamera.set_shake(true)
+		Engine.set_time_scale(1)
+	if Input.is_action_just_pressed("slow_time") and not dashCD:
+		Engine.set_time_scale(0.4)
+
 	if event.is_action_pressed("attack"):
 		heal(1)
 #		$PlayerSFX.stream = Global.playerAttacking
