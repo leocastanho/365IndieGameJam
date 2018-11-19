@@ -39,7 +39,7 @@ func _physics_process(delta):
 	for body in overlapping_bodies:
 		if not body.is_in_group("character"):  #fix this later with this every npc will have to be on this group
 			return
-	#if the body is the playe, it wont hit him
+	#if the body is the player, it wont hit him
 		if is_owner(body):
 			return
 #	# If it is a enemy, damage it and stop physics process for this attack
