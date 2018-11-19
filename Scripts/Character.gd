@@ -28,6 +28,9 @@ var enemyPos = Vector2()
 export var max_health = 5
 var health
 
+var facingRight = true
+var facingDown = false
+
 
 func _ready():
 	health = max_health
@@ -57,12 +60,27 @@ func _physics_process(delta):
 		move_direction = input_direction
 
 		#where to look, when i get the sprites i will fix this so that the character look at the right direction
+		print(look_direction)
 		if move_direction.x:
 			look_direction.x = move_direction.x
-			$WeaponSpawnPoint.scale.x = look_direction.x
+			if facingRight and look_direction.x < 0:
+				rotation_degrees = 180
+#				$WeaponSpawnPoint.position.x *= look_direction.x
+#				$WeaponSpawnPoint.scale.x = look_direction.x
+				facingRight = false
+			elif not facingRight and look_direction.x > 0:
+#				$WeaponSpawnPoint.position.x *= -look_direction.x
+				rotation_degrees = 0
+				facingRight = true
 		if move_direction.y:
-			look_direction.y = move_direction.y
-			$WeaponSpawnPoint.scale.y = look_direction.y
+			if facingDown and look_direction.y < 0:
+				rotation_degrees = 90
+				facingDown = false
+			elif not facingDown and look_direction.y > 0:
+				rotation_degrees = -90
+				facingDown = true
+#				look_direction.y = move_direction.y
+#				$WeaponSpawnPoint.scale.y = look_direction.y
 
 		#this makes the play goes to idle state when he stops moving(0 motion, not when the player stop pressing directionals)
 		if motion == Vector2(0,0):
