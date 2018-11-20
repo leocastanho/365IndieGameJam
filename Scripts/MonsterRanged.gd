@@ -3,20 +3,20 @@ extends RigidBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var laser_color = Color(1.0, .329, .298)
+var laser_color = Color(1.0, 0, 0)
 onready var bullet = preload("res://Scenes/Bullet.tscn")
 
-onready var target = get_node("../Help")
+var target 
 
 var hit_pos
 var can_shoot = false
 var direction
-var damage
 
-var life = 100
-var speed = 0
+export(int) var damage = 10
+export(int) var life = 100
+export(int) var speed = 0
+export(float) var timeReload = 3
 
-var timeReload = 3
 var timePassed = 0
 
 func _ready():
@@ -27,18 +27,20 @@ func _ready():
 	
 	pass
 
-func _process(delta):
+func _physics_process(delta):
+	target = get_node("../Help")
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	timePassed += delta
 	if(timePassed > timeReload):
 		can_shoot = true
 		timePassed = 0
-		
 	
 	update()
 	if(target):
 		aim()
+	else:
+		hit_pos = null
 		
 	pass
 
@@ -61,14 +63,14 @@ func shoot():
 	shoot.rotation = rotation
 	$Bullets.add_child(shoot)
 	shoot.changeDirection(target.position - position)
-
+	
 	pass
 
 func _draw():
 	
 	if(hit_pos):
 		draw_circle((hit_pos - position).rotated(-rotation), 5, laser_color)
-		draw_line(Vector2(), (hit_pos - position).rotated(-rotation), laser_color)
+		draw_line(Vector2(), (hit_pos - position).rotated(-rotation), laser_color, 2)
 		
 	pass
 

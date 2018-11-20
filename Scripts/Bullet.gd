@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -26,3 +26,9 @@ func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	pass
+
+
+func _on_Bullet_body_entered(body):
+
+
+	pass # replace with function body

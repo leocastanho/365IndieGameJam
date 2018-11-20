@@ -96,6 +96,7 @@ func _physics_process(delta):
 			direction =  player.position - self.position
 			direction = direction.normalized()
 			translate(direction * speed * delta)
+			
 	pass
 
 
@@ -109,17 +110,13 @@ func _on_Detection_body_entered(body):
 	
 	pass # replace with function body
 
-
-func _on_Monster_body_entered(body):
-	
-	print("Stop Walk")
-	speed = 0
+func _on_Tween_tween_completed(object, key):
+	_change_state(ATTACKING)
+	timeChange = 0
 	
 	pass # replace with function body
 
 
-func _on_Tween_tween_completed(object, key):
-	_change_state(ATTACKING)
-	timeChange = 0
+func _on_MonsterMelee_body_entered(body):
 	
 	pass # replace with function body
