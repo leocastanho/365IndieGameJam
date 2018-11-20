@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/MonsterRanged.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=4]
 
-[node name="Level4" type="Node" index="0"]
+[node name="Level4" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
