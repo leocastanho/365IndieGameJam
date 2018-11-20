@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=2]
+
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Art/manBlue_stand.png" type="Texture" id=2]
+[ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/background.png" type="Texture" id=5]
+[ext_resource path="res://Art/fill.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -37,7 +42,8 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-max_health = 5
+
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -61,4 +67,51 @@ playback_speed = 1.0
 anims/take_damage = SubResource( 2 )
 blend_times = [  ]
 
+[node name="Health" parent="." index="4" instance=ExtResource( 3 )]
+
+max_health = 7
+
+[node name="DamageSource" parent="." index="5" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+effect = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageSource" index="0"]
+
+position = Vector2( -1.39178, 0.34795 )
+shape = SubResource( 3 )
+
+[node name="HealthBar" type="TextureProgress" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -97.0
+margin_top = -64.0
+margin_right = 95.0
+margin_bottom = -42.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 96, 11 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 5 )
+texture_over = null
+texture_progress = ExtResource( 6 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Position2D" type="Position2D" parent="." index="7"]
 
