@@ -15,7 +15,7 @@ var attack_current = {}
 var combo = [{
 		'damage': 1,
 		'animation': 'attack_fast',
-		'effect': null
+		'effect': global_constants.STATUS_POISONED
 	},
 	{
 		'damage': 1,
