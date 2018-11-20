@@ -6,6 +6,8 @@ extends RigidBody2D
 
 export(int) var life
 
+var died = false
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -16,8 +18,10 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	if(isDied()):
-		queue_free()
+	if(isDied() && !died):
+		$AnimationPlayer.play("Die")
+		died = true
+		
 		
 	pass
 	
@@ -36,9 +40,17 @@ func take_Damage(value):
 
 func _on_NPC_body_entered(body):
 
-	if(body.is_in_group("Bullet")):
+	if(body.is_in_group("Bullet") && !died):
 		$AnimationPlayer.play("Take_Damage")
 		take_Damage(body.damage)
 		body.queue_free()
+	
+	pass # replace with function body
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	
+	if(anim_name == "Die"):
+		queue_free()
 	
 	pass # replace with function body
