@@ -46,10 +46,6 @@ rotation = 2.52455
 editor/display_folded = true
 position = Vector2( 485.826, 346.266 )
 
-[node name="StateMachine" parent="PlayerV2" index="1"]
-
-editor/display_folded = true
-
 [node name="PlayerInterface" type="CanvasLayer" parent="." index="4"]
 
 layer = 1
