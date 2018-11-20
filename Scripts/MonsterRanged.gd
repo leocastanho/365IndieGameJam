@@ -12,18 +12,19 @@ var hit_pos
 var can_shoot = false
 var direction
 
-export(int) var damage = 10
-export(int) var life = 100
 export(int) var speed = 0
 export(float) var timeReload = 3
 
+onready var lifeBar = $HealthBar
 var timePassed = 0
+
+func take_damage(damage_dealer,damage,effect):
+	$Health.take_damage(damage,effect)
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	$LifeBar.max_value = life
-	$LifeBar.value = life
+	lifeBar.value = lifeBar.max_value
 	
 	pass
 

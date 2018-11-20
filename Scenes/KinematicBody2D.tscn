@@ -38,7 +38,7 @@ custom_solver_bias = 0.0
 radius = 12.9045
 height = 20.0
 
-[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+[node name="KinematicBody2D" type="KinematicBody2D" index="0" groups=[
 "character",
 ]]
 
@@ -79,7 +79,6 @@ max_health = 7
 
 [node name="DamageSource" parent="." index="5" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 effect = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageSource" index="0"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Monster.gd" type="Script" id=1]
 [ext_resource path="res://player/shadow.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Art/emote_exclamation.png" type="Texture" id=4]
+[ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Gradient" id=7]
 
@@ -11,7 +13,7 @@ offsets = PoolRealArray( 0, 0.39645, 0.704142, 1 )
 colors = PoolColorArray( 0.960938, 0.508269, 0.108856, 1, 0.964844, 0.913728, 0.497498, 1, 0.75, 0.441582, 0.237305, 1, 0.78125, 0.191236, 0.112915, 1 )
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="GradientTexture" id=8]
+[sub_resource type="GradientTexture" id=13]
 
 flags = 4
 gradient = SubResource( 7 )
@@ -31,7 +33,7 @@ flags = 4
 width = 2048
 curve = SubResource( 9 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=14]
 
 render_priority = 0
 trail_divisor = 1
@@ -62,7 +64,7 @@ angle_random = 0.0
 scale = 30.0
 scale_random = 0.2
 scale_curve = SubResource( 10 )
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 13 )
 hue_variation = 0.0
 hue_variation_random = 1.0
 anim_speed = 0.0
@@ -72,17 +74,17 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Color", "Damping", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Scale", "Trail" ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=15]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32.2097, 4.7181 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=16]
 
 custom_solver_bias = 0.0
 radius = 125.935
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=17]
 
 resource_name = "Attacking"
 length = 1.0
@@ -113,7 +115,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=18]
 
 resource_name = "Idle"
 length = 1.0
@@ -132,7 +134,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=19]
 
 resource_name = "Prepare_Attack"
 length = 1.0
@@ -151,7 +153,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=20]
 
 resource_name = "Take_Damage"
 length = 1.0
@@ -198,7 +200,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=21]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -226,21 +228,19 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[node name="MonsterMelee" type="KinematicBody2D" index="0" groups=[
+[node name="MonsterMelee" type="KinematicBody2D" groups=[
 "Monsters",
 ]]
 
 position = Vector2( 0.598755, 0 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 2
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause", "collision" ]
+_sections_unfolded = [ "Collision", "Pause", "collision" ]
 walkSpeed = 100
 attackSpeed = 200
-life = 100
-damage = 10
 
 [node name="Dust" type="Particles2D" parent="." index="0"]
 
@@ -258,7 +258,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 14 )
 texture = null
 normal_map = null
 h_frames = 3
@@ -282,7 +282,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 position = Vector2( -1.0732, 9.47909 )
 scale = Vector2( 1, 4.38182 )
-shape = SubResource( 1 )
+shape = SubResource( 15 )
 
 [node name="Detection" type="Area2D" parent="." index="4"]
 
@@ -298,7 +298,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Shape" type="CollisionShape2D" parent="Detection" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 16 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="exclamation" type="Sprite" parent="." index="5"]
@@ -316,10 +316,10 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Attacking = SubResource( 4 )
-anims/Idle = SubResource( 11 )
-anims/Prepare_Attack = SubResource( 5 )
-anims/Take_Damage = SubResource( 3 )
+anims/Attacking = SubResource( 17 )
+anims/Idle = SubResource( 18 )
+anims/Prepare_Attack = SubResource( 19 )
+anims/Take_Damage = SubResource( 20 )
 blend_times = [  ]
 
 [node name="Timer" type="Timer" parent="." index="7"]
@@ -329,7 +329,7 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="LifeBar" type="ProgressBar" parent="." index="8"]
+[node name="HealthBar" type="ProgressBar" parent="." index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -346,7 +346,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
 custom_styles/fg = SubResource( 12 )
-custom_styles/bg = SubResource( 13 )
+custom_styles/bg = SubResource( 21 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -356,6 +356,16 @@ exp_edit = false
 rounded = false
 percent_visible = false
 _sections_unfolded = [ "Percent", "custom_styles" ]
+
+[node name="Health" parent="." index="9" instance=ExtResource( 5 )]
+
+[node name="DamageSource" parent="." index="10" instance=ExtResource( 6 )]
+
+[node name="Collision2" type="CollisionShape2D" parent="DamageSource" index="0"]
+
+position = Vector2( -1.0732, 9.47909 )
+scale = Vector2( 1, 4.38182 )
+shape = SubResource( 15 )
 
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
 

@@ -25,8 +25,12 @@ _sections_unfolded = [ "Sort" ]
 
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
-[node name="MonsterMelee" parent="Teste" index="1" instance=ExtResource( 3 )]
+[node name="MonsterMelee2" parent="Teste" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 810, 200 )
+position = Vector2( 250, 310 )
+
+[node name="MonsterMelee" parent="Teste" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 930, 220 )
 
 
