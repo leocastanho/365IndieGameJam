@@ -50,7 +50,6 @@ func aim():
 	if result:
 		hit_pos = result.position
 		if result.collider.name == "Help":
-			rotation = (target.position - position).angle()
 			if(can_shoot):
 				shoot()
 				can_shoot = false
