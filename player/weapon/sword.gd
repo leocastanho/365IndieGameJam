@@ -15,7 +15,7 @@ var attack_current = {}
 var combo = [{
 		'damage': 1,
 		'animation': 'attack_fast',
-		'effect': global_constants.STATUS_POISONED
+		'effect': null #global_constants.STATUS_POISONED
 	},
 	{
 		'damage': 1,
@@ -49,6 +49,7 @@ func _change_state(new_state):
 			visible = false
 			monitoring = false
 		ATTACK:
+			print("atacou")
 			attack_current = combo[combo_count -1]
 			$AnimationPlayer.play(attack_current['animation'])
 			visible = true
@@ -61,6 +62,7 @@ func _input(event):
 	if attack_input_state != LISTENING:
 		return
 	if event.is_action_pressed('attack'):
+		print("atacou")
 		attack_input_state = REGISTERED
 
 func _physics_process(delta):
@@ -95,6 +97,7 @@ func _on_animation_finished(name):
 		attack()
 	else:
 		_change_state(IDLE)
+		print("emitiu")
 		emit_signal("attack_finished")
 
 func _on_StateMachine_state_changed(current_state):

@@ -87,7 +87,7 @@ use_filter = true
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="PlayerV2" type="KinematicBody2D" index="0"]
+[node name="PlayerV2" type="KinematicBody2D"]
 
 position = Vector2( 628.826, 391.266 )
 scale = Vector2( 0.5, 0.5 )
@@ -98,6 +98,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 __meta__ = {
+"_edit_group_": true,
 "_edit_horizontal_guides_": [  ]
 }
 
@@ -190,7 +191,6 @@ texture = ExtResource( 11 )
 
 [node name="WeaponPivot" type="Position2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
 script = ExtResource( 12 )
 

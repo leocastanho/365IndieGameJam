@@ -28,7 +28,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 580.0
+margin_right = 338.0
 margin_bottom = 117.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -39,9 +39,6 @@ size_flags_vertical = 1
 alignment = 0
 
 [node name="LifeBar" parent="Bars" index="0" instance=ExtResource( 2 )]
-
-margin_right = 560.0
-margin_bottom = 53.0
 
 [node name="EnergyBar" parent="Bars" index="1" instance=ExtResource( 3 )]
 

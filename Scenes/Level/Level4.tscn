@@ -32,6 +32,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 502.146, 303.252 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
 [node name="MonsterRanged" parent="." index="2" instance=ExtResource( 3 )]
 
@@ -65,5 +66,6 @@ timeReload = 1.0
 [node name="PlayerV2" parent="." index="8" instance=ExtResource( 4 )]
 
 position = Vector2( 566.464, 310.992 )
+_sections_unfolded = [ "Collision", "Material", "Transform", "Visibility" ]
 
 

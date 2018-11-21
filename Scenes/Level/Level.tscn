@@ -2,9 +2,9 @@
 
 [ext_resource path="res://tilemaptest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Area2D.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/KinematicBody2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/KinematicBody2D.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node2D" groups=[
 "character",
@@ -36,21 +36,7 @@ tile_data = PoolIntArray( 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 131076, 0, 0, 1
 
 position = Vector2( 360.025, 226.958 )
 
-[node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 612, 389 )
-rotation = 2.52455
-
-[node name="PlayerV2" parent="." index="3" instance=ExtResource( 4 )]
-
-editor/display_folded = true
-position = Vector2( 485.826, 346.266 )
-
-[node name="StateMachine" parent="PlayerV2" index="1"]
-
-editor/display_folded = true
-
-[node name="PlayerInterface" type="CanvasLayer" parent="." index="4"]
+[node name="PlayerInterface" type="CanvasLayer" parent="." index="2"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -58,9 +44,22 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 5 )]
+[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 3 )]
 
-[connection signal="health_changed" from="PlayerV2/Health" to="PlayerInterface/Interface" method="_on_Health_health_changed"]
+[node name="YSort" type="YSort" parent="." index="3"]
+
+sort_enabled = true
+
+[node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 485.826, 346.266 )
+
+[node name="KinematicBody2D" parent="YSort" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 612, 389 )
+rotation = 2.52455
+
+[connection signal="health_changed" from="YSort/PlayerV2/Health" to="PlayerInterface/Interface" method="_on_Health_health_changed"]
 
 
-[editable path="PlayerV2"]
+[editable path="YSort/PlayerV2"]
