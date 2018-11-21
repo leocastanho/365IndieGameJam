@@ -29,7 +29,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	target = get_node("../Help")
+	target = get_node("../NPC")
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	timePassed += delta
@@ -50,7 +50,7 @@ func aim():
 	var result = space_state.intersect_ray(position, target.position, [self], collision_mask)
 	if result:
 		hit_pos = result.position
-		if result.collider.name == "Help":
+		if result.collider.name == "NPC":
 			if(can_shoot):
 				shoot()
 				can_shoot = false

@@ -5,7 +5,7 @@
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/shadow.png" type="Texture" id=5]
-[ext_resource path="res://Art/Red-slime.png" type="Texture" id=6]
+[ext_resource path="res://Art/Green-slime.png" type="Texture" id=6]
 
 [sub_resource type="Gradient" id=1]
 
@@ -228,7 +228,7 @@ anti_aliasing_size = 1
 custom_solver_bias = 0.0
 radius = 26.0251
 
-[node name="MonsterMelee" type="KinematicBody2D" index="0" groups=[
+[node name="GreenSlime" type="KinematicBody2D" index="0" groups=[
 "Monsters",
 ]]
 

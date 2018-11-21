@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scripts/MonsterRanged.gd" type="Script" id=1]
 [ext_resource path="res://player/shadow.png" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Art/MontroRanged.png" type="Texture" id=3]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30.8405, 19.7929 )
+radius = 26.0384
 
 [sub_resource type="StyleBoxFlat" id=2]
 
@@ -67,7 +67,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[node name="MonsterRanged" type="RigidBody2D" index="0"]
+[node name="MonsterRanged" type="RigidBody2D"]
 
 position = Vector2( -0.814514, 0 )
 input_pickable = false
@@ -96,19 +96,23 @@ timeReload = 3
 [node name="Shadow" type="Sprite" parent="." index="0"]
 
 modulate = Color( 1, 1, 1, 0.259686 )
-position = Vector2( -0.28479, 27.5376 )
-scale = Vector2( 1, 0.552237 )
+position = Vector2( -0.507569, 16.6577 )
+scale = Vector2( 0.819283, 0.397041 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+position = Vector2( -1, -5 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Collision" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 0.193725, 12.0007 )
-shape = SubResource( 1 )
+position = Vector2( 0.193725, -2.18428 )
+scale = Vector2( 1, 0.976583 )
+shape = SubResource( 4 )
 
 [node name="HealthBar" type="ProgressBar" parent="." index="3"]
 
@@ -156,8 +160,9 @@ playback/speed = 1.0
 
 [node name="Collision2" type="CollisionShape2D" parent="DamageSource" index="0"]
 
-position = Vector2( 0.193725, 12.0007 )
-shape = SubResource( 1 )
+position = Vector2( -0.581124, -1.21573 )
+scale = Vector2( 1, 0.976583 )
+shape = SubResource( 4 )
 
 [connection signal="body_shape_entered" from="." to="." method="_on_MonsterRanged_body_shape_entered"]
 

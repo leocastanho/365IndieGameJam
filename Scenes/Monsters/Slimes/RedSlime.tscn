@@ -4,8 +4,8 @@
 [ext_resource path="res://Art/emote_exclamation.png" type="Texture" id=2]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=4]
-[ext_resource path="res://player/shadow.png" type="Texture" id=5]
-[ext_resource path="res://Art/Red-slime.png" type="Texture" id=6]
+[ext_resource path="res://Art/Red-slime.png" type="Texture" id=5]
+[ext_resource path="res://player/shadow.png" type="Texture" id=6]
 
 [sub_resource type="Gradient" id=1]
 
@@ -228,7 +228,7 @@ anti_aliasing_size = 1
 custom_solver_bias = 0.0
 radius = 26.0251
 
-[node name="MonsterMelee" type="KinematicBody2D" index="0" groups=[
+[node name="RedSlime" type="KinematicBody2D" index="0" groups=[
 "Monsters",
 ]]
 
@@ -348,19 +348,19 @@ position = Vector2( -0.360059, 0.350752 )
 scale = Vector2( 1.0222, 0.964884 )
 shape = SubResource( 13 )
 
-[node name="Shadow" type="Sprite" parent="." index="8"]
+[node name="Sprite" type="Sprite" parent="." index="8"]
+
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Shadow" type="Sprite" parent="." index="9"]
 
 modulate = Color( 1, 1, 1, 0.143647 )
 position = Vector2( -0.154117, 22.6553 )
 scale = Vector2( 0.859785, 0.347164 )
-texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="Sprite" type="Sprite" parent="." index="9"]
-
-scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Collision" type="CollisionShape2D" parent="." index="10"]
 
