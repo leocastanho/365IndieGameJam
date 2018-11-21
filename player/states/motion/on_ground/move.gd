@@ -23,7 +23,7 @@ func update(delta):
 	if not input_direction:
 		emit_signal("finished", "idle")
 	update_look_direction(input_direction)
-	if Input.is_action_just_pressed("dash") and not dashCD:
+	if Input.is_action_just_pressed("dash") and not dashCD and Global.Player.has_node("FreedomCape"):
 		dash()
 
 	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED

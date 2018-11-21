@@ -36,6 +36,7 @@ sort_enabled = true
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 502.146, 303.252 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
 [node name="MonsterRanged" parent="YSort" index="1" instance=ExtResource( 3 )]
 
@@ -69,5 +70,6 @@ timeReload = 1.0
 [node name="PlayerV2" parent="YSort" index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 566.464, 310.992 )
+_sections_unfolded = [ "Collision", "Material", "Transform", "Visibility" ]
 
 

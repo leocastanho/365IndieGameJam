@@ -69,6 +69,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 __meta__ = {
+"_edit_group_": true,
 "_edit_horizontal_guides_": [  ]
 }
 
