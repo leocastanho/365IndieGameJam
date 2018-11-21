@@ -8,15 +8,15 @@ var Player
 var PlayerHealth
 var Weapon
 
-#path -> need to change manually
+#dialogues path -> need to change manually
 var dialogue_system = "res://interface/dialogue_system/dialogue_system.json"
+var buttons = "res://interface/dialogue_system/buttons.json"
 
 #itens paths -> need to change manually
 var sword_of_love = preload("res://player/weapon/Sword_of_Love.tscn")
 var freedom_cape = preload("res://player/itens/FreedomCape.tscn")
 
 #monster paths -> need to change manually
-
 var semi_boss = preload("res://Scenes/MonsterRangedSemiBoss.tscn")
 
 #Stream paths -> need to change manually

@@ -56,7 +56,7 @@ Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = SubResource( 2 )
 _sections_unfolded = [ "Button", "Button/styles" ]
 
-[node name="dialogue_system" type="CanvasLayer"]
+[node name="dialogue_system" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -68,6 +68,7 @@ wich_area = 0
 
 [node name="Popup" type="Popup" parent="." index="0"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
@@ -183,7 +184,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="CloseButton" type="TextureButton" parent="Popup" index="3"]
+[node name="CloseButtonA" type="TextureButton" parent="Popup" index="3"]
 
 editor/display_folded = true
 visible = false
@@ -210,7 +211,7 @@ texture_normal = ExtResource( 2 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
-[node name="Label" type="Label" parent="Popup/CloseButton" index="0"]
+[node name="Label" type="Label" parent="Popup/CloseButtonA" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -235,7 +236,59 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="OptionA" type="TextureButton" parent="Popup" index="4"]
+[node name="CloseButtonB" type="TextureButton" parent="Popup" index="4"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 402.0
+margin_top = 76.0
+margin_right = 533.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="Label" type="Label" parent="Popup/CloseButtonB" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 47.0
+margin_top = 18.0
+margin_right = 87.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CLOSE"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="OptionA" type="TextureButton" parent="Popup" index="5"]
 
 editor/display_folded = true
 visible = false
@@ -287,7 +340,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="OptionB" type="TextureButton" parent="Popup" index="5"]
+[node name="OptionB" type="TextureButton" parent="Popup" index="6"]
 
 editor/display_folded = true
 visible = false
@@ -350,7 +403,9 @@ playback/speed = 1.0
 
 [connection signal="pressed" from="Popup/NextButton" to="." method="_on_NextButton_pressed"]
 
-[connection signal="pressed" from="Popup/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="Popup/CloseButtonA" to="." method="_on_CloseButtonA_pressed"]
+
+[connection signal="pressed" from="Popup/CloseButtonB" to="." method="_on_CloseButtonB_pressed"]
 
 [connection signal="pressed" from="Popup/OptionA" to="." method="_on_OptionA_pressed"]
 

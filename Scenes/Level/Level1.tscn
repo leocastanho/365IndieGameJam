@@ -60,15 +60,11 @@ sort_enabled = true
 editor/display_folded = true
 position = Vector2( 995.392, 347.482 )
 
-[node name="StateMachine" parent="YSort/PlayerV2" index="1"]
-
-editor/display_folded = true
-
-[node name="BodyPivot" parent="YSort/PlayerV2" index="5"]
+[node name="BodyPivot" parent="YSort/PlayerV2" index="4"]
 
 editor/display_folded = false
 
-[node name="ShakingCamera" parent="YSort/PlayerV2" index="11"]
+[node name="ShakingCamera" parent="YSort/PlayerV2" index="10"]
 
 limit_left = 0
 limit_top = 0
@@ -77,7 +73,7 @@ limit_bottom = 1000
 _sections_unfolded = [ "Drag Margin", "Limit", "Smoothing", "Transform" ]
 DAMP_EASING = 1.0
 
-[node name="DashCD" parent="YSort/PlayerV2" index="13"]
+[node name="DashCD" parent="YSort/PlayerV2" index="12"]
 
 wait_time = 0.5
 
