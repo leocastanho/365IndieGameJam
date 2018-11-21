@@ -4,8 +4,8 @@ signal direction_changed(new_direction)
 
 var look_direction = Vector2(1, 0) setget set_look_direction
 
-#func _ready():
-#	Global.Player = self
+func _ready():
+	Global.Player = self
 
 func take_damage_from(attacker, amount, effect=null):
 	if self.is_a_parent_of(attacker):

@@ -1,0 +1,47 @@
+[ 
+    {"initial_area":["you area ugly", "i hate you","choose wisely"],
+
+    "area1":["sniff sniff", "what?","no, nothing is alright, ok?","you don't love me as i deserve!","i can't do this anymore",
+        "i wanna break up"],
+    "area1A":["you received the sword of love, this sword is the strongest on he world", "i love you","now fight for my love!"],
+    "area1B":["you received the freedom cape, now you can use dash pressing 'shift'", "i cant believe you are leaving me",
+        "i wont let you go, you cant escape from me!"],
+
+    "area2":["family is everything", "we are getting divorce","i know it hurst, but theres nothing you can doo",
+    "choose who you prefer or dont chose anyone"],
+    "area2A":["i love you", "now fight for my love!"],
+    "area2B":["i wont let you go, you cant escape from me!"],
+
+    "area3":["you area ugly", "i hate you","choose wisely"],
+    "area3A":["i love you", "now fight for my love!"],
+    "area3B":["i wont let you go, you cant escape from me!"],
+
+    "area4":["you area ugly", "i hate you","choose wisely"],
+    "area4A":["i love you", "now fight for my love!"],
+    "area4B":["i wont let you go, you cant escape from me!"],
+
+    "final_area":["you area ugly", "i hate you","choose wisely","fight"] },
+
+    
+    {"initial_area":["voce é horrivel", "eu te odeio","escolha com sabedoria","lute"],
+
+    "area1":["voce é horrivel", "eu te odeio","escolha com sabedoria"],
+    "area1A":["eu te amo", "agora lute pelo meu amor!"],
+    "area1B":["não vou deixar você ir, você não pode escapar de mim"],
+
+    "area2":["familia é tudo", "nos estamos nos divorciando","eu sei que isso machuca, mas não há nada que possa fazer",
+    "esoclha que você prefere ou não escolha niguem"],
+    "area2A":["eu te amo", "agora lute pelo meu amor!"],
+    "area2B":["não vou deixar você ir, você não pode escapar de mim"],
+
+    "area3":["voce é horrivel", "eu te odeio","escolha com sabedoria","lute"],
+    "area3A":["eu te amo", "agora lute pelo meu amor!"],
+    "area3B":["não vou deixar você ir, você não pode escapar de mim"],
+
+    "area4":["voce é horrivel", "eu te odeio","escolha com sabedoria","lute"],
+    "area4A":["eu te amo", "agora lute pelo meu amor!"],
+    "area4B":["não vou deixar você ir, você não pode escapar de mim"],
+
+    "final_area":["voce é horrivel", "eu te odeio","escolha com sabedoria","lute"]}
+]
+

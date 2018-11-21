@@ -10,4 +10,5 @@ func enter():
 	get_node("../../ShakingCamera").shake = true
 
 func _on_Sword_attack_finished():
+	print("eita giocana")
 	emit_signal("finished", "previous")

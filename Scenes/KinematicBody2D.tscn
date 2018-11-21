@@ -79,6 +79,7 @@ max_health = 7
 
 [node name="DamageSource" parent="." index="5" instance=ExtResource( 4 )]
 
+
 effect = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageSource" index="0"]
