@@ -369,8 +369,4 @@ shape = SubResource( 15 )
 
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-
 
