@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/Sem título.png" type="Texture" id=1]
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/MonsterMelee.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Monsters/Slimes/RedSlime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Monsters/Slimes/OrangeSlime.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Monsters/Slimes/GreenSlime.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Monsters/Slimes/BlueSlime.tscn" type="PackedScene" id=6]
 
-[node name="Node" type="Node" index="0" groups=[
+[node name="Node" type="Node" groups=[
 "Player",
 ]]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
-position = Vector2( 514.135, 306.319 )
+position = Vector2( 405, 250 )
+scale = Vector2( 2.45527, 2.58741 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
@@ -25,32 +29,64 @@ _sections_unfolded = [ "Sort" ]
 
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
-[node name="MonsterMelee2" parent="Teste" index="1" instance=ExtResource( 3 )]
+[node name="RedSlime" parent="Teste" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 150, 260 )
+position = Vector2( 1300, 490 )
 
-[node name="MonsterMelee3" parent="Teste" index="2" instance=ExtResource( 3 )]
+[node name="RedSlime2" parent="Teste" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 120, 480 )
+position = Vector2( 440, 200 )
 
-[node name="MonsterMelee4" parent="Teste" index="3" instance=ExtResource( 3 )]
+[node name="RedSlime3" parent="Teste" index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 320, 80 )
+position = Vector2( 1080, 90 )
 
-[node name="MonsterMelee5" parent="Teste" index="4" instance=ExtResource( 3 )]
+[node name="OrangeSlime" parent="Teste" index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 440, 560 )
+position = Vector2( 450, -50 )
 
-[node name="MonsterMelee6" parent="Teste" index="5" instance=ExtResource( 3 )]
+[node name="OrangeSlime2" parent="Teste" index="5" instance=ExtResource( 4 )]
 
-position = Vector2( 790, 530 )
+position = Vector2( 40, 450 )
 
-[node name="MonsterMelee7" parent="Teste" index="6" instance=ExtResource( 3 )]
+[node name="OrangeSlime3" parent="Teste" index="6" instance=ExtResource( 4 )]
 
-position = Vector2( 730, 150 )
+position = Vector2( 1020, 630 )
 
-[node name="MonsterMelee8" parent="Teste" index="7" instance=ExtResource( 3 )]
+[node name="OrangeSlime4" parent="Teste" index="7" instance=ExtResource( 4 )]
 
-position = Vector2( 510, 60 )
+position = Vector2( 740, -60 )
+
+[node name="GreenSlime" parent="Teste" index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 950, -210 )
+
+[node name="GreenSlime2" parent="Teste" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 110, 70 )
+
+[node name="GreenSlime3" parent="Teste" index="10" instance=ExtResource( 5 )]
+
+position = Vector2( 1470, 160 )
+
+[node name="GreenSlime4" parent="Teste" index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 460, 620 )
+
+[node name="BlueSlime" parent="Teste" index="12" instance=ExtResource( 6 )]
+
+position = Vector2( 220, 310 )
+
+[node name="BlueSlime2" parent="Teste" index="13" instance=ExtResource( 6 )]
+
+position = Vector2( 1460, 710 )
+
+[node name="BlueSlime3" parent="Teste" index="14" instance=ExtResource( 6 )]
+
+position = Vector2( 1280, -160 )
+
+[node name="BlueSlime4" parent="Teste" index="15" instance=ExtResource( 6 )]
+
+position = Vector2( 1040, 400 )
 
 

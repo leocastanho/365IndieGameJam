@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/NPC.gd" type="Script" id=1]
-[ext_resource path="res://Art/BUNNY.png" type="Texture" id=2]
+[ext_resource path="res://Art/Help.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -108,9 +108,19 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 10.7291
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.36788, 2.67355 )
+
 [node name="NPC" type="RigidBody2D"]
 
-position = Vector2( 1, 1 )
+position = Vector2( 1.12534, 1.18802 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -136,15 +146,11 @@ life = 100
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 modulate = Color( 1, 1, 1, 0.8 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
-
-build_mode = 0
-polygon = PoolVector2Array( 2.43184, -11.2094, 1.72858, -12.6208, 1.59037, -14.74, 2.51176, -15.3389, 2.64997, -16.5367, 3.29495, -16.9513, 4.99953, -17.2277, 7.02661, -17.7345, 8.22442, -18.4256, 9.7908, -19.393, 11.219, -19.3469, 12.8775, -18.2873, 14.9506, -16.3063, 15.5956, -15.3389, 17.8069, -14.0489, 20.1104, -11.6533, 20.8015, -10.0869, 21.6768, -8.65875, 21.6307, -3.6832, 20.523, -2.57327, 20.523, -1.6589, 19.6087, -0.575203, 14.3934, 3.04841, 14.6513, 13.5964, 12.2903, 15.6102, 9.79033, 15.6102, 6.24874, 10.9576, 1.24886, 15.263, -10.6953, 15.263, -14.098, 9.01317, -14.6536, -1.4727, -10.487, -6.40315, -5.13989, -10.5003 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -156,16 +162,16 @@ anims/Take_Damage = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="LifeBar" type="ProgressBar" parent="." index="3"]
+[node name="LifeBar" type="ProgressBar" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -35.0
-margin_top = -43.0
-margin_right = 50.0
-margin_bottom = -27.0
+margin_left = -29.0
+margin_top = -30.0
+margin_right = 25.0
+margin_bottom = -21.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -183,6 +189,18 @@ exp_edit = false
 rounded = false
 percent_visible = false
 _sections_unfolded = [ "Percent", "custom_styles" ]
+
+[node name="CollisionBody" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -2.44551, 4.77643 )
+scale = Vector2( 1, 1.16253 )
+shape = SubResource( 5 )
+
+[node name="CollisionFoot" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( -2.11103, 17.0135 )
+scale = Vector2( 0.95968, 1 )
+shape = SubResource( 6 )
 
 [connection signal="body_entered" from="." to="." method="_on_NPC_body_entered"]
 
