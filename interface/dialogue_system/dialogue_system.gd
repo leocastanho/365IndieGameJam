@@ -3,13 +3,19 @@ extends CanvasLayer
 var dialogue_count = 0
 enum dialogue_part {NORMALDIALOGUE, DIALOGUEA, DIALOGUEB}
 var dialogue
+var buttons
 enum WICHAREA {INITIALAREA, AREA1, AREA2, AREA3, AREA4, FINALAREA}
 export(WICHAREA) var wich_area = WICHAREA.INITIALAREA
 var area_for_buttonB
 
 func _ready():
 	dialogue = get_from_json(Global.dialogue_system)
+	buttons = get_from_json(Global.buttons)
 	Global.language_on = Global.ENGLISH
+	if Global.language_on == Global.ENGLISH:
+		$Popup/NextButton/Label.text = buttons[0]["next"][0]
+	elif Global.language_on == Global.PORTUGUESE:
+		$Popup/NextButton/Label.text = buttons[1]["next"][0]
 	dialogue_part = NORMALDIALOGUE
 	$Popup.show()
 	_on_NextButton_pressed()
@@ -28,8 +34,7 @@ func _on_NextButton_pressed():
 			INITIALAREA:
 				wich_area(0, "initial_area")
 			AREA1:
-				$Popup/OptionA/Label.text = "fight for her"
-				$Popup/OptionB/Label.text = "let her go"
+				wich_area_button(0, "option1A", "option1B", "close1A", "close1B")
 				wich_dialogue(0, "area1", "area1A", "area1B")
 			AREA2:
 				wich_dialogue(0, "area2", "area2A", "area2B")
@@ -44,6 +49,7 @@ func _on_NextButton_pressed():
 			INITIALAREA:
 				wich_area(1, "initial_area")
 			AREA1:
+				wich_area_button(1, "option1A", "option1B", "close1A", "close1B")
 				wich_dialogue(1, "area1", "area1A", "area1B")
 			AREA2:
 				wich_dialogue(1, "area2", "area2A", "area2B")
@@ -67,16 +73,20 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, dialogue_b):
 						show_options()
 				elif dialogue_part == DIALOGUEA:
 					if dialogue_count == dialogue[0][dialogue_a].size() - 1:
-						$Popup/CloseButton.visible = true
-						$Popup/CloseButton/Label.text = "Fight!"
+						$Popup/CloseButtonA.visible = true
 						$Popup/NextButton.visible= false
 					wich_area(language, dialogue_a)
 				elif dialogue_part == DIALOGUEB:
 					if dialogue_count == dialogue[0][dialogue_b].size() - 1:
-						$Popup/CloseButton.visible = true
-						$Popup/CloseButton/Label.text = "Run"
+						$Popup/CloseButtonB.visible = true
 						$Popup/NextButton.visible= false
 					wich_area(language, dialogue_b)
+
+func wich_area_button(language, optionA, optionB, closeA, closeB):
+	$Popup/OptionA/Label.text = buttons[language][optionA][0]
+	$Popup/OptionB/Label.text = buttons[language][optionB][0]
+	$Popup/CloseButtonA/Label.text = buttons[language][closeA][0]
+	$Popup/CloseButtonB/Label.text = buttons[language][closeB][0]
 
 func _on_OptionA_pressed():
 	dialogue_part = DIALOGUEA
@@ -126,7 +136,28 @@ func _on_Area2D_body_entered(body):
 	$Tween.interpolate_property($Popup, "rect_position", Vector2(312, -25), Vector2(312, 10), 0.5, Tween.TRANS_BACK, Tween.EASE_OUT)
 	$Tween.start()
 
-func _on_CloseButton_pressed():
-	$Popup.hide()
-	var boss = Global.semi_boss.instance()
-	get_node("../YSort/BossSpawner").add_child(boss)
+func _on_CloseButtonB_pressed():
+	match wich_area:
+		AREA1:
+			$Popup.hide()
+			var boss = Global.semi_boss.instance()
+			get_node("../YSort/BossSpawner").add_child(boss)
+		AREA2:
+			pass
+		AREA3:
+			pass
+		AREA4:
+			pass
+
+func _on_CloseButtonA_pressed():
+	match wich_area:
+		AREA1:
+			$Popup.hide()
+			var boss = Global.semi_boss.instance()
+			get_node("../YSort/BossSpawner").add_child(boss)
+		AREA2:
+			pass
+		AREA3:
+			pass
+		AREA4:
+			pass

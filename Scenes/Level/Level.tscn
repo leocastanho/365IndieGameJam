@@ -6,7 +6,7 @@
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/KinematicBody2D.tscn" type="PackedScene" id=5]
 
-[node name="Level" type="Node2D" index="0" groups=[
+[node name="Level" type="Node2D" groups=[
 "character",
 ]]
 
@@ -53,7 +53,6 @@ sort_enabled = true
 [node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 485.826, 346.266 )
-
 
 [node name="KinematicBody2D" parent="YSort" index="1" instance=ExtResource( 5 )]
 
