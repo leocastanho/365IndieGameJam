@@ -54,6 +54,7 @@ sort_enabled = true
 
 position = Vector2( 485.826, 346.266 )
 
+
 [node name="KinematicBody2D" parent="YSort" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 612, 389 )

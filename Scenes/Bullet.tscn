@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Art/square.png" type="Texture" id=2]
+[ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,6 +40,12 @@ _sections_unfolded = [ "Collision", "Transform" ]
 texture = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="DamageSource" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="Collision2" type="CollisionShape2D" parent="DamageSource" index="0"]
 
 shape = SubResource( 1 )
 
