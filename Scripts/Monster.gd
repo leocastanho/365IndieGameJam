@@ -4,7 +4,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 
-enum STATE {IDLE, WALK, 
+enum STATES {IDLE, WALK, 
 			FOLLOW, PREPARE_ATTACK, ATTACKING} 
 			#DIED}
 
@@ -12,7 +12,10 @@ export(int) var walkSpeed = 100
 export(int) var attackSpeed = 200
 
 onready var timer = $Timer
+onready var anim_player = $AnimationPlayer
 onready var lifeBar = $HealthBar
+
+var state
 
 var speed
 var direction
@@ -21,7 +24,7 @@ var player
 func take_damage(damage_dealer,damage,effect):
 	$Health.take_damage(damage,effect)
 
-
+	
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -29,14 +32,14 @@ func _ready():
 	speed = walkSpeed
 	lifeBar.value = lifeBar.max_value
 	
+	self.anim_player.connect('animation_finished', self, '_on_AnimationPlayer_animation_finished')
+	self.timer.connect('timeout', self, '_on_Timer_timeout')
 	_change_state(IDLE)
+
 	
 	pass
 
 func _change_state(new_state):
-	
-	STATE = new_state
-	
 	match new_state:
 		IDLE:
 			direction.x = 0
@@ -70,6 +73,8 @@ func _change_state(new_state):
 			timer.start()
 		#DIED:
 		#	queue_free()
+	state = new_state	
+	
 	pass
 
 func move(delta):
@@ -78,16 +83,20 @@ func move(delta):
 		move_and_slide(direction * speed)	
 	
 func _physics_process(delta):
+	
+	var current_state = state
+	
 	if(!player):
 		#Andando e Parando
-		if(STATE == WALK):
-			move(delta)
+		match current_state:
+			WALK:
+				move(delta)
 	else:
-		if(STATE == FOLLOW):		
+		if(current_state == FOLLOW):		
 				direction =  player.position - self.position
 				direction = direction.normalized()
 				move(delta)
-		elif(STATE == ATTACKING):
+		elif(current_state == ATTACKING):
 			move(delta)
 	pass
 
@@ -118,18 +127,18 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_Timer_timeout():
 	if(!player):
-		if(STATE == IDLE):
+		if(state == IDLE):
 			_change_state(WALK)
-		elif(STATE == WALK):
+		elif(state == WALK):
 			_change_state(IDLE)
 	else:		
-		if(STATE == IDLE):
+		if(state == IDLE):
 			_change_state(FOLLOW)
 			
-		elif(STATE == FOLLOW):
+		elif(state == FOLLOW):
 			_change_state(PREPARE_ATTACK)
 		
-		elif(STATE == ATTACKING):
+		elif(state == ATTACKING):
 			_change_state(IDLE)
 	
 	pass # replace with function body
