@@ -13,7 +13,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 224.019 )
 
-[node name="Level4" type="Node" index="0"]
+[node name="Level4" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 

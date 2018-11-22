@@ -15,7 +15,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Level2" type="Node"]
+[node name="Level2" type="Node" index="0"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -54,7 +54,6 @@ wich_area = 2
 
 [node name="YSort" type="YSort" parent="." index="3"]
 
-editor/display_folded = true
 sort_enabled = true
 _sections_unfolded = [ "Sort", "Transform", "Z Index" ]
 
