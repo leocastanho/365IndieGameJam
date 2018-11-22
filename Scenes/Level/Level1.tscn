@@ -12,7 +12,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 320.558 )
 
-[node name="Level1" type="Node2D" groups=[
+[node name="Level1" type="Node2D" index="0" groups=[
 "character",
 ]]
 
@@ -60,7 +60,6 @@ editor/display_folded = true
 
 [node name="YSort" type="YSort" parent="." index="3"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 4 )]

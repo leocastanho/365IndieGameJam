@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Monsters/GreenSpikey.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Monsters/OrangeSpirit.tscn" type="PackedScene" id=6]
 
-[node name="Level2" type="Node" index="0"]
+[node name="Level2" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
