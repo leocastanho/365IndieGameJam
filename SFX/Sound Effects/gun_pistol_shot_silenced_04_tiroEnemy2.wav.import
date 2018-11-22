@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gun_pistol_shot_silenced_04_tiroEnemy2.wav-14d55cc9f4a18b6e69ee0c9c1d231a3c.sample"
+
+[deps]
+
+source_file="res://SFX/Sound Effects/gun_pistol_shot_silenced_04_tiroEnemy2.wav"
+dest_files=[ "res://.import/gun_pistol_shot_silenced_04_tiroEnemy2.wav-14d55cc9f4a18b6e69ee0c9c1d231a3c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

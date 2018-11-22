@@ -30,6 +30,9 @@ var combo = [{
 
 var hit_objects = []
 
+onready var shaking_camera = get_node("../../../ShakingCamera")
+onready var hearts = preload("res://Scenes/Hearts.tscn")
+
 func _ready():
 	$AnimationPlayer.connect('animation_finished', self, "_on_animation_finished")
 	self.connect("attack_finished", get_node("../../../StateMachine/Attack"), "_on_Sword_attack_finished")
@@ -52,6 +55,15 @@ func _change_state(new_state):
 			monitoring = false
 		ATTACK:
 			attack_current = combo[combo_count -1]
+			if combo_count == 3:
+				shaking_camera.amplitude = 15
+				shaking_camera.duration = 0.5
+				var hearts_particle = hearts.instance()
+				add_child(hearts_particle)
+			else:
+				shaking_camera.amplitude = 6
+				shaking_camera.duration = 0.2
+			shaking_camera.shake = true
 			$AnimationPlayer.play(attack_current['animation'])
 			visible = true
 			monitoring = true

@@ -57,13 +57,17 @@ func take_damage(amount, effect=null):
 		emit_signal("health_changed", health)
 	else:
 		health_GUI.value = float(health)/float(max_health) * health_GUI.max_value
-
 	if health <= 0:
 		if get_node("../").get_name() == "PlayerV2":
-			print("dead")
 			get_node("../StateMachine/Stagger").emit_signal("finished", "dead")
 		else:
-			get_node("../").queue_free()
+			if get_node("../").name == "MonsterRangedSemiBoss":
+				get_node("../").set_physics_process(false)
+				get_node("../AnimationPlayer").play("death")
+				var love_stone = Global.love_stone.instance()
+				Global.Player.add_child(love_stone)
+			else:
+				get_node("../").queue_free()
 
 	if not effect:
 		return
