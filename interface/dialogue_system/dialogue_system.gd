@@ -42,7 +42,8 @@ func _on_NextButton_pressed():
 			AREA3:
 				wich_dialogue(0, "area3", "area3A", "area3B")
 			AREA4:
-				wich_dialogue(0, "area4", "area4A", "area4B")
+				wich_area_button(0, "option4A", "option4B", "close4A", "close4B")
+				wich_dialogue(0, "area4", "area4A", null, "area4B", null)
 			FINALAREA:
 				wich_area(0, "final_area")
 	elif Global.language_on == Global.PORTUGUESE:

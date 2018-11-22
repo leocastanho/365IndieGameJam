@@ -18,9 +18,9 @@
     "area3A":["i love you", "now fight for my love!"],
     "area3B":["i wont let you go, you cant escape from me!"],
 
-    "area4":["you area ugly", "i hate you","choose wisely"],
-    "area4A":["i love you", "now fight for my love!"],
-    "area4B":["i wont let you go, you cant escape from me!"],
+    "area4":["What's your decision?", "Save a life or...", "...forget and get more POWER!"],
+    "area4A":["Snif, snif, snif", "tha..nk..you...", "...my hero."],
+    "area4B":["So bad!!!", "You choose more power and you will regret", "Good Bye!!!"],
 
     "final_area":["you area ugly", "i hate you","choose wisely","fight"] },
 

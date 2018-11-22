@@ -15,7 +15,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Level2" type="Node" index="0"]
+[node name="Level2" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -40,7 +40,6 @@ tile_data = PoolIntArray( -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 
 
 [node name="PlayerInterface" type="CanvasLayer" parent="." index="1"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
