@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Help.png-88bd269a53aa0a989f177cbf9c22a95d.stex"
+path="res://.import/Orange-spirit.png-8837d0fcbdf94ffab61c1e1f058d654e.stex"
 
 [deps]
 
-source_file="res://Art/Help.png"
-dest_files=[ "res://.import/Help.png-88bd269a53aa0a989f177cbf9c22a95d.stex" ]
+source_file="res://Art/Orange-spirit.png"
+dest_files=[ "res://.import/Orange-spirit.png-8837d0fcbdf94ffab61c1e1f058d654e.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MontroRanged.png-6939204c8d188d1f45777d938d1172cc.stex"
+path="res://.import/Squirel.png-2e361d301c104ec430910ce7955f0d2a.stex"
 
 [deps]
 
-source_file="res://Art/MontroRanged.png"
-dest_files=[ "res://.import/MontroRanged.png-6939204c8d188d1f45777d938d1172cc.stex" ]
+source_file="res://Art/Squirel.png"
+dest_files=[ "res://.import/Squirel.png-2e361d301c104ec430910ce7955f0d2a.stex" ]
 
 [params]
 

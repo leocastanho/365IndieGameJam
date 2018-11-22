@@ -228,7 +228,7 @@ anti_aliasing_size = 1
 custom_solver_bias = 0.0
 radius = 26.0251
 
-[node name="MonsterMelee" type="KinematicBody2D" index="0" groups=[
+[node name="MonsterMelee" type="KinematicBody2D" groups=[
 "Monsters",
 ]]
 
@@ -244,8 +244,7 @@ attackSpeed = 200
 
 [node name="Dust" type="Particles2D" parent="." index="0"]
 
-position = Vector2( 0.126877, 12.2753 )
-emitting = false
+emitting = true
 amount = 16
 lifetime = 1.0
 one_shot = false
@@ -263,7 +262,7 @@ texture = null
 normal_map = null
 h_frames = 3
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
 [node name="Detection" type="Area2D" parent="." index="1"]
 

@@ -56,7 +56,7 @@ Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = SubResource( 2 )
 _sections_unfolded = [ "Button", "Button/styles" ]
 
-[node name="dialogue_system" type="CanvasLayer" index="0"]
+[node name="dialogue_system" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )

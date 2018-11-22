@@ -13,8 +13,8 @@
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
-position = Vector2( 405, 250 )
-scale = Vector2( 2.45527, 2.58741 )
+position = Vector2( 840, 150 )
+scale = Vector2( 3.32008, 2.93706 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 

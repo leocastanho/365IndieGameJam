@@ -45,6 +45,7 @@ func _change_state(new_state):
 			direction.x = 0
 			direction.y = 0
 			speed = 0
+			anim_player.play("Idle")
 			timer.wait_time = 0.5
 			timer.start()
 		WALK:
@@ -121,6 +122,8 @@ func _on_MonsterMelee_body_entered(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "Prepare_Attack"):
 		_change_state(ATTACKING)
+	if(anim_name == "Idle"):
+		anim_player.play(anim_name)
 	
 	pass # replace with function body
 
@@ -129,7 +132,7 @@ func _on_Timer_timeout():
 	if(!player):
 		if(state == IDLE):
 			_change_state(WALK)
-		elif(state == WALK):
+		elif(state != WALK):
 			_change_state(IDLE)
 	else:		
 		if(state == IDLE):

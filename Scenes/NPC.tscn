@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/NPC.gd" type="Script" id=1]
-[ext_resource path="res://Art/Help.png" type="Texture" id=2]
+[ext_resource path="res://Art/Squirel.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -111,12 +111,12 @@ anti_aliasing_size = 1
 [sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
-radius = 10.7291
+radius = 8.65097
 
 [sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
-extents = Vector2( 8.36788, 2.67355 )
+extents = Vector2( 6.89763, 1.94105 )
 
 [node name="NPC" type="RigidBody2D"]
 
@@ -146,9 +146,9 @@ life = 100
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 modulate = Color( 1, 1, 1, 0.8 )
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
@@ -192,13 +192,13 @@ _sections_unfolded = [ "Percent", "custom_styles" ]
 
 [node name="CollisionBody" type="CollisionShape2D" parent="." index="3"]
 
-position = Vector2( -2.44551, 4.77643 )
+position = Vector2( -2.10614, 4.32394 )
 scale = Vector2( 1, 1.16253 )
 shape = SubResource( 5 )
 
 [node name="CollisionFoot" type="CollisionShape2D" parent="." index="4"]
 
-position = Vector2( -2.11103, 17.0135 )
+position = Vector2( -2.16759, 14.5248 )
 scale = Vector2( 0.95968, 1 )
 shape = SubResource( 6 )
 
