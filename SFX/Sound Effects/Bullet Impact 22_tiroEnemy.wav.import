@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bullet Impact 22_tiroEnemy.wav-bcdc0a09de9eb0d696725749f4735e4b.sample"
+
+[deps]
+
+source_file="res://SFX/Sound Effects/Bullet Impact 22_tiroEnemy.wav"
+dest_files=[ "res://.import/Bullet Impact 22_tiroEnemy.wav-bcdc0a09de9eb0d696725749f4735e4b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

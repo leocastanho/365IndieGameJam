@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/MonsterRangedSemiBoss.tscn" type="PackedScene" id=1]
+
+[node name="SemiBoss" type="Node2D"]
+
+[node name="MonsterRangedSemiBoss" parent="." index="0" instance=ExtResource( 1 )]
+
+

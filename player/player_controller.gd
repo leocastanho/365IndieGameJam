@@ -4,6 +4,8 @@ signal direction_changed(new_direction)
 
 var look_direction = Vector2(1, 0) setget set_look_direction
 
+var wich_stone
+
 func _ready():
 	Global.Player = self
 
@@ -26,3 +28,17 @@ func set_dead(value):
 func set_look_direction(value):
 	look_direction = value
 	emit_signal("direction_changed", value)
+	
+func unlock_stone_anim(stone):
+	$Stone.texture = stone
+	$StonesAnimator.play("unlock_stone")
+	wich_stone = stone
+
+func _on_StonesAnimator_animation_finished(anim_name):
+	$Tween.interpolate_property($Stone, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	$Tween.start()
+
+func _on_Tween_tween_completed(object, key):
+	match wich_stone:
+		Global.love_stone_texture:
+			Global.Interface.get_node("Bars/LifeBar/BarsContainers/HBoxContainer/Container/ItemList").add_icon_item(Global.love_stone_texture, false)

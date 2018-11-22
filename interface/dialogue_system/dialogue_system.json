@@ -4,9 +4,11 @@
     "area1":["sniff sniff", "what?","no, nothing is alright, ok?","you don't love me as i deserve!","i can't do this anymore",
         "i wanna break up"],
     "area1A":["you received the sword of love, this sword is the strongest on he world", "i love you","now fight for my love!"],
+    "area1AFinal":["you received the love stone", "you didn't give up one me, i will love you forever"],
     "area1B":["you received the freedom cape, now you can use dash pressing 'shift'", "i cant believe you are leaving me",
         "i wont let you go, you cant escape from me!"],
-
+    "area1BFinal":["i give up okay? go live your life without me","you received the love stone"],
+    
     "area2":["family is everything", "we are getting divorce","i know it hurst, but theres nothing you can doo",
     "choose who you prefer or dont chose anyone"],
     "area2A":["i love you", "now fight for my love!"],
