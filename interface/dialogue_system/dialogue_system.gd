@@ -37,7 +37,8 @@ func _on_NextButton_pressed():
 				wich_area_button(0, "option1A", "option1B", "close1A", "close1B")
 				wich_dialogue(0, "area1", "area1A", "area1AFinal", "area1B", "area1BFinal")
 			AREA2:
-				wich_dialogue(0, "area2", "area2A", "area2B")
+				wich_area_button(0, "option2A", "option2B", "close2A", "close2B")
+				wich_dialogue(0, "area2", "area2A", null, "area2B", null)
 			AREA3:
 				wich_dialogue(0, "area3", "area3A", "area3B")
 			AREA4:
