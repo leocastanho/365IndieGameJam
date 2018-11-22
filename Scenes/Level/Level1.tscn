@@ -12,7 +12,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 320.558 )
 
-[node name="Level1" type="Node2D" index="0" groups=[
+[node name="Level1" type="Node2D" groups=[
 "character",
 ]]
 
@@ -40,7 +40,6 @@ tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0,
 
 [node name="PlayerInterface" type="CanvasLayer" parent="." index="1"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -51,7 +50,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="dialogue_system" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 wich_area = 1
 
 [node name="DialogueBox" parent="dialogue_system/Popup" index="0"]
@@ -86,7 +84,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="DialogueTrigger" type="Area2D" parent="." index="4"]
 
-editor/display_folded = true
 position = Vector2( 153.423, 5.57898 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

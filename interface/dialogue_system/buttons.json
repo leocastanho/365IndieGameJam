@@ -7,10 +7,10 @@
     "close1A":["Fight"],
     "close1B":["Run!"],
    
-    "option2A":["fight for her"],
-    "option2B":["let her go"],
-    "close2A":["Fight"],
-    "close2B":["Run!"],
+    "option2A":["Mother"],
+    "option2B":["Father"],
+    "close2A":["Go to Left Side"],
+    "close2B":["Go to Right Side"],
 
     "option3A":["fight for her"],
     "option3B":["let her go"],
