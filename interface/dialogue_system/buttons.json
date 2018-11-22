@@ -17,10 +17,10 @@
     "close3A":["Fight"],
     "close3B":["Run!"],
 
-    "option4A":["fight for her"],
-    "option4B":["let her go"],
-    "close4A":["Fight"],
-    "close4B":["Run!"],
+    "option4A":["Life"],
+    "option4B":["Power"],
+    "close4A":["Protect!"],
+    "close4B":["Fight!"],
 
     "optionFinalA":["fight for her"],
     "optionFinalB":["let her go"],
