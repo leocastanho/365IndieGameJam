@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tilemaptest.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Area2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/KinematicBody2D.tscn" type="PackedScene" id=5]
+
+[node name="Level" type="Node2D" groups=[
+"character",
+]]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 262146, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0 )
+
+[node name="Area2D" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 360.025, 226.958 )
+
+[node name="PlayerInterface" type="CanvasLayer" parent="." index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 3 )]
+
+[node name="YSort" type="YSort" parent="." index="3"]
+
+sort_enabled = true
+
+[node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 485.826, 346.266 )
+
+[node name="KinematicBody2D" parent="YSort" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 612, 389 )
+rotation = 2.52455
+
+[connection signal="health_changed" from="YSort/PlayerV2/Health" to="PlayerInterface/Interface" method="_on_Health_health_changed"]
+
+
+[editable path="YSort/PlayerV2"]

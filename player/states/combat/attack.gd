@@ -5,10 +5,13 @@ it could stack with other animations if we had two AnimationPlayer nodes
 """
 extends "../state.gd"
 
+onready var shaking_camera = get_node("../../ShakingCamera")
+
 func enter():
 	owner.get_node("AnimationPlayer").play("idle")
-	get_node("../../ShakingCamera").shake = true
+#	if Global.Player.has_node("WeaponPivot/Offset/sword_of_love"):
+##		shaking_camera.
+#	shaking_camera.shake = true
 
 func _on_Sword_attack_finished():
-	print("eita giocana")
 	emit_signal("finished", "previous")

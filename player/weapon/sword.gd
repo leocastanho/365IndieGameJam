@@ -8,7 +8,7 @@ var state = null
 enum ATTACK_INPUT_STATES { IDLE, LISTENING, REGISTERED }
 var attack_input_state = IDLE
 var ready_for_next_attack = false
-const MAX_COMBO_COUNT = 3
+const MAX_COMBO_COUNT = 1
 var combo_count = 0
 
 var attack_current = {}
@@ -23,7 +23,7 @@ var combo = [{
 		'effect': null
 	},
 	{
-		'damage': 3,
+		'damage': 1,
 		'animation': 'attack_medium',
 		'effect': null
 	}]
@@ -49,20 +49,19 @@ func _change_state(new_state):
 			visible = false
 			monitoring = false
 		ATTACK:
-			print("atacou")
 			attack_current = combo[combo_count -1]
 			$AnimationPlayer.play(attack_current['animation'])
 			visible = true
 			monitoring = true
+
 	state = new_state
 
 func _input(event):
 	if not state == ATTACK:
 		return
-	if attack_input_state != LISTENING:
+	if attack_input_state == LISTENING:
 		return
 	if event.is_action_pressed('attack'):
-		print("atacou")
 		attack_input_state = REGISTERED
 
 func _physics_process(delta):
@@ -97,7 +96,6 @@ func _on_animation_finished(name):
 		attack()
 	else:
 		_change_state(IDLE)
-		print("emitiu")
 		emit_signal("attack_finished")
 
 func _on_StateMachine_state_changed(current_state):

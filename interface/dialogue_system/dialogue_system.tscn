@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://interface/dialogue_system/dialogue_system.gd" type="Script" id=1]
 [ext_resource path="res://interface/Player-portrait.png" type="Texture" id=2]
+[ext_resource path="res://interface/dialogue_system/Dialogue-box.png" type="Texture" id=3]
+[ext_resource path="res://interface/dialogue_system/Advance-text-arrow.png" type="Texture" id=4]
+[ext_resource path="res://interface/dialogue_system/Choice-button.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -56,6 +59,44 @@ Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = SubResource( 2 )
 _sections_unfolded = [ "Button", "Button/styles" ]
 
+[sub_resource type="Animation" id=4]
+
+resource_name = "Moving"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 690, 130 ), Vector2( 690, 140 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "Moving"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 690, 130 ), Vector2( 690, 140 ) ]
+}
+
 [node name="dialogue_system" type="CanvasLayer"]
 
 layer = 1
@@ -69,14 +110,15 @@ wich_area = 0
 [node name="Popup" type="Popup" parent="." index="0"]
 
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -200.0
-margin_top = -258.0
-margin_right = 200.0
-margin_bottom = -118.0
+margin_left = -202.0
+margin_top = 380.0
+margin_right = 198.0
+margin_bottom = 520.0
 rect_min_size = Vector2( 400, 140 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -86,37 +128,41 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = SubResource( 3 )
 popup_exclusive = false
-_sections_unfolded = [ "Margin", "Rect", "Theme" ]
+_sections_unfolded = [ "Margin", "Rect", "Theme", "Visibility" ]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Popup" index="0"]
+[node name="DialogueBox" type="NinePatchRect" parent="Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -270.0
+margin_top = -60.0
+margin_right = 280.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 _sections_unfolded = [ "Patch Margin" ]
 
-[node name="Label" type="Label" parent="Popup" index="1"]
+[node name="Label" type="Label" parent="Popup/DialogueBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 63.0
-margin_top = 30.0
-margin_right = -56.0
-margin_bottom = -29.0
+margin_left = 60.0
+margin_top = 80.0
+margin_right = -210.0
+margin_bottom = -51.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -133,17 +179,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_colors" ]
 
-[node name="NextButton" type="TextureButton" parent="Popup" index="2"]
+[node name="NextButton" type="TextureButton" parent="Popup/DialogueBox" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 402.0
-margin_top = 76.0
-margin_right = 533.0
-margin_bottom = 128.0
+margin_left = 690.0
+margin_top = 137.944
+margin_right = 760.0
+margin_bottom = 181.944
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -155,12 +201,13 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 4 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
-[node name="Label" type="Label" parent="Popup/NextButton" index="0"]
+[node name="Label" type="Label" parent="Popup/DialogueBox/NextButton" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -184,7 +231,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="CloseButtonA" type="TextureButton" parent="Popup" index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Popup/DialogueBox/NextButton" index="1"]
+
+root_node = NodePath("..")
+autoplay = "Moving"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Moving = SubResource( 4 )
+blend_times = [  ]
+
+[node name="CloseButtonFinal" type="TextureButton" parent="Popup/DialogueBox" index="2"]
 
 editor/display_folded = true
 visible = false
@@ -192,10 +249,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 402.0
-margin_top = 76.0
-margin_right = 533.0
-margin_bottom = 128.0
+margin_left = 690.0
+margin_top = 137.944
+margin_right = 760.0
+margin_bottom = 181.944
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -207,12 +264,13 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 4 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
-[node name="Label" type="Label" parent="Popup/CloseButtonA" index="0"]
+[node name="Label" type="Label" parent="Popup/DialogueBox/CloseButtonFinal" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -228,7 +286,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "CLOSE"
+text = "NEXT"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -236,7 +294,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="CloseButtonB" type="TextureButton" parent="Popup" index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Popup/DialogueBox/CloseButtonFinal" index="1"]
+
+root_node = NodePath("..")
+autoplay = "Moving"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Moving = SubResource( 5 )
+blend_times = [  ]
+
+[node name="OptionA" type="TextureButton" parent="Popup/DialogueBox" index="3"]
 
 editor/display_folded = true
 visible = false
@@ -244,10 +312,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 402.0
-margin_top = 76.0
-margin_right = 533.0
-margin_bottom = 128.0
+margin_left = 152.0
+margin_top = 200.0
+margin_right = 376.0
+margin_bottom = 277.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -259,72 +327,20 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 5 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
-[node name="Label" type="Label" parent="Popup/CloseButtonB" index="0"]
+[node name="Label" type="Label" parent="Popup/DialogueBox/OptionA" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 47.0
-margin_top = 18.0
-margin_right = 87.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "CLOSE"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
-
-[node name="OptionA" type="TextureButton" parent="Popup" index="5"]
-
-editor/display_folded = true
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 37.0
-margin_top = 138.0
-margin_right = 168.0
-margin_bottom = 190.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-_sections_unfolded = [ "Textures" ]
-
-[node name="Label" type="Label" parent="Popup/OptionA" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 33.0
-margin_top = 19.0
-margin_right = 98.0
-margin_bottom = 33.0
+margin_left = 29.0
+margin_top = 22.0
+margin_right = 196.0
+margin_bottom = 53.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -340,7 +356,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="OptionB" type="TextureButton" parent="Popup" index="6"]
+[node name="OptionB" type="TextureButton" parent="Popup/DialogueBox" index="4"]
 
 editor/display_folded = true
 visible = false
@@ -348,10 +364,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 220.0
-margin_top = 139.0
-margin_right = 351.0
-margin_bottom = 191.0
+margin_left = 432.0
+margin_top = 200.0
+margin_right = 656.0
+margin_bottom = 277.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -363,20 +379,20 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 5 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
-[node name="Label" type="Label" parent="Popup/OptionB" index="0"]
+[node name="Label" type="Label" parent="Popup/DialogueBox/OptionB" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 36.0
-margin_top = 19.0
-margin_right = 101.0
-margin_bottom = 33.0
+margin_left = 29.0
+margin_top = 22.0
+margin_right = 196.0
+margin_bottom = 53.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -385,6 +401,110 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OPTION B"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="CloseButtonA" type="TextureButton" parent="Popup/DialogueBox" index="5"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 524.0
+margin_bottom = 277.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="Label" type="Label" parent="Popup/DialogueBox/CloseButtonA" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 29.0
+margin_top = 22.0
+margin_right = 196.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OPTION A"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="CloseButtonB" type="TextureButton" parent="Popup/DialogueBox" index="6"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 524.0
+margin_bottom = 277.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="Label" type="Label" parent="Popup/DialogueBox/CloseButtonB" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 29.0
+margin_top = 22.0
+margin_right = 196.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OPTION A"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -401,14 +521,16 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[connection signal="pressed" from="Popup/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Popup/DialogueBox/NextButton" to="." method="_on_NextButton_pressed"]
 
-[connection signal="pressed" from="Popup/CloseButtonA" to="." method="_on_CloseButtonA_pressed"]
+[connection signal="pressed" from="Popup/DialogueBox/CloseButtonFinal" to="." method="_on_CloseButtonFinal_pressed"]
 
-[connection signal="pressed" from="Popup/CloseButtonB" to="." method="_on_CloseButtonB_pressed"]
+[connection signal="pressed" from="Popup/DialogueBox/OptionA" to="." method="_on_OptionA_pressed"]
 
-[connection signal="pressed" from="Popup/OptionA" to="." method="_on_OptionA_pressed"]
+[connection signal="pressed" from="Popup/DialogueBox/OptionB" to="." method="_on_OptionB_pressed"]
 
-[connection signal="pressed" from="Popup/OptionB" to="." method="_on_OptionB_pressed"]
+[connection signal="pressed" from="Popup/DialogueBox/CloseButtonA" to="." method="_on_CloseButtonA_pressed"]
+
+[connection signal="pressed" from="Popup/DialogueBox/CloseButtonB" to="." method="_on_CloseButtonB_pressed"]
 
 

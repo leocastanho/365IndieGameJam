@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/footstep_ice_crunchy_run_02_walking2.wav-eecb12aa20e4973df54652d453d107d2.sample"
+
+[deps]
+
+source_file="res://SFX/Sound Effects/footstep_ice_crunchy_run_02_walking2.wav"
+dest_files=[ "res://.import/footstep_ice_crunchy_run_02_walking2.wav-eecb12aa20e4973df54652d453d107d2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tilemaptest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Area2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/KinematicBody2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/MonsterRangedSemiBoss.tscn" type="PackedScene" id=6]
 
-[node name="Level" type="Node2D" groups=[
+[node name="Level" type="Node2D" index="0" groups=[
 "character",
 ]]
 
@@ -38,6 +39,7 @@ position = Vector2( 360.025, 226.958 )
 
 [node name="PlayerInterface" type="CanvasLayer" parent="." index="2"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -54,10 +56,18 @@ sort_enabled = true
 
 position = Vector2( 485.826, 346.266 )
 
+[node name="WeaponPivot" parent="YSort/PlayerV2" index="5"]
+
+editor/display_folded = false
+
 [node name="KinematicBody2D" parent="YSort" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 612, 389 )
 rotation = 2.52455
+
+[node name="MonsterRangedSemiBoss" parent="YSort" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 150, 340 )
 
 [connection signal="health_changed" from="YSort/PlayerV2/Health" to="PlayerInterface/Interface" method="_on_Health_health_changed"]
 

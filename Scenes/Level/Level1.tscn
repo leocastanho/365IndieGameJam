@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tilemaptest.tres" type="TileSet" id=1]
 [ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/SemiBoss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -49,20 +51,22 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="dialogue_system" parent="." index="2" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 wich_area = 1
+
+[node name="DialogueBox" parent="dialogue_system/Popup" index="0"]
+
+editor/display_folded = true
 
 [node name="YSort" type="YSort" parent="." index="3"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 995.392, 347.482 )
-
-[node name="BodyPivot" parent="YSort/PlayerV2" index="4"]
-
-editor/display_folded = false
 
 [node name="ShakingCamera" parent="YSort/PlayerV2" index="10"]
 
@@ -71,17 +75,17 @@ limit_top = 0
 limit_right = 1500
 limit_bottom = 1000
 _sections_unfolded = [ "Drag Margin", "Limit", "Smoothing", "Transform" ]
-DAMP_EASING = 1.0
 
 [node name="DashCD" parent="YSort/PlayerV2" index="12"]
 
 wait_time = 0.5
 
-[node name="BossSpawner" type="Position2D" parent="YSort" index="1"]
+[node name="SemiBoss" parent="YSort" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 510.291, 366.451 )
+position = Vector2( 500, 489.816 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Area2D" type="Area2D" parent="." index="4"]
+[node name="DialogueTrigger" type="Area2D" parent="." index="4"]
 
 editor/display_folded = true
 position = Vector2( 153.423, 5.57898 )
@@ -92,15 +96,22 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 6 )
+_sections_unfolded = [ "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" index="0"]
 
 position = Vector2( 563.751, 316.162 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Visibility" ]
 
 [connection signal="health_changed" from="YSort/PlayerV2/Health" to="PlayerInterface/Interface" method="_on_Health_health_changed"]
 
-[connection signal="body_entered" from="Area2D" to="dialogue_system" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
+
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
 
 
+[editable path="dialogue_system"]
 [editable path="YSort/PlayerV2"]
+[editable path="YSort/SemiBoss"]
