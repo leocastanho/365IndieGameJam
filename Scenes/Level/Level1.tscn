@@ -103,9 +103,9 @@ _sections_unfolded = [ "Visibility" ]
 
 [connection signal="health_changed" from="YSort/PlayerV2/Health" to="PlayerInterface/Interface" method="_on_Health_health_changed"]
 
-[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
-
 [connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
+
+[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
 
 
 [editable path="dialogue_system"]

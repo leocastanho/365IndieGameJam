@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/HitBox.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://player/states/debug/state-name-displayer.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/ShakingCamera.tscn" type="PackedScene" id=18]
 [ext_resource path="res://interface/bar/stones_bar/LoveStone.png" type="Texture" id=19]
+[ext_resource path="res://player/itens/LifePotion.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 
@@ -89,7 +90,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[node name="PlayerV2" type="KinematicBody2D"]
+[node name="PlayerV2" type="KinematicBody2D" index="0"]
 
 position = Vector2( 628.826, 391.266 )
 scale = Vector2( 0.5, 0.5 )
@@ -111,6 +112,7 @@ collision_mask = 8
 
 [node name="StateMachine" type="Node" parent="." index="1"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 START_STATE = NodePath("Idle")
 
@@ -293,6 +295,8 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/unlock_stone = SubResource( 5 )
 blend_times = [  ]
+
+[node name="LifePotion" parent="." index="17" instance=ExtResource( 20 )]
 
 [connection signal="state_changed" from="StateMachine" to="WeaponPivot/Offset/Sword" method="_on_StateMachine_state_changed"]
 
