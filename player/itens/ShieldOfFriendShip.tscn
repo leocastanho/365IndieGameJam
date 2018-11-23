@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://player/itens/ShieldOfFriendShip.gd" type="Script" id=1]
+
+[node name="ShieldOfFriendShip" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="ShieldDuration" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="ShieldCD" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="ShieldDuration" to="." method="_on_ShieldDuration_timeout"]
+
+[connection signal="timeout" from="ShieldCD" to="." method="_on_ShieldCD_timeout"]
+
+

@@ -81,6 +81,7 @@ func set_ready_for_next_attack():
 	ready_for_next_attack = true
 
 func _on_body_entered(body):
+	print("achou")
 	if not body.has_node('Health'):
 		return
 	if body.get_rid().get_id() in hit_objects:

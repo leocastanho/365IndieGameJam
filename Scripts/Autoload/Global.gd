@@ -8,6 +8,7 @@ var Player
 var PlayerHealth
 var Weapon
 var Interface
+var item_list
 
 #dialogues path -> need to change manually
 var dialogue_system = "res://interface/dialogue_system/dialogue_system.json"
@@ -24,8 +25,18 @@ var friendship_stone = preload("res://stones/FriendshipStone.tscn")
 var friendship_stone_texture = preload("res://interface/bar/stones_bar/FriendshipStone.png")
 
 #itens paths -> need to change manually
+#area1
 var sword_of_love = preload("res://player/weapon/Sword_of_Love.tscn")
 var freedom_cape = preload("res://player/itens/FreedomCape.tscn")
+#area2
+var life_potion = preload("res://player/itens/LifePotion.tscn")
+#area3
+var time_potion = preload("res://player/itens/TimePotion.tscn")
+var speed_boots = preload("res://player/itens/SpeedBoots.tscn")
+#area4
+var staff_of_rottenness = preload("res://player/bullet/PoisonBullet.tscn")
+var shield_of_friendship =preload("res://player/itens/ShieldOfFriendShip.tscn")
+
 
 #monster paths -> need to change manually
 #var semi_boss = preload("res://Scenes/MonsterRangedSemiBoss.tscn")

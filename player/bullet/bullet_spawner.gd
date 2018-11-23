@@ -1,6 +1,6 @@
 extends Node2D
 
-var bullet = preload("BulletDGQUEST.tscn")
+var bullet = preload("PoisonBullet.tscn")
 
 func _input(event):
 	if event.is_action_pressed("fire"):
