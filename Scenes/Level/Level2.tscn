@@ -1,27 +1,43 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://tilemaptest.tres" type="TileSet" id=1]
-[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Monsters/Father.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Monsters/Mother.tscn" type="PackedScene" id=5]
-[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Monsters/GreenSpikey.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
+[ext_resource path="res://tilemaptest.tres" type="TileSet" id=2]
+[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Monsters/Father.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Monsters/Mother.tscn" type="PackedScene" id=6]
+[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Monsters/OrangeSpirit.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Monsters/GreenSpikey.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Level2" type="Node"]
+[sub_resource type="DynamicFontData" id=2]
+
+hinting = 2
+font_path = "res://fonts/SourceCodePro-Black.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 100
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Level2" type="Node" index="0"]
+
+script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
-position = Vector2( -96.2977, 0 )
+position = Vector2( -100, 0 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -40,138 +56,150 @@ tile_data = PoolIntArray( -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 
 
 [node name="PlayerInterface" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 2 )]
+[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 3 )]
 
-[node name="dialogue_system" parent="." index="2" instance=ExtResource( 3 )]
+[node name="dialogue_system" parent="." index="2" instance=ExtResource( 4 )]
 
 wich_area = 2
 
 [node name="YSort" type="YSort" parent="." index="3"]
 
-editor/display_folded = true
 sort_enabled = true
 _sections_unfolded = [ "Sort", "Transform", "Z Index" ]
 
-[node name="Father" parent="YSort" index="0" instance=ExtResource( 4 )]
+[node name="Father" parent="YSort" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 937.04, 285.824 )
 
-[node name="Mother" parent="YSort" index="1" instance=ExtResource( 5 )]
+[node name="Mother" parent="YSort" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 78.9985, 252.32 )
 
-[node name="PlayerV2" parent="YSort" index="2" instance=ExtResource( 6 )]
+[node name="PlayerV2" parent="YSort" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( 507.843, 350.255 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
-[node name="GreenSpikey" parent="YSort" index="3" instance=ExtResource( 7 )]
+[node name="MotherSide" type="YSort" parent="YSort" index="3"]
 
-position = Vector2( 869.956, 478.135 )
+editor/display_folded = true
+sort_enabled = true
 
-[node name="GreenSpikey8" parent="YSort" index="4" instance=ExtResource( 7 )]
-
-position = Vector2( 729.235, 452.65 )
-
-[node name="GreenSpikey9" parent="YSort" index="5" instance=ExtResource( 7 )]
-
-position = Vector2( 941.979, 430.49 )
-
-[node name="GreenSpikey10" parent="YSort" index="6" instance=ExtResource( 7 )]
-
-position = Vector2( 874.388, 552.374 )
-
-[node name="GreenSpikey11" parent="YSort" index="7" instance=ExtResource( 7 )]
-
-position = Vector2( 782.421, 510.269 )
-
-[node name="GreenSpikey2" parent="YSort" index="8" instance=ExtResource( 7 )]
-
-position = Vector2( 782.478, 196.086 )
-
-[node name="GreenSpikey3" parent="YSort" index="9" instance=ExtResource( 7 )]
-
-position = Vector2( 908.826, 157.415 )
-
-[node name="GreenSpikey4" parent="YSort" index="10" instance=ExtResource( 7 )]
-
-position = Vector2( 949.372, 114.824 )
-
-[node name="GreenSpikey5" parent="YSort" index="11" instance=ExtResource( 7 )]
-
-position = Vector2( 955.622, 495.316 )
-
-[node name="GreenSpikey6" parent="YSort" index="12" instance=ExtResource( 7 )]
-
-position = Vector2( 827.108, 135.412 )
-
-[node name="GreenSpikey7" parent="YSort" index="13" instance=ExtResource( 7 )]
-
-position = Vector2( 810.771, 425.043 )
-
-[node name="OrangeSpirit" parent="YSort" index="14" instance=ExtResource( 8 )]
+[node name="OrangeSpirit" parent="YSort/MotherSide" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 269.475, 382.85 )
 
-[node name="OrangeSpirit12" parent="YSort" index="15" instance=ExtResource( 8 )]
+[node name="OrangeSpirit12" parent="YSort/MotherSide" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 328.201, 123.568 )
 
-[node name="OrangeSpirit13" parent="YSort" index="16" instance=ExtResource( 8 )]
+[node name="OrangeSpirit13" parent="YSort/MotherSide" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 153.131, 149.053 )
 
-[node name="OrangeSpirit14" parent="YSort" index="17" instance=ExtResource( 8 )]
+[node name="OrangeSpirit14" parent="YSort/MotherSide" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 262.827, 172.322 )
 
-[node name="OrangeSpirit8" parent="YSort" index="18" instance=ExtResource( 8 )]
+[node name="OrangeSpirit8" parent="YSort/MotherSide" index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 194.128, 397.254 )
 
-[node name="OrangeSpirit9" parent="YSort" index="19" instance=ExtResource( 8 )]
+[node name="OrangeSpirit9" parent="YSort/MotherSide" index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 275.015, 472.601 )
 
-[node name="OrangeSpirit10" parent="YSort" index="20" instance=ExtResource( 8 )]
+[node name="OrangeSpirit10" parent="YSort/MotherSide" index="6" instance=ExtResource( 8 )]
 
 position = Vector2( 271.691, 543.516 )
 
-[node name="OrangeSpirit11" parent="YSort" index="21" instance=ExtResource( 8 )]
+[node name="OrangeSpirit11" parent="YSort/MotherSide" index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 188.588, 553.488 )
 
-[node name="OrangeSpirit2" parent="YSort" index="22" instance=ExtResource( 8 )]
+[node name="OrangeSpirit2" parent="YSort/MotherSide" index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 200.995, 159.956 )
 
-[node name="OrangeSpirit3" parent="YSort" index="23" instance=ExtResource( 8 )]
+[node name="OrangeSpirit3" parent="YSort/MotherSide" index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 149.894, 419.68 )
 
-[node name="OrangeSpirit4" parent="YSort" index="24" instance=ExtResource( 8 )]
+[node name="OrangeSpirit4" parent="YSort/MotherSide" index="10" instance=ExtResource( 8 )]
 
 position = Vector2( 201.709, 465.795 )
 
-[node name="OrangeSpirit7" parent="YSort" index="25" instance=ExtResource( 8 )]
+[node name="OrangeSpirit7" parent="YSort/MotherSide" index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 256.591, 93.3662 )
 
-[node name="OrangeSpirit5" parent="YSort" index="26" instance=ExtResource( 8 )]
+[node name="OrangeSpirit5" parent="YSort/MotherSide" index="12" instance=ExtResource( 8 )]
 
 position = Vector2( 141.337, 493.417 )
 
-[node name="OrangeSpirit6" parent="YSort" index="27" instance=ExtResource( 8 )]
+[node name="OrangeSpirit6" parent="YSort/MotherSide" index="13" instance=ExtResource( 8 )]
 
 position = Vector2( 192.177, 81.1452 )
 
+[node name="FatherSide" type="YSort" parent="YSort" index="4"]
+
+editor/display_folded = true
+sort_enabled = true
+
+[node name="GreenSpikey" parent="YSort/FatherSide" index="0" instance=ExtResource( 9 )]
+
+position = Vector2( 869.956, 478.135 )
+
+[node name="GreenSpikey8" parent="YSort/FatherSide" index="1" instance=ExtResource( 9 )]
+
+position = Vector2( 729.235, 452.65 )
+
+[node name="GreenSpikey9" parent="YSort/FatherSide" index="2" instance=ExtResource( 9 )]
+
+position = Vector2( 941.979, 430.49 )
+
+[node name="GreenSpikey10" parent="YSort/FatherSide" index="3" instance=ExtResource( 9 )]
+
+position = Vector2( 874.388, 552.374 )
+
+[node name="GreenSpikey11" parent="YSort/FatherSide" index="4" instance=ExtResource( 9 )]
+
+position = Vector2( 782.421, 510.269 )
+
+[node name="GreenSpikey2" parent="YSort/FatherSide" index="5" instance=ExtResource( 9 )]
+
+position = Vector2( 782.478, 196.086 )
+
+[node name="GreenSpikey3" parent="YSort/FatherSide" index="6" instance=ExtResource( 9 )]
+
+position = Vector2( 908.826, 157.415 )
+
+[node name="GreenSpikey4" parent="YSort/FatherSide" index="7" instance=ExtResource( 9 )]
+
+position = Vector2( 949.372, 114.824 )
+
+[node name="GreenSpikey5" parent="YSort/FatherSide" index="8" instance=ExtResource( 9 )]
+
+position = Vector2( 955.622, 495.316 )
+
+[node name="GreenSpikey6" parent="YSort/FatherSide" index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 827.108, 135.412 )
+
+[node name="GreenSpikey7" parent="YSort/FatherSide" index="10" instance=ExtResource( 9 )]
+
+position = Vector2( 810.771, 425.043 )
+
 [node name="DialogueTrigger" type="Area2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 570, 290 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -180,7 +208,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" index="0"]
 
@@ -188,8 +216,51 @@ position = Vector2( -70, 60 )
 scale = Vector2( 5.88462, 20.5 )
 shape = SubResource( 1 )
 
+[node name="Timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerInterface" type="CanvasLayer" parent="." index="6"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Interface" type="Label" parent="TimerInterface" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 480.0
+margin_top = 10.0
+margin_right = 550.0
+margin_bottom = 137.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
 
+[connection signal="body_entered" from="DialogueTrigger" to="." method="_on_DialogueTrigger_body_entered"]
+
 [connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

@@ -4,18 +4,24 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 
+enum STATES {IDLE, FOLLOW, DIE}
 onready var anim = $AnimationPlayer
 
+var state
 var direction = Vector2()
 var speed = 100
 
 var father
 var enemy
 
+var canDamage = true
+
 func _ready():
 	
 	anim.play("Idle")
 	$HealthBar.value = $HealthBar.max_value
+	
+	state = IDLE
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
@@ -24,13 +30,15 @@ func _physics_process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	if(!father):
-		father = get_node("../Father")
+		father = get_node("../../Father")
 	else:
 		if(!enemy):
 			direction = father.position - position
 		else:
-			update()
-			direction = enemy.position - position
+			if(!enemy.isDied()):
+				direction = enemy.position - position
+			else:
+				enemy = null
 
 		direction = direction.normalized()	
 		var collide = move_and_collide(direction * speed * delta)
@@ -39,14 +47,31 @@ func _physics_process(delta):
 	pass
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func died():
+	state = DIE
+	anim.play("Die")
+	pass
 	
-	anim.play("Idle")
+func activate_dont_damage():
+	canDamage = false
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "Idle"):
+		anim.play("Idle")
+	elif (anim_name == "Die"):
+		queue_free()
 	
 	pass # replace with function body
 	
-func take_damage(damage_dealer,damage,effect):
-	$Health.take_damage(damage,effect)
+func isDied():
+	if(state == DIE):
+		return true
+	
+	return false
+	
+func take_damage(damage_dealer, damage, effect):
+	if(state != DIE && canDamage):
+		$Health.take_damage(damage,effect)
 
 func _on_Detection_body_entered(body):
 	
@@ -54,3 +79,4 @@ func _on_Detection_body_entered(body):
 		enemy = body
 	
 	pass # replace with function body
+		

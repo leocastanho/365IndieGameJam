@@ -68,6 +68,9 @@ func take_damage(amount, effect=null):
 				owner.get_node("AnimationPlayer").play("death")
 				var love_stone = Global.love_stone.instance()
 				Global.Player.add_child(love_stone)
+			elif (owner.is_in_group("Monsters")):
+				owner.died()
+				owner.set_physics_process(false)
 			else:
 				owner.queue_free()
 

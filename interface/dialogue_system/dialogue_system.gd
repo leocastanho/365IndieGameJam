@@ -38,7 +38,7 @@ func _on_NextButton_pressed():
 				wich_dialogue(0, "area1", "area1A", "area1AFinal", "area1B", "area1BFinal")
 			AREA2:
 				wich_area_button(0, "option2A", "option2B", "close2A", "close2B")
-				wich_dialogue(0, "area2", "area2A", null, "area2B", null)
+				wich_dialogue(0, "area2", "area2A", "area2AFinal", "area2B", "area2BFinal")
 			AREA3:
 				wich_dialogue(0, "area3", "area3A", "area3B")
 			AREA4:
@@ -169,6 +169,7 @@ func _on_CloseButtonA_pressed():
 			semi_boss.get_node("DamageSource/CollisionShape2D").disabled = false
 			semi_boss.get_node("Collision").disabled = false
 		AREA2:
+			get_node("..").startAGame("OptionA")
 			pass
 		AREA3:
 			pass
@@ -190,6 +191,7 @@ func _on_CloseButtonB_pressed():
 			semi_boss.get_node("AnimationPlayer").play("normal_move", -1, 0.8)
 			semi_boss.get_node("RunTimer").start()
 		AREA2:
+			get_node("..").startAGame("OptionB")
 			pass
 		AREA3:
 			pass
@@ -209,7 +211,18 @@ func area1_after_semiboss_interation(option):
 	dialogue_count = 0
 	_on_NextButton_pressed()
 	$Popup.show()
-	
+
+func area2_after_family_interation(option):
+	match option:
+		"optionA":
+			dialogue_part = DIALOGUEAFINAL
+		"optionB":
+			dialogue_part = DIALOGUEBFINAL
+	$Popup/DialogueBox/NextButton.visible = true
+	dialogue_count = 0
+	_on_NextButton_pressed()
+	$Popup.show()
+
 func area4_after_protect_interation(option):
 	match option:
 		"optionA":
