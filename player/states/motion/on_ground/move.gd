@@ -29,7 +29,8 @@ func update(delta):
 	if Input.is_action_just_pressed("dash") and not dashCD and Global.Player.has_node("FreedomCape"):
 		dash()
 
-	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
+#	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
+	speed = MAX_RUN_SPEED if Global.Player.has_node("SpeedBoots") else MAX_WALK_SPEED
 	var collision_info = move(speed, input_direction)
 	if not collision_info:
 		return

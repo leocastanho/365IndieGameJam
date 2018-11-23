@@ -82,7 +82,6 @@ func _draw():
 	if(hit_pos):
 		draw_circle((hit_pos - global_position).rotated(-rotation), 5, laser_color)
 		draw_line(Vector2(), (hit_pos - global_position).rotated(-rotation), laser_color, 2)
-		
 	pass
 
 func _on_MonsterRanged_body_shape_entered(body_id, body, body_shape, local_shape):
