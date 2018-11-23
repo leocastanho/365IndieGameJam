@@ -16,11 +16,16 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( -2.85564, -55.2873 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="1"]
 
+position = Vector2( -1.97969, -48.9278 )
 build_mode = 0
-polygon = PoolVector2Array( -104.274, 116.892, -108.684, 144.09, -91.7769, 164.673, -65.8457, 189.708, -45.5999, 211.274, -12.5903, 213.035, 59.6523, 207.308, 134.632, 177.904, 140.513, 152.911, 175.062, 150.706, 179.473, 132.329, 143.453, 111.011, 142.718, 71.3159, 143.453, 33.0911, -58.6977, 59.5544, -104.274, 69.1106 )
+polygon = PoolVector2Array( 71.8379, 61.4684, 73.6228, 21.0361, 66.6492, 10.7694, 56.1888, 6.1203, -35.8073, 6.73297, -48.9833, 13.321, -55.8348, 25.7064, -53.7011, 78.3103, -7.33926, 100.203, 24.6418, 100.847, 62.5547, 87.5447, 72.4281, 74.881 )
+_sections_unfolded = [ "Transform" ]
 
 

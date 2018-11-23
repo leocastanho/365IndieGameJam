@@ -14,12 +14,14 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -35.3699, -74.8207 )
+position = Vector2( -113.017, -153.457 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
+position = Vector2( -78.0559, -76.5141 )
 build_mode = 0
-polygon = PoolVector2Array( -70.1796, 96.5387, 16.5647, 139.285, 93.8019, 138.686, 181.218, 130.304, 195.587, 97.3735, 187.205, 56.0606, 174.033, -34.9476, -159.84, -78.3203, -152.69, -11.9854, -145.572, 50.8568, -98.2713, 94.5647 )
+polygon = PoolVector2Array( -80.8929, 98.6116, -43.5908, 123.539, -17.3119, 123.539, 16.5647, 139.285, 93.8019, 138.686, 181.218, 130.304, 198.396, 95.8133, 197.956, 73.807, 113.382, -8.41875, -22.1764, -11.0595, -149.186, 41.5065, -148.699, 56.1368, -100.748, 98.6116 )
 
 

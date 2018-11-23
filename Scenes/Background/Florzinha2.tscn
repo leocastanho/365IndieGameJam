@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 27.6432, 10.5279 )
 
-[node name="Florzinha1" type="Area2D" index="0"]
+[node name="Florzinha1" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -19,13 +19,14 @@ audio_bus_name = "Master"
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 3.21188, -21.8993 )
 scale = Vector2( 0.14, 0.14 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 1.30148 )
+position = Vector2( 0.875977, -15.926 )
 scale = Vector2( 1, 1.98818 )
 shape = SubResource( 1 )
 

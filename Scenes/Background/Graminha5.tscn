@@ -19,13 +19,14 @@ audio_bus_name = "Master"
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 0.143948, -10.3647 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -0.543358, 7.75404 )
+position = Vector2( -1.16284, 0.399387 )
 scale = Vector2( 1, 1.10191 )
 shape = SubResource( 1 )
 
