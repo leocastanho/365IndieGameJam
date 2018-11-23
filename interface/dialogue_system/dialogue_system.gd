@@ -43,7 +43,7 @@ func _on_NextButton_pressed():
 				wich_dialogue(0, "area3", "area3A", "area3B")
 			AREA4:
 				wich_area_button(0, "option4A", "option4B", "close4A", "close4B")
-				wich_dialogue(0, "area4", "area4A", null, "area4B", null)
+				wich_dialogue(0, "area4", "area4A", "area4AFinal", "area4B", "area4BFinal")
 			FINALAREA:
 				wich_area(0, "final_area")
 	elif Global.language_on == Global.PORTUGUESE:
@@ -173,6 +173,8 @@ func _on_CloseButtonA_pressed():
 		AREA3:
 			pass
 		AREA4:
+			#Start a game Level 4
+			get_node("..").startAGame("OptionA")
 			pass
 
 func _on_CloseButtonB_pressed():
@@ -192,6 +194,8 @@ func _on_CloseButtonB_pressed():
 		AREA3:
 			pass
 		AREA4:
+			#Start a game Level 4
+			get_node("..").startAGame("OptionB")
 			pass
 
 #im calling this function on the semiboss script after he dies
@@ -205,6 +209,18 @@ func area1_after_semiboss_interation(option):
 	dialogue_count = 0
 	_on_NextButton_pressed()
 	$Popup.show()
+	
+func area4_after_protect_interation(option):
+	match option:
+		"optionA":
+			dialogue_part = DIALOGUEAFINAL
+		"optionB":
+			dialogue_part = DIALOGUEBFINAL
+	$Popup/DialogueBox/NextButton.visible = true
+	dialogue_count = 0
+	_on_NextButton_pressed()
+	$Popup.show()
+	
 
 func _on_CloseButtonFinal_pressed():
 	$Popup.hide()

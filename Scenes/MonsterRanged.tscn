@@ -158,6 +158,8 @@ playback/speed = 1.0
 
 [node name="DamageSource" parent="." index="7" instance=ExtResource( 5 )]
 
+effect = 0
+
 [node name="Collision2" type="CollisionShape2D" parent="DamageSource" index="0"]
 
 position = Vector2( -0.863808, 0.617509 )
