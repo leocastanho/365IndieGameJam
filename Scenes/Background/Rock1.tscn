@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Art/Background/Rocks-1.png" type="Texture" id=1]
+
+[node name="Rock1" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+position = Vector2( -9.4469, 2.92854 )
+build_mode = 0
+polygon = PoolVector2Array( -91.3084, -27.9665, -139.704, -17.2118, -166.95, 64.1651, -86.2896, 129.769, 156.049, 132.278, 194.279, 63.37, 167.456, 3.38547, 143.073, -39.5303, 98.6938, -57.0867, 66.9947, -68.791, 23.5912, -87.3228, -18.8368, -79.0323 )
+
+
