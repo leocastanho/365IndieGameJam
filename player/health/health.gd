@@ -17,12 +17,12 @@ var stun_cycles = 4
 
 func _ready():
 	health = max_health
-	if get_node("../").get_name() == "PlayerV2":
+	if owner.get_name() == "PlayerV2":
 		#emit signal to Interface
 #		emit_signal("health_changed", health)
 		pass
 	else:
-		health_GUI = get_node("../HealthBar")
+		health_GUI = owner.get_node("HealthBar")
 	$PoisonTimer.connect('timeout', self, '_on_PoisonTimer_timeout')
 	$StunTimer.connect('timeout', self, '_on_StunTimer_timeout')
 	$MiniStunTimer.connect('timeout', self, '_on_MiniStunTimer_timeout')
@@ -52,22 +52,24 @@ func take_damage(amount, effect=null):
 		return
 	health -= amount
 	health = max(0, health)
-	if get_node("../").get_name() == "PlayerV2":
+	if owner.get_name() == "PlayerV2":
 		#emit signal to Interface
 		emit_signal("health_changed", health)
+#		if Global.Player.has_node("LifePotion"):
+#			Global.Player.get_node("LifePotion").heal()
 	else:
 		health_GUI.value = float(health)/float(max_health) * health_GUI.max_value
 	if health <= 0:
-		if get_node("../").get_name() == "PlayerV2":
-			get_node("../StateMachine/Stagger").emit_signal("finished", "dead")
+		if owner.get_name() == "PlayerV2":
+			owner.get_node("StateMachine/Stagger").emit_signal("finished", "dead")
 		else:
-			if get_node("../").name == "MonsterRangedSemiBoss":
-				get_node("../").set_physics_process(false)
-				get_node("../AnimationPlayer").play("death")
+			if owner.name == "MonsterRangedSemiBoss":
+				owner.set_physics_process(false)
+				owner.get_node("AnimationPlayer").play("death")
 				var love_stone = Global.love_stone.instance()
 				Global.Player.add_child(love_stone)
 			else:
-				get_node("../").queue_free()
+				owner.queue_free()
 
 	if not effect:
 		return
@@ -78,15 +80,18 @@ func take_damage(amount, effect=null):
 #			poison_cycles = effect[1]
 		global_constants.STATUS_STUNNED:
 			print("stuned")
-			if get_node("../").get_name() == "PlayerV2":
+			if owner.get_name() == "PlayerV2":
 				_change_status(global_constants.STATUS_STUNNED)
 #	print("%s got hit and took %s damage. Health: %s/%s" % [get_name(), amount, health, max_health])
 
 func heal(amount):
 	health += amount
 	health = max(health, max_health)
-	health_GUI.value = float(health)/float(max_health) * health_GUI.max_value
-#	emit_signal("health_changed", health)
+	if owner.get_name() == "PlayerV2":
+		#emit signal to Interface
+		emit_signal("health_changed", health)
+	else:
+		health_GUI.value = float(health)/float(max_health) * health_GUI.max_value
 #	print("%s got healed by %s points. Health: %s/%s" % [get_name(), amount, health, max_health])
 
 func _on_PoisonTimer_timeout():
@@ -101,11 +106,11 @@ func _on_PoisonTimer_timeout():
 func _on_StunTimer_timeout():
 	print (stun_cycles)
 	stun_cycles -= 1
-	get_node("../StateMachine/Move").emit_signal("finished", "stagger")
+	owner.get_node("StateMachine/Move").emit_signal("finished", "stagger")
 	if stun_cycles == 0:
 		_change_status(global_constants.STATUS_NONE)
 		return
 	$StunTimer.start()
 
 func _on_MiniStunTimer_timeout():
-	get_node("../StateMachine/Stagger").emit_signal("finished", "move")
+	owner.get_node("StateMachine/Stagger").emit_signal("finished", "move")

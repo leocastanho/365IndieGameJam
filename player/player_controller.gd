@@ -41,4 +41,10 @@ func _on_StonesAnimator_animation_finished(anim_name):
 func _on_Tween_tween_completed(object, key):
 	match wich_stone:
 		Global.love_stone_texture:
-			Global.Interface.get_node("Bars/LifeBar/BarsContainers/HBoxContainer/Container/ItemList").add_icon_item(Global.love_stone_texture, false)
+			Global.item_list.add_icon_item(Global.love_stone_texture, false)
+
+#func _input(event):
+#	if Input.is_action_pressed("run"):
+#		Engine.time_scale = 0
+#	if Input.is_action_pressed("attack"):
+#		Engine.time_scale = 1

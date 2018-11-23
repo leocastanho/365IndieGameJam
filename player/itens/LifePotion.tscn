@@ -2,9 +2,10 @@
 
 [ext_resource path="res://player/itens/LifePotion.gd" type="Script" id=1]
 
-[node name="LifePotion" type="Node" index="0"]
+[node name="LifePotion" type="Node"]
 
 script = ExtResource( 1 )
+new_max_health = 14
 
 [node name="HealCD" type="Timer" parent="." index="0"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/HitBox.tscn" type="PackedScene" id=2]
@@ -14,12 +14,11 @@
 [ext_resource path="res://player/weapon/weapon_pivot.gd" type="Script" id=12]
 [ext_resource path="res://player/weapon/Sword.tscn" type="PackedScene" id=13]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=14]
-[ext_resource path="res://player/bullet/bullet_spawner.gd" type="Script" id=15]
-[ext_resource path="res://fonts/SourceCodePro-Bold.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://player/states/debug/state-name-displayer.gd" type="Script" id=17]
-[ext_resource path="res://Scenes/ShakingCamera.tscn" type="PackedScene" id=18]
-[ext_resource path="res://interface/bar/stones_bar/LoveStone.png" type="Texture" id=19]
-[ext_resource path="res://player/itens/LifePotion.tscn" type="PackedScene" id=20]
+[ext_resource path="res://fonts/SourceCodePro-Bold.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://player/states/debug/state-name-displayer.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/ShakingCamera.tscn" type="PackedScene" id=17]
+[ext_resource path="res://interface/bar/stones_bar/LoveStone.png" type="Texture" id=18]
+[ext_resource path="res://player/Torch.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
 
@@ -56,7 +55,7 @@ step = 0.1
 size = 20
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 16 )
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Animation" id=5]
@@ -90,13 +89,13 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[node name="PlayerV2" type="KinematicBody2D" index="0"]
+[node name="PlayerV2" type="KinematicBody2D"]
 
 position = Vector2( 628.826, 391.266 )
 scale = Vector2( 0.5, 0.5 )
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 18
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
@@ -199,21 +198,7 @@ polygon = PoolVector2Array( -20, 0, -20, -20, 20, -20, 20, 0 )
 
 [node name="Health" parent="." index="7" instance=ExtResource( 14 )]
 
-[node name="BulletSpawn" type="Node2D" parent="." index="8"]
-
-editor/display_folded = true
-position = Vector2( 1.17401, -61.266 )
-script = ExtResource( 15 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CooldownTimer" type="Timer" parent="BulletSpawn" index="0"]
-
-process_mode = 1
-wait_time = 0.2
-one_shot = true
-autostart = false
-
-[node name="StateNameDisplayer" type="Label" parent="." index="9"]
+[node name="StateNameDisplayer" type="Label" parent="." index="8"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -238,29 +223,29 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 17 )
+script = ExtResource( 16 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="ShakingCamera" parent="." index="10" instance=ExtResource( 18 )]
+[node name="ShakingCamera" parent="." index="9" instance=ExtResource( 17 )]
 
 duration = 0.2
 DAMP_EASING = 1.27456
 
-[node name="Dash" type="Timer" parent="." index="11"]
+[node name="Dash" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 0.2
 one_shot = true
 autostart = false
 
-[node name="DashCD" type="Timer" parent="." index="12"]
+[node name="DashCD" type="Timer" parent="." index="11"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="Tween" type="Tween" parent="." index="13"]
+[node name="Tween" type="Tween" parent="." index="12"]
 
 repeat = false
 playback_process_mode = 1
@@ -269,7 +254,7 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="14"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
 
 stream = null
 volume_db = 0.0
@@ -278,15 +263,15 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Stone" type="Sprite" parent="." index="15"]
+[node name="Stone" type="Sprite" parent="." index="14"]
 
 visible = false
 position = Vector2( 2.34802, -137.539 )
 scale = Vector2( 0.310127, 0.310127 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="StonesAnimator" type="AnimationPlayer" parent="." index="16"]
+[node name="StonesAnimator" type="AnimationPlayer" parent="." index="15"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -296,13 +281,13 @@ playback_speed = 1.0
 anims/unlock_stone = SubResource( 5 )
 blend_times = [  ]
 
-[node name="LifePotion" parent="." index="17" instance=ExtResource( 20 )]
+[node name="Torch" parent="." index="16" instance=ExtResource( 19 )]
 
-[connection signal="state_changed" from="StateMachine" to="WeaponPivot/Offset/Sword" method="_on_StateMachine_state_changed"]
+position = Vector2( 0, -122.175 )
+rotation = 4.71239
+_sections_unfolded = [ "Shadow", "Transform" ]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
-
-[connection signal="attack_finished" from="WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_attack_finished"]
 
 [connection signal="timeout" from="Dash" to="StateMachine/Move" method="_on_Dash_timeout"]
 
