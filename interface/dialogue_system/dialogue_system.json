@@ -20,7 +20,9 @@
 
     "area4":["What's your decision?", "Save a life or...", "...forget and get more POWER!"],
     "area4A":["Snif, snif, snif", "tha..nk..you...", "...my hero."],
-    "area4B":["So bad!!!", "You choose more power and you will regret", "Good Bye!!!"],
+	"area4AFinal":["you received the friendship stone", " Thanks so much!!"],
+    "area4B":["Go hero, defeat all enemies", "I'll die sooner or later", "Good Bye!!!"],
+	"area4BFinal":["Okay, You kill all enemies", "you received the friendship stone"],
 
     "final_area":["you area ugly", "i hate you","choose wisely","fight"] },
 

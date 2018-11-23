@@ -7,6 +7,7 @@ extends RigidBody2D
 export(int) var life
 
 var died = false
+var canDamage = true
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -33,10 +34,14 @@ func isDied():
 
 func take_Damage(value):
 	
-	life -= value
-	$LifeBar.value = life
+	if(canDamage):
+		life -= value
+		$LifeBar.value = life
 	
 	pass
+
+func activate_dont_damage():
+	canDamage = false
 
 func _on_NPC_body_entered(body):
 

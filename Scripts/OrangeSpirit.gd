@@ -29,6 +29,7 @@ func _physics_process(delta):
 		if(!enemy):
 			direction = father.position - position
 		else:
+			update()
 			direction = enemy.position - position
 
 		direction = direction.normalized()	

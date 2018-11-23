@@ -18,8 +18,11 @@ export(float) var timeReload = 3
 onready var lifeBar = $HealthBar
 var timePassed = 0
 
+var canDamage = true
+
 func take_damage(damage_dealer,damage,effect):
-	$Health.take_damage(damage,effect)
+	if(canDamage):
+		$Health.take_damage(damage,effect)
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -28,8 +31,11 @@ func _ready():
 	
 	pass
 
+func activate_dont_damage():
+	canDamage = false
+
 func _physics_process(delta):
-	target = get_node("../NPC")
+	target = get_node("../../NPC")
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	timePassed += delta
