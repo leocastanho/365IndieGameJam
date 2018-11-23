@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Art/Sem título.png" type="Texture" id=1]
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=2]
@@ -6,14 +6,33 @@
 [ext_resource path="res://Scenes/Monsters/Slimes/OrangeSlime.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Monsters/Slimes/GreenSlime.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Monsters/Slimes/BlueSlime.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Background/Rock1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Background/Cogumelos1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Background/Cogumelos2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Background/Florzinha1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Background/Florzinha2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Background/Florzinha3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Background/Graminha2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Background/Graminha1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Background/Graminha3.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Background/Graminha4.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Background/Graminha5.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Background/Graminha6.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Background/Stone1.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Background/Stone2.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Background/Stone3.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Background/Stone4.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Background/Stone5.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Background/Tree1.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Background/Tree2.tscn" type="PackedScene" id=25]
 
-[node name="Node" type="Node" groups=[
+[node name="Node" type="Node" index="0" groups=[
 "Player",
 ]]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
-position = Vector2( 840, 150 )
+position = Vector2( 750, 150 )
 scale = Vector2( 3.32008, 2.93706 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -27,11 +46,12 @@ _sections_unfolded = [ "Sort" ]
 "Player",
 ] instance=ExtResource( 2 )]
 
+position = Vector2( 780, 420 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
 [node name="RedSlime" parent="Teste" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 1300, 490 )
+position = Vector2( 1300, 70 )
 
 [node name="RedSlime2" parent="Teste" index="2" instance=ExtResource( 3 )]
 
@@ -47,11 +67,11 @@ position = Vector2( 450, -50 )
 
 [node name="OrangeSlime2" parent="Teste" index="5" instance=ExtResource( 4 )]
 
-position = Vector2( 40, 450 )
+position = Vector2( 400, 400 )
 
 [node name="OrangeSlime3" parent="Teste" index="6" instance=ExtResource( 4 )]
 
-position = Vector2( 1020, 630 )
+position = Vector2( 1500, 400 )
 
 [node name="OrangeSlime4" parent="Teste" index="7" instance=ExtResource( 4 )]
 
@@ -71,7 +91,7 @@ position = Vector2( 1470, 160 )
 
 [node name="GreenSlime4" parent="Teste" index="11" instance=ExtResource( 5 )]
 
-position = Vector2( 460, 620 )
+position = Vector2( -90, 300 )
 
 [node name="BlueSlime" parent="Teste" index="12" instance=ExtResource( 6 )]
 
@@ -87,6 +107,82 @@ position = Vector2( 1280, -160 )
 
 [node name="BlueSlime4" parent="Teste" index="15" instance=ExtResource( 6 )]
 
-position = Vector2( 1040, 400 )
+position = Vector2( 750, 150 )
+
+[node name="StaticBody2D" parent="Teste" index="16" instance=ExtResource( 7 )]
+
+position = Vector2( 220, -140 )
+
+[node name="Cogumelos1" parent="Teste" index="17" instance=ExtResource( 8 )]
+
+position = Vector2( 570, 80 )
+
+[node name="Cogumelos2" parent="Teste" index="18" instance=ExtResource( 9 )]
+
+position = Vector2( 170, 810 )
+
+[node name="Florzinha1" parent="Teste" index="19" instance=ExtResource( 10 )]
+
+position = Vector2( 530, 550 )
+
+[node name="Florzinha2" parent="Teste" index="20" instance=ExtResource( 11 )]
+
+position = Vector2( 760, 540 )
+
+[node name="Florzinha3" parent="Teste" index="21" instance=ExtResource( 12 )]
+
+position = Vector2( 940, 320 )
+
+[node name="Graminha2" parent="Teste" index="22" instance=ExtResource( 13 )]
+
+position = Vector2( 800, 710 )
+
+[node name="Graminha1" parent="Teste" index="23" instance=ExtResource( 14 )]
+
+position = Vector2( 630, 430 )
+
+[node name="Graminha3" parent="Teste" index="24" instance=ExtResource( 15 )]
+
+position = Vector2( 590, 660 )
+
+[node name="Graminha4" parent="Teste" index="25" instance=ExtResource( 16 )]
+
+position = Vector2( 680, 610 )
+
+[node name="Graminha5" parent="Teste" index="26" instance=ExtResource( 17 )]
+
+position = Vector2( 880, 500 )
+
+[node name="Graminha6" parent="Teste" index="27" instance=ExtResource( 18 )]
+
+position = Vector2( 970, 590 )
+
+[node name="Stone1" parent="Teste" index="28" instance=ExtResource( 19 )]
+
+position = Vector2( 1420, 10 )
+
+[node name="Stone2" parent="Teste" index="29" instance=ExtResource( 20 )]
+
+position = Vector2( 1130, 570 )
+
+[node name="Stone3" parent="Teste" index="30" instance=ExtResource( 21 )]
+
+position = Vector2( -260, 530 )
+
+[node name="Stone4" parent="Teste" index="31" instance=ExtResource( 22 )]
+
+position = Vector2( -510, 790 )
+
+[node name="Stone5" parent="Teste" index="32" instance=ExtResource( 23 )]
+
+position = Vector2( 500, 300 )
+
+[node name="Tree1" parent="Teste" index="33" instance=ExtResource( 24 )]
+
+position = Vector2( 910, 80 )
+
+[node name="Tree2" parent="Teste" index="34" instance=ExtResource( 25 )]
+
+position = Vector2( 20, 430 )
 
 

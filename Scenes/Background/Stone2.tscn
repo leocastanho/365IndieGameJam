@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Art/Background/Stone-2.png" type="Texture" id=1]
+
+[node name="Stone2" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -60.4506, -187.248 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+position = Vector2( -24.9513, -99.8218 )
+build_mode = 0
+polygon = PoolVector2Array( -63.8775, 83.9693, -26.0595, 130.984, 118.527, 165.145, 144.743, 136.943, 159.043, 138.929, 191.217, 118.274, 193.64, 93.1703, 117.733, 7.4504, 14.0593, -0.493912, -63.0005, 46.3775 )
+
+
