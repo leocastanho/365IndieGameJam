@@ -6,8 +6,7 @@ extends KinematicBody2D
 # var b = "textvar"
 
 enum STATES {IDLE, WALK, 
-			FOLLOW, PREPARE_ATTACK, ATTACKING} 
-			#DIED}
+			FOLLOW, PREPARE_ATTACK, ATTACKING, DIED}
 
 export(int) var walkSpeed = 100
 export(int) var attackSpeed = 200
@@ -16,6 +15,8 @@ onready var timer = $Timer
 onready var anim_player = $AnimationPlayer
 onready var lifeBar = $HealthBar
 
+onready var smokeDie = preload("res://Scenes/Monsters/Smoke.tscn")
+
 var state
 
 var speed
@@ -23,7 +24,8 @@ var direction
 var player
 	
 func take_damage(damage_dealer,damage,effect):
-	$Health.take_damage(damage,effect)
+	if(state != DIED):
+		$Health.take_damage(damage,effect)
 
 	
 func _ready():
@@ -73,8 +75,8 @@ func _change_state(new_state):
 			$AnimationPlayer.play("Attacking")
 			timer.wait_time = 1.5
 			timer.start()
-		#DIED:
-		#	queue_free()
+		DIED:
+			queue_free()
 	state = new_state	
 	
 	pass
@@ -114,6 +116,13 @@ func _on_Detection_body_entered(body):
 	
 	pass # replace with function body
 
+func died():
+	state = DIED
+	var inst = smokeDie.instance()
+	add_child(inst)
+	inst.play("SmokeDie")
+	anim_player.play("Died")
+	$DamageSource.queue_free()
 
 func _on_MonsterMelee_body_entered(body):
 	
@@ -123,26 +132,30 @@ func _on_MonsterMelee_body_entered(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "Prepare_Attack"):
 		_change_state(ATTACKING)
-	if(anim_name == "Idle"):
+	elif(anim_name == "Idle"):
 		anim_player.play(anim_name)
+	elif(anim_name == "Died"):
+		_change_state(DIED)
 	
 	pass # replace with function body
 
 
-func _on_Timer_timeout():
-	if(!player):
-		if(state == IDLE):
-			_change_state(WALK)
-		elif(state != IDLE):
-			_change_state(IDLE)
-	else:		
-		if(state == IDLE):
-			_change_state(FOLLOW)
+func _on_Timer_timeout():	
+
+	if(state != DIED):
+		if(!player):
+			if(state == IDLE):
+				_change_state(WALK)
+			elif(state != IDLE):
+				_change_state(IDLE)
+		else:		
+			if(state == IDLE):
+				_change_state(FOLLOW)
+				
+			elif(state == FOLLOW):
+				_change_state(PREPARE_ATTACK)
 			
-		elif(state == FOLLOW):
-			_change_state(PREPARE_ATTACK)
-		
-		elif(state == ATTACKING):
-			_change_state(IDLE)
+			elif(state == ATTACKING):
+				_change_state(IDLE)
 	
 	pass # replace with function body
