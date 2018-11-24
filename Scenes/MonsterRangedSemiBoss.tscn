@@ -99,7 +99,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 
-length = 16.0
+length = 12.0
 loop = true
 step = 1.0
 tracks/0/type = "value"
@@ -109,10 +109,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 6, 10, 14, 16 ),
+"times": PoolRealArray( 0, 1, 5, 7, 11, 12 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -300 ), Vector2( 800, -300 ), Vector2( 800, 300 ), Vector2( 0, 300 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -150 ), Vector2( 800, -150 ), Vector2( 800, 150 ), Vector2( 0, 150 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -163,8 +163,9 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[node name="MonsterRangedSemiBoss" type="RigidBody2D" index="0"]
+[node name="MonsterRangedSemiBoss" type="RigidBody2D"]
 
+position = Vector2( 395.924, -150 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 1

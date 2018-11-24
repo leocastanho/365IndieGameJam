@@ -14,6 +14,7 @@ func _change_state(state_name):
 	"""
 	The base state_machine interface this node extends does most of the work
 	"""
+	print(state_name)
 	if not _active:
 		return
 	if state_name in ["stagger", "jump", "attack"]:

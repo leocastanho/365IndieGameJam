@@ -23,7 +23,7 @@ var combo = [{
 		'effect': null
 	},
 	{
-		'damage': 1,
+		'damage': 3,
 		'animation': 'attack_medium',
 		'effect': null
 	}]
@@ -32,6 +32,8 @@ var hit_objects = []
 
 func _ready():
 	$AnimationPlayer.connect('animation_finished', self, "_on_animation_finished")
+	self.connect("attack_finished", get_node("../../../StateMachine/Attack"), "_on_Sword_attack_finished")
+	get_node("../../../StateMachine/").connect("state_changed",self,"_on_StateMachine_state_changed")
 	self.connect("body_entered", self, "_on_body_entered")
 	_change_state(IDLE)
 
@@ -53,13 +55,12 @@ func _change_state(new_state):
 			$AnimationPlayer.play(attack_current['animation'])
 			visible = true
 			monitoring = true
-
 	state = new_state
 
 func _input(event):
 	if not state == ATTACK:
 		return
-	if attack_input_state == LISTENING:
+	if attack_input_state != LISTENING:
 		return
 	if event.is_action_pressed('attack'):
 		attack_input_state = REGISTERED
@@ -74,14 +75,13 @@ func attack():
 
 # use with AnimationPlayer func track
 func set_attack_input_listening():
-	attack_input_state = LISTENING
+	attack_input_state != LISTENING
 
 # use with AnimationPlayer func track
 func set_ready_for_next_attack():
 	ready_for_next_attack = true
 
 func _on_body_entered(body):
-	print("achou")
 	if not body.has_node('Health'):
 		return
 	if body.get_rid().get_id() in hit_objects:

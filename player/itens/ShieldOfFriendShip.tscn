@@ -2,7 +2,7 @@
 
 [ext_resource path="res://player/itens/ShieldOfFriendShip.gd" type="Script" id=1]
 
-[node name="ShieldOfFriendShip" type="Node2D" index="0"]
+[node name="ShieldOfFriendShip" type="Node2D"]
 
 script = ExtResource( 1 )
 

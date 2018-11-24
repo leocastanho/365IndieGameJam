@@ -65,7 +65,8 @@ func take_damage(amount, effect=null):
 		else:
 			if owner.name == "MonsterRangedSemiBoss":
 				owner.set_physics_process(false)
-				owner.get_node("AnimationPlayer").play("death")
+				if not owner.get_node("AnimationPlayer").get_current_animation() == "death":
+					owner.get_node("AnimationPlayer").play("death")
 				var love_stone = Global.love_stone.instance()
 				Global.Player.add_child(love_stone)
 			else:

@@ -88,15 +88,17 @@ func _on_MonsterRanged_body_shape_entered(body_id, body, body_shape, local_shape
 	pass # replace with function body
 
 func take_damage(damage_dealer,damage,effect):
-	$Health.take_damage(damage,effect)
-	$AnimationPlayerHurt.play("hurt")
-	var blood_particle = blood.instance()
-	add_child(blood_particle)
+	if not $AnimationPlayer.get_current_animation() == "death":
+		$Health.take_damage(damage,effect)
+		$AnimationPlayerHurt.play("hurt")
+		var blood_particle = blood.instance()
+		add_child(blood_particle)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":
 		Global.Player.unlock_stone_anim(Global.love_stone_texture)
 		get_node("/root/Level1/dialogue_system").area1_after_semiboss_interation("optionA")
+		queue_free()
 
 func _on_RunTimer_timeout():
 	set_physics_process(false)
