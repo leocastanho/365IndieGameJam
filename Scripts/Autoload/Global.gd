@@ -40,6 +40,7 @@ var speed_boots = preload("res://player/itens/SpeedBoots.tscn")
 var speed_boots_texture = preload("res://Art/timepotion.png")
 var key_count = 0
 var key_texture = preload("res://Art/Key_Gold.png")
+var lightON = true
 #area4
 var staff_of_rottenness = preload("res://player/bullet/PoisonBullet.tscn")
 var shield_of_friendship =preload("res://player/itens/ShieldOfFriendShip.tscn")

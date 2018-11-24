@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=2]
-[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=1]
+[ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=5]
 
-[node name="Level" type="Node2D" groups=[
+[node name="Level" type="Node2D" index="0" groups=[
 "character",
 ]]
 
-position = Vector2( -16.3245, -50.3341 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -19,7 +20,7 @@ __meta__ = {
 
 scale = Vector2( 0.5, 0.5 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 128 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -42,7 +43,7 @@ _sections_unfolded = [ "Cell", "Transform" ]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 128 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -69,7 +70,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 2 )]
+[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 3 )]
 
 _sections_unfolded = [ "Rect" ]
 
@@ -77,14 +78,19 @@ _sections_unfolded = [ "Rect" ]
 
 sort_enabled = true
 
-[node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 3 )]
+[node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 4 )]
 
-editor/display_folded = true
-position = Vector2( 485.826, 346.266 )
+position = Vector2( 510, 320 )
 
-[node name="dialogue_system" parent="." index="4" instance=ExtResource( 4 )]
+[node name="AnimationPlayer" parent="YSort/PlayerV2/CanvasModulate" index="0"]
+
+autoplay = "BeginAnim"
+
+[node name="dialogue_system" parent="." index="4" instance=ExtResource( 5 )]
 
 [connection signal="health_changed" from="YSort/PlayerV2/Health" to="PlayerInterface/Interface" method="_on_Health_health_changed"]
+
+[connection signal="animation_finished" from="YSort/PlayerV2/CanvasModulate/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 
 [editable path="YSort/PlayerV2"]

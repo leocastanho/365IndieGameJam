@@ -69,6 +69,10 @@ func wich_area(language, area):
 	area_for_buttonB = area
 	dialogue_count = clamp(dialogue_count, 0, dialogue[language][area].size() - 1)
 	$Popup/DialogueBox/Label.text = dialogue[language][area][dialogue_count]
+	if area == "initial_area":
+		if dialogue_count == dialogue[0]["initial_area"].size() - 1:
+			$Popup/DialogueBox/CloseButtonFinal.visible = true
+			$Popup/DialogueBox/NextButton.visible = false
 
 func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dialogue_b, final_dialogue_b):
 	
@@ -88,7 +92,7 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
 					if dialogue_count == dialogue[0][final_dialogue_a].size():
-						$Popup.hide()
+						pop_up_hide()
 					wich_area(language, final_dialogue_a)
 					
 				elif dialogue_part == DIALOGUEB:
@@ -105,7 +109,7 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
 					if dialogue_count == dialogue[0][final_dialogue_b].size():
-						$Popup.hide()
+						pop_up_hide()
 					wich_area(language, final_dialogue_b)
 
 func wich_area_button(language, optionA, optionB, closeA, closeB):
@@ -161,13 +165,16 @@ func hide_option():
 	$Popup/DialogueBox/OptionB.visible = false
 	$Popup/DialogueBox/NextButton.visible = true
 
-func _on_Area2D_body_entered(body):
-#	$Tween.interpolate_property($Popup, "rect_position", Vector2(310, 780), Vector2(312, 380), 0.5, Tween.TRANS_BACK, Tween.EASE_OUT)
+func pop_up_show():
 	$Tween.interpolate_property($Popup, "modulate", Color(1,1,1,0), Color(1,1,1,1), 0.3, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 
+func pop_up_hide():
+	$Tween.interpolate_property($Popup, "modulate", Color(1,1,1,1), Color(1,1,1,0), 0.3, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	$Tween.start()
+
 func _on_CloseButtonA_pressed():
-	$Popup.hide()
+	pop_up_hide()
 	$Popup/DialogueBox/CloseButtonA.visible = false
 	$Popup/DialogueBox/CloseButtonB.visible = false
 	dialogue_count = 0
@@ -190,7 +197,7 @@ func _on_CloseButtonA_pressed():
 			pass
 
 func _on_CloseButtonB_pressed():
-	$Popup.hide()
+	pop_up_hide()
 	$Popup/DialogueBox/CloseButtonA.visible = false
 	$Popup/DialogueBox/CloseButtonB.visible = false
 	dialogue_count = 0
@@ -220,7 +227,7 @@ func area1_after_semiboss_interation(option):
 	$Popup/DialogueBox/NextButton.visible = true
 	dialogue_count = 0
 	_on_NextButton_pressed()
-	$Popup.show()
+	pop_up_show()
 
 func area2_after_family_interation(option):
 	match option:
@@ -231,7 +238,7 @@ func area2_after_family_interation(option):
 	$Popup/DialogueBox/NextButton.visible = true
 	dialogue_count = 0
 	_on_NextButton_pressed()
-	$Popup.show()
+	pop_up_show()
 
 func area3_after_maze_interation(option):
 	match option:
@@ -242,7 +249,7 @@ func area3_after_maze_interation(option):
 	$Popup/DialogueBox/NextButton.visible = true
 	dialogue_count = 0
 	_on_NextButton_pressed()
-	$Popup.show()
+	pop_up_show()
 
 func area4_after_protect_interation(option):
 	match option:
@@ -253,8 +260,11 @@ func area4_after_protect_interation(option):
 	$Popup/DialogueBox/NextButton.visible = true
 	dialogue_count = 0
 	_on_NextButton_pressed()
-	$Popup.show()
+	pop_up_show()
 	
 
 func _on_CloseButtonFinal_pressed():
-	$Popup.hide()
+	pop_up_hide()
+
+func _on_DialogueTrigger_body_entered(body):
+	pop_up_show()
