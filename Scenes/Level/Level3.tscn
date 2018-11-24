@@ -39,7 +39,9 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 392.197, 11.9925 )
 
+
 [node name="Level3" type="Node2D" index="0" groups=[
+
 "character",
 ]]
 
@@ -279,9 +281,9 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 14 )]
 
-[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
-
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
+
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
 
 
 [editable path="DoorEasy"]
