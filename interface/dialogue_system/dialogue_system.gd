@@ -114,6 +114,7 @@ func _on_OptionA_pressed():
 			Global.Player.get_node("WeaponPivot/Offset/Sword").queue_free()
 			Global.Player.get_node("WeaponPivot/Offset").add_child(sword)
 		AREA2:
+			get_node("..").startAGame("OptionA")
 			pass
 		AREA3:
 			pass
@@ -130,6 +131,7 @@ func _on_OptionB_pressed():
 			var cape = Global.freedom_cape.instance()
 			Global.Player.add_child(cape)
 		AREA2:
+			get_node("..").startAGame("OptionB")
 			pass
 		AREA3:
 			pass
@@ -169,7 +171,6 @@ func _on_CloseButtonA_pressed():
 			semi_boss.get_node("DamageSource/CollisionShape2D").disabled = false
 			semi_boss.get_node("Collision").disabled = false
 		AREA2:
-			get_node("..").startAGame("OptionA")
 			pass
 		AREA3:
 			pass
@@ -191,7 +192,6 @@ func _on_CloseButtonB_pressed():
 			semi_boss.get_node("AnimationPlayer").play("normal_move", -1, 0.8)
 			semi_boss.get_node("RunTimer").start()
 		AREA2:
-			get_node("..").startAGame("OptionB")
 			pass
 		AREA3:
 			pass

@@ -15,24 +15,35 @@ func _ready():
 	var arrMother = $YSort/MotherSide.get_children()
 	for i in range(0, arrMother.size()):
 		arrMother[i].set_physics_process(false)
+		arrMother[i].activate_dont_damage()
 		
 	var arrFather = $YSort/FatherSide.get_children()
 	for i in range(0, arrFather.size()):
 		arrFather[i].set_physics_process(false)
+		arrFather[i].activate_dont_damage()
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 
 func startAGame(option):
 	
+	var arrMother = $YSort/MotherSide.get_children()
+	for i in range(0, arrMother.size()):
+		arrMother[i].set_physics_process(true)
+		arrMother[i].activate_damage()
+		
+	var arrFather = $YSort/FatherSide.get_children()
+	for i in range(0, arrFather.size()):
+		arrFather[i].set_physics_process(true)
+		arrFather[i].activate_damage()
+	
 	if(option == "OptionA"):
-		var arrMother = $YSort/MotherSide.get_children()
 		for i in range(0, arrMother.size()):
 			arrMother[i].activate_dont_damage()
 			arrMother[i].get_node("HealthBar").hide()
 			arrMother[i].get_node("DamageSource").queue_free()
+		
 	elif(option == "OptionB"):
-		var arrFather = $YSort/FatherSide.get_children()
 		for i in range(0, arrFather.size()):
 			arrFather[i].activate_dont_damage()
 			arrFather[i].get_node("HealthBar").hide()
@@ -41,35 +52,53 @@ func startAGame(option):
 	$YSort/Mother.set_process(true)
 	$YSort/Father.set_process(true)
 	
-	var arrMother = $YSort/MotherSide.get_children()
-	for i in range(0, arrMother.size()):
-		arrMother[i].set_physics_process(true)
-		
-	var arrFather = $YSort/FatherSide.get_children()
-	for i in range(0, arrFather.size()):
-		arrFather[i].set_physics_process(true)
-		
+	$TimerInterface/Interface.hide()
+	$Timer.stop()
+	
 	chooseOption = option
+
+func finishGame():
+	$YSort/Mother.set_physics_process(false)
+	$YSort/Father.set_physics_process(false)
+	
+	if(chooseOption != "OptionA" && chooseOption != "OptionB"):
+		var arrMother = $YSort/MotherSide.get_children()
+		for i in range(0, arrMother.size()):
+			arrMother[i].activate_dont_damage()
+			arrMother[i].get_node("HealthBar").hide()
+			arrMother[i].get_node("DamageSource").queue_free()
+			
+		var arrFather = $YSort/FatherSide.get_children()
+		for i in range(0, arrFather.size()):
+			arrFather[i].activate_dont_damage()
+			arrFather[i].get_node("HealthBar").hide()
+			arrFather[i].get_node("DamageSource").queue_free()
+		
+	isAreaFinish = true
 
 func _process(delta):
 	
-	$TimerInterface/Interface.text = str(int($Timer.time_left))
-	
-	if(chooseOption == "optionA"):
-		if($YSort/FatherSide.get_child_count() == 0):
-			$dialogue_system.area2_after_family_interation("optionA")
-	elif(chooseOption == "optionB"):
-		if($YSort/MotherSide.get_child_count() == 0):
-			$dialogue_system.area2_after_family_interation("optionA")
+	if(!isAreaFinish):
+		$TimerInterface/Interface.text = str(int($Timer.time_left))
+		
+		if(chooseOption == "OptionA"):
+			if($YSort/FatherSide.get_child_count() == 0):
+				$dialogue_system.area2_after_family_interation("optionA")
+				finishGame()
+		elif(chooseOption == "OptionB"):
+			if($YSort/MotherSide.get_child_count() == 0):
+				$dialogue_system.area2_after_family_interation("optionA")
+				finishGame()
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	pass
 
 
 func _on_Timer_timeout():
-	isAreaFinish = true
+	finishGame()
 	#Global.Player.unlock_stone_anim(Global.family_stone_texture)
 	$dialogue_system.area2_after_family_interation("optionB")
+	$dialogue_system.hide_option()
 	$TimerInterface/Interface.hide()
 	
 	pass # replace with function body

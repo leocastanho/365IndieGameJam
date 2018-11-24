@@ -89,113 +89,43 @@ _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
 [node name="MotherSide" type="YSort" parent="YSort" index="3"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="OrangeSpirit" parent="YSort/MotherSide" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( 269.475, 382.85 )
+position = Vector2( 130, 390 )
 
 [node name="OrangeSpirit12" parent="YSort/MotherSide" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( 328.201, 123.568 )
+position = Vector2( 230, 150 )
 
 [node name="OrangeSpirit13" parent="YSort/MotherSide" index="2" instance=ExtResource( 8 )]
 
-position = Vector2( 153.131, 149.053 )
+position = Vector2( 140, 180 )
 
 [node name="OrangeSpirit14" parent="YSort/MotherSide" index="3" instance=ExtResource( 8 )]
 
-position = Vector2( 262.827, 172.322 )
-
-[node name="OrangeSpirit8" parent="YSort/MotherSide" index="4" instance=ExtResource( 8 )]
-
-position = Vector2( 194.128, 397.254 )
-
-[node name="OrangeSpirit9" parent="YSort/MotherSide" index="5" instance=ExtResource( 8 )]
-
-position = Vector2( 275.015, 472.601 )
-
-[node name="OrangeSpirit10" parent="YSort/MotherSide" index="6" instance=ExtResource( 8 )]
-
-position = Vector2( 271.691, 543.516 )
-
-[node name="OrangeSpirit11" parent="YSort/MotherSide" index="7" instance=ExtResource( 8 )]
-
-position = Vector2( 188.588, 553.488 )
-
-[node name="OrangeSpirit2" parent="YSort/MotherSide" index="8" instance=ExtResource( 8 )]
-
-position = Vector2( 200.995, 159.956 )
-
-[node name="OrangeSpirit3" parent="YSort/MotherSide" index="9" instance=ExtResource( 8 )]
-
-position = Vector2( 149.894, 419.68 )
-
-[node name="OrangeSpirit4" parent="YSort/MotherSide" index="10" instance=ExtResource( 8 )]
-
-position = Vector2( 201.709, 465.795 )
-
-[node name="OrangeSpirit7" parent="YSort/MotherSide" index="11" instance=ExtResource( 8 )]
-
-position = Vector2( 256.591, 93.3662 )
-
-[node name="OrangeSpirit5" parent="YSort/MotherSide" index="12" instance=ExtResource( 8 )]
-
-position = Vector2( 141.337, 493.417 )
-
-[node name="OrangeSpirit6" parent="YSort/MotherSide" index="13" instance=ExtResource( 8 )]
-
-position = Vector2( 192.177, 81.1452 )
+position = Vector2( 240, 440 )
 
 [node name="FatherSide" type="YSort" parent="YSort" index="4"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="GreenSpikey" parent="YSort/FatherSide" index="0" instance=ExtResource( 9 )]
 
-position = Vector2( 869.956, 478.135 )
+position = Vector2( 910, 440 )
 
 [node name="GreenSpikey8" parent="YSort/FatherSide" index="1" instance=ExtResource( 9 )]
 
-position = Vector2( 729.235, 452.65 )
+position = Vector2( 810, 160 )
 
 [node name="GreenSpikey9" parent="YSort/FatherSide" index="2" instance=ExtResource( 9 )]
 
-position = Vector2( 941.979, 430.49 )
+position = Vector2( 890, 220 )
 
 [node name="GreenSpikey10" parent="YSort/FatherSide" index="3" instance=ExtResource( 9 )]
 
-position = Vector2( 874.388, 552.374 )
-
-[node name="GreenSpikey11" parent="YSort/FatherSide" index="4" instance=ExtResource( 9 )]
-
-position = Vector2( 782.421, 510.269 )
-
-[node name="GreenSpikey2" parent="YSort/FatherSide" index="5" instance=ExtResource( 9 )]
-
-position = Vector2( 782.478, 196.086 )
-
-[node name="GreenSpikey3" parent="YSort/FatherSide" index="6" instance=ExtResource( 9 )]
-
-position = Vector2( 908.826, 157.415 )
-
-[node name="GreenSpikey4" parent="YSort/FatherSide" index="7" instance=ExtResource( 9 )]
-
-position = Vector2( 949.372, 114.824 )
-
-[node name="GreenSpikey5" parent="YSort/FatherSide" index="8" instance=ExtResource( 9 )]
-
-position = Vector2( 955.622, 495.316 )
-
-[node name="GreenSpikey6" parent="YSort/FatherSide" index="9" instance=ExtResource( 9 )]
-
-position = Vector2( 827.108, 135.412 )
-
-[node name="GreenSpikey7" parent="YSort/FatherSide" index="10" instance=ExtResource( 9 )]
-
-position = Vector2( 810.771, 425.043 )
+position = Vector2( 830, 500 )
 
 [node name="DialogueTrigger" type="Area2D" parent="." index="4"]
 
@@ -255,11 +185,11 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
+
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
 
 [connection signal="body_entered" from="DialogueTrigger" to="." method="_on_DialogueTrigger_body_entered"]
-
-[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

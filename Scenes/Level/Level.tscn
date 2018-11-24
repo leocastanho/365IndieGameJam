@@ -14,7 +14,7 @@
 custom_solver_bias = 0.0
 radius = 16.0139
 
-[node name="Level" type="Node2D" index="0" groups=[
+[node name="Level" type="Node2D" groups=[
 "character",
 ]]
 

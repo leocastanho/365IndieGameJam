@@ -54,6 +54,9 @@ func died():
 	
 func activate_dont_damage():
 	canDamage = false
+	
+func activate_damage():
+	canDamage = true
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "Idle"):

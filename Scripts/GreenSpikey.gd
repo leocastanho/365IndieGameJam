@@ -32,6 +32,9 @@ func _ready():
 func activate_dont_damage():
 	canDamage = false
 
+func activate_damage():
+	canDamage = true
+
 func move_in_direction():
 	
 	if(mother):

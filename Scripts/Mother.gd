@@ -13,6 +13,7 @@ onready var bullet = preload("res://Scenes/Bullet.tscn")
 var state
 
 var father
+var lastBullet
 
 func _change_state(new_state):
 	
@@ -52,6 +53,7 @@ func attack():
 	shoot.scale = shoot.scale * 2
 	$Bullets.add_child(shoot)
 	shoot.changeDirection(father.position - shoot.position)
+	lastBullet = shoot
 	
 	pass
 
@@ -62,6 +64,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			_change_state(ATTACKING)
 		ATTACKING:
 			if(father):
+				if(lastBullet):
+					lastBullet.queue_free()
 				attack()
 			_change_state(IDLE)
 		
