@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://interface/bar/life_bar/LifeBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/bar/energy_bar/EnergyBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/counter/bombs/BombsCounter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/counter/rupees/RupeeCounter.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
 
 [node name="Interface" type="Control"]
 
@@ -49,6 +56,7 @@ margin_bottom = 97.0
 
 [node name="Counters" type="HBoxContainer" parent="." index="1"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 1.0
 anchor_top = 0.0
@@ -72,6 +80,32 @@ alignment = 0
 
 margin_left = 126.0
 margin_right = 248.0
+
+[node name="Keys" type="ItemList" parent="." index="2"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -252.0
+margin_top = 20.0
+margin_right = -18.0
+margin_bottom = 114.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/bg = SubResource( 1 )
+items = [  ]
+select_mode = 0
+allow_reselect = false
+max_columns = 3
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+_sections_unfolded = [ "Columns", "Icon", "Rect" ]
 
 [connection signal="health_changed" from="." to="Bars/LifeBar" method="_on_Interface_health_changed"]
 

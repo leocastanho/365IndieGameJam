@@ -4,7 +4,7 @@ signal direction_changed(new_direction)
 
 var look_direction = Vector2(1, 0) setget set_look_direction
 
-var wich_stone
+var wich_object
 
 func _ready():
 	Global.Player = self
@@ -29,19 +29,27 @@ func set_look_direction(value):
 	look_direction = value
 	emit_signal("direction_changed", value)
 	
-func unlock_stone_anim(stone):
-	$Stone.texture = stone
-	$StonesAnimator.play("unlock_stone")
-	wich_stone = stone
+func unlock_object_anim(object):
+	$object.texture = object
+	if object == Global.love_stone_texture or object == Global.family_stone_texture or object == Global.spirit_stone_texture or object == Global.friendship_stone_texture:
+		$object.scale = Vector2(0.31,0.31)
+	else:
+		$object.scale = Vector2(1,1)
+	$ObjectsAnimator.play("unlock_object")
+	wich_object = object
 
 func _on_StonesAnimator_animation_finished(anim_name):
-	$Tween.interpolate_property($Stone, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	$Tween.interpolate_property($object, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 
 func _on_Tween_tween_completed(object, key):
-	match wich_stone:
+	match wich_object:
 		Global.love_stone_texture:
 			Global.item_list.add_icon_item(Global.love_stone_texture, false)
+		Global.love_stone_texture:
+			Global.item_list.add_icon_item(Global.spirit_stone_texture, false)
+		Global.key_texture:
+			get_node("/root/Level3/PlayerInterface/Interface/Keys").add_icon_item(Global.key_texture, false)
 
 #func _input(event):
 #	if Input.is_action_pressed("run"):

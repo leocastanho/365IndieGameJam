@@ -40,7 +40,8 @@ func _on_NextButton_pressed():
 				wich_area_button(0, "option2A", "option2B", "close2A", "close2B")
 				wich_dialogue(0, "area2", "area2A", "area2AFinal", "area2B", "area2BFinal")
 			AREA3:
-				wich_dialogue(0, "area3", "area3A", "area3B")
+				wich_area_button(0, "option3A", "option3B", "close3A", "close3B")
+				wich_dialogue(0, "area3", "area3A", "area3AFinal", "area3B", "area3BFinal")
 			AREA4:
 				wich_area_button(0, "option4A", "option4B", "close4A", "close4B")
 				wich_dialogue(0, "area4", "area4A", "area4AFinal", "area4B", "area4BFinal")
@@ -56,7 +57,8 @@ func _on_NextButton_pressed():
 			AREA2:
 				wich_dialogue(1, "area2", "area2A", "area2B")
 			AREA3:
-				wich_dialogue(1, "area3", "area3A", "area3B")
+				wich_area_button(1, "option3A", "option3B", "close3A", "close3B")
+				wich_dialogue(1, "area3", "area3A", "area3AFinal", "area3B", "area3BFinal")
 			AREA4:
 				wich_dialogue(1, "area4", "area4A", "area4B")
 			FINALAREA:
@@ -82,6 +84,9 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 					wich_area(language, dialogue_a)
 					
 				elif dialogue_part == DIALOGUEAFINAL:
+					if wich_area == AREA3:
+						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
+							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
 					if dialogue_count == dialogue[0][final_dialogue_a].size():
 						$Popup.hide()
 					wich_area(language, final_dialogue_a)
@@ -95,7 +100,10 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 				elif dialogue_part == DIALOGUEBFINAL:
 					if wich_area == AREA1:
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
-							Global.Player.unlock_stone_anim(Global.love_stone_texture)
+							Global.Player.unlock_object_anim(Global.love_stone_texture)
+					if wich_area == AREA3:
+						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
+							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
 					if dialogue_count == dialogue[0][final_dialogue_b].size():
 						$Popup.hide()
 					wich_area(language, final_dialogue_b)
@@ -113,6 +121,7 @@ func _on_OptionA_pressed():
 			var sword = Global.sword_of_love.instance()
 			Global.Player.get_node("WeaponPivot/Offset/Sword").queue_free()
 			Global.Player.get_node("WeaponPivot/Offset").add_child(sword)
+			Global.Player.unlock_object_anim(Global.sword_of_love_texture)
 		AREA2:
 			get_node("..").startAGame("OptionA")
 			pass
@@ -130,6 +139,7 @@ func _on_OptionB_pressed():
 		AREA1:
 			var cape = Global.freedom_cape.instance()
 			Global.Player.add_child(cape)
+			Global.Player.unlock_object_anim(Global.freedom_cape_texture)
 		AREA2:
 			get_node("..").startAGame("OptionB")
 			pass
@@ -173,7 +183,7 @@ func _on_CloseButtonA_pressed():
 		AREA2:
 			pass
 		AREA3:
-			pass
+			get_tree().call_group("DoorEasy","open_door")
 		AREA4:
 			#Start a game Level 4
 			get_node("..").startAGame("OptionA")
@@ -194,7 +204,7 @@ func _on_CloseButtonB_pressed():
 		AREA2:
 			pass
 		AREA3:
-			pass
+			get_tree().call_group("DoorHard","open_door")
 		AREA4:
 			#Start a game Level 4
 			get_node("..").startAGame("OptionB")
@@ -213,6 +223,17 @@ func area1_after_semiboss_interation(option):
 	$Popup.show()
 
 func area2_after_family_interation(option):
+	match option:
+		"optionA":
+			dialogue_part = DIALOGUEAFINAL
+		"optionB":
+			dialogue_part = DIALOGUEBFINAL
+	$Popup/DialogueBox/NextButton.visible = true
+	dialogue_count = 0
+	_on_NextButton_pressed()
+	$Popup.show()
+
+func area3_after_maze_interation(option):
 	match option:
 		"optionA":
 			dialogue_part = DIALOGUEAFINAL
