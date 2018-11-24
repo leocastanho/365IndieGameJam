@@ -1,3 +1,4 @@
+
 extends KinematicBody2D
 
 # class member variables go here, for example:
@@ -132,7 +133,7 @@ func _on_Timer_timeout():
 	if(!player):
 		if(state == IDLE):
 			_change_state(WALK)
-		elif(state != WALK):
+		elif(state != IDLE):
 			_change_state(IDLE)
 	else:		
 		if(state == IDLE):
