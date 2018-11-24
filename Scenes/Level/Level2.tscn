@@ -31,7 +31,7 @@ use_filter = false
 font_data = SubResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
