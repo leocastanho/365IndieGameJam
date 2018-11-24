@@ -2,8 +2,8 @@
 
     {"next":["Next"],
 
-    "option1A":["fight for her"],
-    "option1B":["let her go"],
+    "option1A":["Fight for her"],
+    "option1B":["Let her go"],
     "close1A":["Fight"],
     "close1B":["Run!"],
    
@@ -12,10 +12,10 @@
     "close2A":["Go to Left Side"],
     "close2B":["Go to Right Side"],
 
-    "option3A":["fight for her"],
-    "option3B":["let her go"],
-    "close3A":["Fight"],
-    "close3B":["Run!"],
+    "option3A":["Easy path"],
+    "option3B":["Hard path"],
+    "close3A":["Go"],
+    "close3B":["Good luck!"],
 
     "option4A":["Life"],
     "option4B":["Power"],

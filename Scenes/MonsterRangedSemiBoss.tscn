@@ -165,7 +165,6 @@ extents = Vector2( 30, 30 )
 
 [node name="MonsterRangedSemiBoss" type="RigidBody2D"]
 
-position = Vector2( 395.924, -150 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 1

@@ -10,6 +10,9 @@ var dashCD = false
 #usando particle blood por enquanto, depois tem que fazeruma pro dash
 onready var freedom_particle = preload ("res://Scenes/Blood.tscn")
 
+func _ready():
+	Global.state_move = self
+
 func enter():
 	speed = 0.0
 	velocity = Vector2()
