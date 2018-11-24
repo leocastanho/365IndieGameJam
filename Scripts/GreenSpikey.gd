@@ -10,6 +10,8 @@ var state
 onready var anim = $AnimationPlayer
 onready var timer = $Timer
 
+onready var smokeDie = preload("res://Scenes/Monsters/Smoke.tscn")
+
 var direction = Vector2()
 var speed = 100
 
@@ -72,6 +74,9 @@ func died():
 	state = DIE
 	$Collision.hide()
 	anim.play("Die")
+	var inst = smokeDie.instance()
+	add_child(inst)
+	inst.play("SmokeDie")
 	pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):

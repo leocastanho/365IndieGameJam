@@ -15,7 +15,7 @@
 [ext_resource path="res://player/itens/SpeedBootsPickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=14]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 
 resource_name = "open"
 length = 1.0
@@ -34,14 +34,12 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -49.1126, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 392.197, 11.9925 )
 
-
-[node name="Level3" type="Node2D" index="0" groups=[
-
+[node name="Level3" type="Node2D" groups=[
 "character",
 ]]
 
@@ -114,7 +112,7 @@ disabled = true
 
 [node name="AnimationPlayer" parent="DoorHard/Door" index="3"]
 
-anims/open = SubResource( 4 )
+anims/open = SubResource( 1 )
 
 [node name="Maze" type="TileMap" parent="." index="4"]
 
@@ -255,7 +253,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="8"]

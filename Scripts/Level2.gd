@@ -7,6 +7,8 @@ extends Node
 var chooseOption
 var isAreaFinish = false
 
+
+
 func _ready():
 	
 	$YSort/Mother.set_process(false)
@@ -75,6 +77,7 @@ func finishGame():
 			arrFather[i].get_node("DamageSource").queue_free()
 		
 	isAreaFinish = true
+	Global.Player.unlock_object_anim(Global.family_stone_texture)
 
 func _process(delta):
 	

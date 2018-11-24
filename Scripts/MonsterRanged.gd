@@ -6,11 +6,20 @@ extends RigidBody2D
 var laser_color = Color(1.0, 0, 0)
 onready var bullet = preload("res://Scenes/Bullet.tscn")
 
+enum states {IDLE ,DIED}
+
 var target 
 
 var hit_pos
 var can_shoot = false
+var last
+
 var direction
+
+var state
+
+onready var smokeDie = preload("res://Scenes/Monsters/Smoke.tscn")
+onready var anim = get_node("AnimationPlayer")
 
 export(int) var speed = 0
 export(float) var timeReload = 3
@@ -18,7 +27,7 @@ export(float) var timeReload = 3
 onready var lifeBar = $HealthBar
 var timePassed = 0
 
-var canDamage = true
+var canDamage = false
 
 func take_damage(damage_dealer,damage,effect):
 	if(canDamage):
@@ -28,8 +37,12 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	lifeBar.value = lifeBar.max_value
+	state = IDLE
 	
 	pass
+
+func activate_damage():
+	canDamage = true
 
 func activate_dont_damage():
 	canDamage = false
@@ -63,6 +76,14 @@ func aim():
 	
 	pass
 
+func died():
+	state = DIED
+	$DamageSource.queue_free()
+	var inst = smokeDie.instance()
+	add_child(inst)
+	inst.play("SmokeDie")
+	anim.play("Died")
+
 func shoot():
 	var shoot = bullet.instance()
 	shoot.position = position 
@@ -83,5 +104,13 @@ func _draw():
 func _on_MonsterRanged_body_shape_entered(body_id, body, body_shape, local_shape):
 
 		
+	
+	pass # replace with function body
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	
+	if(anim_name == "Died"):
+		queue_free()
 	
 	pass # replace with function body
