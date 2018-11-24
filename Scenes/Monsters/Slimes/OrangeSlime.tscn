@@ -240,7 +240,7 @@ anti_aliasing_size = 1
 custom_solver_bias = 0.0
 radius = 26.0251
 
-[node name="OrangeSlime" type="KinematicBody2D" groups=[
+[node name="OrangeSlime" type="KinematicBody2D" index="0" groups=[
 "Monsters",
 ]]
 
