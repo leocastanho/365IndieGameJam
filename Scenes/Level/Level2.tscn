@@ -185,9 +185,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
-
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
+
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
 
 [connection signal="body_entered" from="DialogueTrigger" to="." method="_on_DialogueTrigger_body_entered"]
 
