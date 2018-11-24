@@ -235,6 +235,7 @@ tracks/0/keys = {
 
 [node name="Sword" type="Area2D" index="0"]
 
+rotation = -1.38696
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
