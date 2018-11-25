@@ -17,6 +17,8 @@ position = Vector2( -2211.1, -63.9724 )
 
 [node name="Level" parent="." index="1" instance=ExtResource( 2 )]
 
+editor/display_folded = true
+
 [node name="Level2" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 242.118, -1471.66 )
