@@ -10,7 +10,7 @@
 [ext_resource path="res://player/states/combat/attack.gd" type="Script" id=8]
 [ext_resource path="res://player/states/die.gd" type="Script" id=9]
 [ext_resource path="res://player/shadow.png" type="Texture" id=10]
-[ext_resource path="res://player/body.png" type="Texture" id=11]
+[ext_resource path="res://player/Hero.png" type="Texture" id=11]
 [ext_resource path="res://player/weapon/weapon_pivot.gd" type="Script" id=12]
 [ext_resource path="res://player/weapon/Sword.tscn" type="PackedScene" id=13]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=14]
@@ -211,9 +211,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0.896902 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="PlayerV2" type="KinematicBody2D" groups=[
-"Player",
-]]
+[node name="PlayerV2" type="KinematicBody2D" index="0"]
 
 position = Vector2( 628.826, 391.266 )
 scale = Vector2( 0.5, 0.5 )
@@ -235,6 +233,7 @@ collision_mask = 8
 
 [node name="StateMachine" type="Node" parent="." index="1"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 START_STATE = NodePath("Idle")
 
@@ -295,12 +294,14 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="Body" type="Sprite" parent="BodyPivot" index="0"]
 
 position = Vector2( 0, -58.8242 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 4.75, -2.5, 36.75, 60.5 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="WeaponPivot" type="Position2D" parent="." index="5"]
 

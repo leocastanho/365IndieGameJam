@@ -15,8 +15,6 @@ func _ready():
 	$NinePatchRect/VBoxContainer/Start.connect("gui_input", self, "label_pressed");
 	$NinePatchRect/VBoxContainer/Credits.connect("gui_input", self, "label_pressed");
 	$NinePatchRect/VBoxContainer/Exit.connect("gui_input", self, "label_pressed");
-	var projectResolution = ProjectSettings.get_setting("display/window/size/width")
-	print(projectResolution)
 
 func _process(delta):
 	
@@ -42,7 +40,6 @@ func _process(delta):
 func _change_language(new_lang):
 	match new_lang:
 			BR:
-				print("eita xiovana")
 				Global.language_on = Global.languages.PORTUGUESE
 				$NinePatchRect/HBoxContainer/buttonBR.modulate = Color(1, 1, 1)
 				$NinePatchRect/HBoxContainer/buttonUS.modulate = Color(0.3, 0.3, 0.3)
