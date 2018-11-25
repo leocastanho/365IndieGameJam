@@ -7,6 +7,8 @@ var buttons
 enum WICHAREA {INITIALAREA, AREA1, AREA2, AREA3, AREA4, FINALAREA}
 export(WICHAREA) var wich_area = WICHAREA.INITIALAREA
 var area_for_buttonB
+var language_for_area2
+var time_button_area2_pressed = 0
 
 func _ready():
 	dialogue = get_from_json(Global.dialogue_system)
@@ -14,8 +16,10 @@ func _ready():
 	Global.language_on = Global.ENGLISH
 	if Global.language_on == Global.ENGLISH:
 		$Popup/DialogueBox/NextButton/Label.text = buttons[0]["next"][0]
+		language_for_area2 = 0
 	elif Global.language_on == Global.PORTUGUESE:
 		$Popup/DialogueBox/NextButton/Label.text = buttons[1]["next"][0]
+		language_for_area2 = 1
 	dialogue_part = NORMALDIALOGUE
 	_on_NextButton_pressed()
 
@@ -92,23 +96,36 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 					if wich_area == AREA3:
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
+							Global.spirit_stone_unlocked = true
 					if dialogue_count == dialogue[0][final_dialogue_a].size():
 						pop_up_hide()
 					wich_area(language, final_dialogue_a)
 					
 				elif dialogue_part == DIALOGUEB:
-					if dialogue_count == dialogue[0][dialogue_b].size() - 1:
-						$Popup/DialogueBox/CloseButtonB.visible = true
-						$Popup/DialogueBox/NextButton.visible= false
+					if not wich_area == AREA2:
+						if dialogue_count == dialogue[0][dialogue_b].size() - 1:
+							$Popup/DialogueBox/CloseButtonB.visible = true
+							$Popup/DialogueBox/NextButton.visible= false
+					else:
+						if dialogue_count == 1 and time_button_area2_pressed == 0:
+							Global.Player.unlock_object_anim(Global.family_stone_texture)
+							Global.family_stone_unlocked = true
+						if dialogue_count == 2 and time_button_area2_pressed == 0:
+							pop_up_hide()
+						if dialogue_count == dialogue[0][dialogue_b].size() - 1 and time_button_area2_pressed >= 1:
+							$Popup/DialogueBox/CloseButtonB.visible = true
+							$Popup/DialogueBox/NextButton.visible= false
 					wich_area(language, dialogue_b)
 					
 				elif dialogue_part == DIALOGUEBFINAL:
 					if wich_area == AREA1:
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.love_stone_texture)
+							Global.love_stone_unlocked = true
 					if wich_area == AREA3:
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
+							Global.spirit_stone_unlocked = true
 					if dialogue_count == dialogue[0][final_dialogue_b].size():
 						pop_up_hide()
 					wich_area(language, final_dialogue_b)
@@ -127,16 +144,26 @@ func _on_OptionA_pressed():
 			Global.Player.get_node("WeaponPivot/Offset/Sword").queue_free()
 			Global.Player.get_node("WeaponPivot/Offset").add_child(sword)
 			Global.Player.unlock_object_anim(Global.sword_of_love_texture)
+			Global.sword_of_love_unlock = true
 		AREA2:
-			get_node("..").startAGame("OptionA")
-			pass
+			if time_button_area2_pressed == 0:
+				$Popup/DialogueBox/OptionA/Label.text = buttons[language_for_area2]["option2A"][1]
+				$Popup/DialogueBox/OptionB/Label.text = buttons[language_for_area2]["option2B"][1]
+				time_button_area2_pressed += 1
+			elif time_button_area2_pressed >= 1:
+				get_node("..").startAGame("OptionA")
+				hide_option()
+				_on_NextButton_pressed()
 		AREA3:
 			pass
 		AREA4:
-			pass
-	hide_option()
-	_on_NextButton_pressed()
-
+			var shield = Global.shield_of_friendship.instance()
+			Global.Player.add_child(shield)
+			Global.Player.unlock_object_anim(Global.shield_of_friendship_texture)
+			Global.shield_of_friendship_unlock = true
+	if not wich_area == AREA2:
+		hide_option()
+		_on_NextButton_pressed()
 
 func _on_OptionB_pressed():
 	dialogue_part = DIALOGUEB
@@ -145,15 +172,30 @@ func _on_OptionB_pressed():
 			var cape = Global.freedom_cape.instance()
 			Global.Player.add_child(cape)
 			Global.Player.unlock_object_anim(Global.freedom_cape_texture)
+			Global.freedom_cape_unlock = true
 		AREA2:
-			get_node("..").startAGame("OptionB")
-			pass
+			if time_button_area2_pressed == 0:
+				var life_potion = Global.life_potion.instance()
+				Global.Player.add_child(life_potion)
+				Global.Player.unlock_object_anim(Global.flife_potion_texture)
+				Global.life_potion_unlock = true
+				hide_option()
+				_on_NextButton_pressed()
+			elif time_button_area2_pressed >= 1:
+				get_node("..").startAGame("OptionB")
+				hide_option()
+				dialogue_count = 2
+				_on_NextButton_pressed()
 		AREA3:
 			pass
 		AREA4:
-			pass
-	hide_option()
-	_on_NextButton_pressed()
+			var staff = Global.staff_of_rottenness.instance()
+			Global.Player.add_child(staff)
+			Global.Player.unlock_object_anim(Global.staff_of_rottenness_texture)
+			Global.staff_of_rottenness_unlock = true
+	if not wich_area == AREA2:
+		hide_option()
+		_on_NextButton_pressed()
 
 func show_options():
 	$Popup/DialogueBox/OptionA.visible = true

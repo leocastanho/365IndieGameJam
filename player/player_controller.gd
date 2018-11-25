@@ -8,7 +8,37 @@ var wich_object
 
 func _ready():
 	Global.Player = self
-	$CanvasModulate/AnimationPlayer.connect("animation_finished", get_node("/root/BigScene/Level/dialogue_system"), "_on_AnimationPlayer_animation_finished")
+#	$CanvasModulate/AnimationPlayer.connect("animation_finished", get_node("/root/Level/dialogue_system"), "_on_AnimationPlayer_animation_finished")
+	if not Global.begin_anim_once:
+		$CanvasModulate/AnimationPlayer.play("BeginAnim")
+		Global.begin_anim_once = true
+	#this part verify if the player already unlocked an item or stone
+	#Area1
+	if Global.sword_of_love_unlock:
+		var sword = Global.sword_of_love.instance()
+		Global.Player.get_node("WeaponPivot/Offset/Sword").queue_free()
+		Global.Player.get_node("WeaponPivot/Offset").add_child(sword)
+	if Global.freedom_cape_unlock:
+		var cape = Global.freedom_cape.instance()
+		Global.Player.add_child(cape)
+	#Area2
+	if Global.life_potion_unlock:
+		$Health.max_health = 14
+	#Area3
+	if Global.speed_boots_unlock:
+		var speed_boots = Global.speed_boots.instance()
+		Global.Player.add_child(speed_boots)
+	if Global.time_potion_unlock:
+		var time_potion = Global.time_potion.instance()
+		Global.Player.add_child(time_potion)
+	#Area4
+	if Global.shield_of_friendship_unlock:
+		var shield = Global.shield_of_friendship.instance()
+		Global.Player.add_child(shield)
+	if Global.staff_of_rottenness_unlock:
+		var staff = Global.staff_of_rottenness.instance()
+		Global.Player.add_child(staff)
+
 
 func take_damage_from(attacker, amount, effect=null):
 	if self.is_a_parent_of(attacker):
@@ -47,10 +77,14 @@ func _on_Tween_tween_completed(object, key):
 	match wich_object:
 		Global.love_stone_texture:
 			Global.item_list.add_icon_item(Global.love_stone_texture, false)
+		Global.family_stone_texture:
+			Global.item_list.add_icon_item(Global.family_stone_texture, false)
 		Global.spirit_stone_texture:
 			Global.item_list.add_icon_item(Global.spirit_stone_texture, false)
+		Global.friendship_stone_texture:
+			Global.item_list.add_icon_item(Global.friendship_stone_texture, false)
 		Global.key_texture:
-			get_node("/root/Level3/PlayerInterface/Interface/Keys").add_icon_item(Global.key_texture, false)
+			get_node("/root/PlayerInterface/Interface/Keys").add_icon_item(Global.key_texture, false)
 
 #func _input(event):
 #	if Input.is_action_pressed("run"):
