@@ -1,9 +1,10 @@
 extends Control
 
 signal health_changed(health)
-onready var health_node = get_node("/root/Level/YSort/PlayerV2/Health")
+var health_node
 
-func _ready(): 
+func initialize(): 
+	health_node = get_node("/root/Level/YSort/PlayerV2/Health")
 	#passes the players max_health to the lifebar
 	$Bars/LifeBar.initialize(health_node.max_health)
 
