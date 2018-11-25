@@ -6,6 +6,8 @@ var look_direction = Vector2(1, 0) setget set_look_direction
 
 var wich_object
 
+var canDamage = true
+
 func _ready():
 	Global.Player = self
 #	$CanvasModulate/AnimationPlayer.connect("animation_finished", get_node("/root/Level/dialogue_system"), "_on_AnimationPlayer_animation_finished")
@@ -39,15 +41,16 @@ func _ready():
 		var staff = Global.staff_of_rottenness.instance()
 		Global.Player.add_child(staff)
 
-
 func take_damage_from(attacker, amount, effect=null):
-	if self.is_a_parent_of(attacker):
-		return
-	#EnemyPos used on knockback
-	$StateMachine/Stagger.enemyPos = attacker.global_position
-	#Makes MOVE State send signal to StateMachine to change the state do STAGGER
-	$StateMachine/Move.emit_signal("finished", "stagger")
-	$Health.take_damage(amount, effect)
+	
+	if(canDamage):
+		if self.is_a_parent_of(attacker):
+			return
+		#EnemyPos used on knockback
+		$StateMachine/Stagger.enemyPos = attacker.global_position
+		#Makes MOVE State send signal to StateMachine to change the state do STAGGER
+		$StateMachine/Move.emit_signal("finished", "stagger")
+		$Health.take_damage(amount, effect)
 
 func set_dead(value):
 #	queue_free()

@@ -22,7 +22,7 @@ onready var smokeDie = preload("res://Scenes/Monsters/Smoke.tscn")
 onready var anim = get_node("AnimationPlayer")
 
 export(int) var speed = 0
-export(float) var timeReload = 3
+export(float) var timeReload = 5
 
 onready var lifeBar = $HealthBar
 var timePassed = 0
@@ -34,8 +34,6 @@ func take_damage(damage_dealer,damage,effect):
 		$Health.take_damage(damage,effect)
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
 	lifeBar.value = lifeBar.max_value
 	state = IDLE
 	
@@ -49,8 +47,10 @@ func activate_dont_damage():
 
 func _physics_process(delta):
 	target = get_node("../../NPC")
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
+	
+	if(!target):
+		target = get_node("../../PlayerV2")
+
 	timePassed += delta
 	if(timePassed > timeReload):
 		can_shoot = true
@@ -69,7 +69,8 @@ func aim():
 	var result = space_state.intersect_ray(position, target.position, [self], collision_mask)
 	if result:
 		hit_pos = result.position
-		if result.collider.name == "NPC":
+		print(result.collider.name)
+		if result.collider.name == "NPC" || result.collider.name == "HitBox":
 			if(can_shoot):
 				shoot()
 				can_shoot = false
@@ -78,6 +79,7 @@ func aim():
 
 func died():
 	state = DIED
+	$Health.queue_free()
 	$DamageSource.queue_free()
 	var inst = smokeDie.instance()
 	add_child(inst)
