@@ -8,7 +8,7 @@
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=7]
 
-[node name="BigScene" type="Node"]
+[node name="BigScene" type="Node" index="0"]
 
 [node name="Level1" parent="." index="0" instance=ExtResource( 1 )]
 
