@@ -211,7 +211,9 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0.896902 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="PlayerV2" type="KinematicBody2D"]
+[node name="PlayerV2" type="KinematicBody2D" groups=[
+"Player",
+]]
 
 position = Vector2( 628.826, 391.266 )
 scale = Vector2( 0.5, 0.5 )
@@ -233,7 +235,6 @@ collision_mask = 8
 
 [node name="StateMachine" type="Node" parent="." index="1"]
 
-editor/display_folded = true
 script = ExtResource( 3 )
 START_STATE = NodePath("Idle")
 

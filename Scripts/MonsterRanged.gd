@@ -69,7 +69,6 @@ func aim():
 	var result = space_state.intersect_ray(position, target.position, [self], collision_mask)
 	if result:
 		hit_pos = result.position
-		print(result.collider.name)
 		if result.collider.name == "NPC" || result.collider.name == "HitBox":
 			if(can_shoot):
 				shoot()
