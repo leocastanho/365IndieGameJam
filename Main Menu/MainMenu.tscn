@@ -34,6 +34,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="MainMenu" type="CanvasLayer" index="0"]
 
+
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0

@@ -179,6 +179,7 @@ func _on_OptionB_pressed():
 				Global.Player.add_child(life_potion)
 				Global.Player.unlock_object_anim(Global.flife_potion_texture)
 				Global.life_potion_unlock = true
+				get_node("..").finishGame()
 				hide_option()
 				_on_NextButton_pressed()
 			elif time_button_area2_pressed >= 1:
