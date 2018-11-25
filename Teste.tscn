@@ -42,9 +42,7 @@ _sections_unfolded = [ "Visibility" ]
 sort_enabled = true
 _sections_unfolded = [ "Sort" ]
 
-[node name="PlayerV2" parent="Teste" index="0" groups=[
-"Player",
-] instance=ExtResource( 2 )]
+[node name="PlayerV2" parent="Teste" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 780, 420 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]

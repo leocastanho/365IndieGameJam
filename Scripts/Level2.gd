@@ -75,10 +75,10 @@ func finishGame():
 			arrFather[i].activate_dont_damage()
 			arrFather[i].get_node("HealthBar").hide()
 			arrFather[i].get_node("DamageSource").queue_free()
-		
-	isAreaFinish = true
-	Global.Player.unlock_object_anim(Global.family_stone_texture)
-	Global.family_stone_unlocked = true
+	else:
+		isAreaFinish = true
+		Global.Player.unlock_object_anim(Global.family_stone_texture)
+		Global.family_stone_unlocked = true
 
 func _process(delta):
 	
