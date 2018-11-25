@@ -60,4 +60,5 @@ func _on_Timer_timeout():
 	var array = $YSort/Monsters.get_children()
 	for i in range(0, array.size()):
 			array[i].set_physics_process(false)
+			
 	pass # replace with function body

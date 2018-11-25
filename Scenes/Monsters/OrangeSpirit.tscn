@@ -120,9 +120,9 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[node name="OrangeSpirit" type="KinematicBody2D" groups=[
-"Mother",
+[node name="OrangeSpirit" type="KinematicBody2D" index="0" groups=[
 "Monsters",
+"Mother",
 ]]
 
 input_pickable = false

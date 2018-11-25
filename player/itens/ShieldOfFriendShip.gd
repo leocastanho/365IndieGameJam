@@ -13,7 +13,8 @@ func _ready():
 func _input(event):
 	if Input.is_action_pressed("shield") and not shield_on_cd:
 		print("eita")
-		Global.Player.get_node("HitBox/CollisionShape2D").disabled = true
+		#Global.Player.get_node("HitBox/CollisionShape2D").disabled = true
+		Global.Player.canDamage = false
 		state_move.MAX_WALK_SPEED = 100
 		state_move.MAX_RUN_SPEED = 200
 		$ShieldDuration.start()
@@ -26,4 +27,5 @@ func _on_ShieldDuration_timeout():
 	$ShieldCD.start()
 
 func _on_ShieldCD_timeout():
+	Global.Player.canDamage = true
 	shield_on_cd = false
