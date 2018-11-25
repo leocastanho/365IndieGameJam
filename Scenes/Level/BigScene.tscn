@@ -1,5 +1,5 @@
 [gd_scene format=2]
 
-[node name="BigScene" type="Node"]
+[node name="BigScene" type="Node" index="0"]
 
 
