@@ -32,7 +32,7 @@ func _ready():
 
 func _physics_process(delta):
 	
-	target = get_node("../../PlayerV2")
+	target = get_node("../../../../PlayerV2")
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	timePassed += delta
@@ -97,10 +97,10 @@ func take_damage(damage_dealer,damage,effect):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":
 		Global.Player.unlock_object_anim(Global.love_stone_texture)
-		get_node("/root/Level1/dialogue_system").area1_after_semiboss_interation("optionA")
+		get_node("/root/BigScene/Level1/dialogue_system").area1_after_semiboss_interation("optionA")
 		queue_free()
 
 func _on_RunTimer_timeout():
 	set_physics_process(false)
 	$AnimationPlayer.stop()
-	get_node("/root/Level1/dialogue_system").area1_after_semiboss_interation("optionB")
+	get_node("/root/BigScene/Level1/dialogue_system").area1_after_semiboss_interation("optionB")

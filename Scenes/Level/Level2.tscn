@@ -1,18 +1,16 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Background/Graminha1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Monsters/Father.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Monsters/Mother.tscn" type="PackedScene" id=7]
-[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Monsters/OrangeSpirit.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Monsters/GreenSpikey.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Background/Florzinha1.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Background/Tree1.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=13]
+[ext_resource path="res://Scenes/Background/Graminha1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Monsters/Father.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Monsters/Mother.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Monsters/OrangeSpirit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Monsters/GreenSpikey.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Background/Florzinha1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Background/Tree1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=10]
+[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -32,7 +30,7 @@ use_filter = false
 font_data = SubResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Level2" type="Node2D" index="0"]
+[node name="Level2" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -55,153 +53,136 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -65539, 11, 0, -65538, 10, 0, -65537, 14, 0, -131072, 12, 0, -131071, 10, 0, -131070, 10, 0, -131069, 11, 0, -131068, 10, 0, -131067, 14, 0, -131066, 10, 0, -131065, 10, 0, -131064, 12, 0, -131063, 11, 0, -131062, 10, 0, -131061, 10, 0, -131060, 11, 0, -3, 10, 0, -2, 8, 0, -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -65533, 9, 0, -65532, 8, 0, -65531, 24, 0, -65530, 24, 0, -65529, 24, 0, -65528, 8, 0, -65527, 24, 0, -65526, 8, 0, -65525, 8, 0, -65524, 17, 0, 65533, 17, 0, 65534, 24, 0, 65535, 24, 0, 0, 8, 0, 1, 9, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 24, 0, 6, 9, 0, 7, 8, 0, 8, 9, 0, 9, 8, 0, 10, 24, 0, 11, 8, 0, 12, 10, 0, 131069, 10, 0, 131070, 8, 0, 131071, 9, 0, 65536, 8, 0, 65537, 8, 0, 65538, 8, 0, 65539, 9, 0, 65540, 8, 0, 65541, 8, 0, 65542, 8, 0, 65543, 9, 0, 65544, 8, 0, 65545, 8, 0, 65546, 8, 0, 65547, 8, 0, 65548, 10, 0, 196605, 17, 0, 196606, 24, 0, 196607, 24, 0, 131072, 24, 0, 131073, 8, 0, 131074, 8, 0, 131075, 8, 0, 131076, 24, 0, 131077, 24, 0, 131078, 9, 0, 131079, 8, 0, 131080, 8, 0, 131081, 9, 0, 131082, 8, 0, 131083, 8, 0, 131084, 17, 0, 262141, 10, 0, 262142, 9, 0, 262143, 9, 0, 196608, 8, 0, 196609, 8, 0, 196610, 8, 0, 196611, 24, 0, 196612, 24, 0, 196613, 8, 0, 196614, 8, 0, 196615, 8, 0, 196616, 8, 0, 196617, 8, 0, 196618, 8, 0, 196619, 8, 0, 196620, 10, 0, 327677, 11, 0, 327678, 8, 0, 327679, 8, 0, 262144, 8, 0, 262145, 24, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 9, 0, 262150, 24, 0, 262151, 8, 0, 262152, 8, 0, 262153, 8, 0, 262154, 8, 0, 262155, 8, 0, 262156, 11, 0, 393213, 11, 0, 393214, 9, 0, 393215, 8, 0, 327680, 9, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 24, 0, 327686, 8, 0, 327687, 8, 0, 327688, 8, 0, 327689, 9, 0, 327690, 8, 0, 327691, 8, 0, 327692, 17, 0, 458749, 12, 0, 458750, 8, 0, 458751, 8, 0, 393216, 9, 0, 393217, 8, 0, 393218, 9, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 393222, 8, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 8, 0, 393228, 11, 0, 524285, 12, 0, 524286, 9, 0, 524287, 9, 0, 458752, 9, 0, 458753, 9, 0, 458754, 9, 0, 458755, 9, 0, 458756, 19, 0, 458757, 19, 0, 458758, 9, 0, 458759, 9, 0, 458760, 9, 0, 458761, 9, 0, 458762, 9, 0, 458763, 9, 0, 458764, 12, 0, 589822, 9, 0, 589823, 9, 0, 524288, 9, 0, 524289, 9, 0, 524290, 9, 0, 524291, 9, 0, 524292, 19, 0, 524293, 19, 0, 524294, 9, 0, 524295, 9, 0, 524296, 9, 0, 524297, 9, 0, 524298, 9, 0, 524299, 9, 0, 655358, 9, 0, 655359, 9, 0, 589824, 9, 0, 589825, 9, 0, 589826, 9, 0, 589827, 9, 0, 589828, 19, 0, 589829, 19, 0, 589830, 9, 0, 589831, 9, 0, 589832, 9, 0, 589833, 9, 0, 589834, 9, 0, 589835, 9, 0, 720894, 9, 0, 720895, 9, 0, 655360, 9, 0, 655361, 9, 0, 655362, 9, 0, 655363, 9, 0, 655364, 19, 0, 655365, 19, 0, 655366, 9, 0, 655367, 9, 0, 655368, 9, 0, 655369, 9, 0, 655370, 9, 0, 655371, 9, 0, 786430, 9, 0, 786431, 9, 0, 720896, 9, 0, 720897, 9, 0, 720898, 9, 0, 720899, 9, 0, 720900, 19, 0, 720901, 19, 0, 720902, 9, 0, 720903, 9, 0, 720904, 9, 0, 720905, 9, 0, 720906, 9, 0, 720907, 9, 0 )
+tile_data = PoolIntArray( -65539, 11, 0, -65538, 10, 0, -65537, 14, 0, -131072, 12, 0, -131071, 10, 0, -131070, 10, 0, -131069, 11, 0, -131068, 10, 0, -131067, 14, 0, -131066, 10, 0, -131065, 10, 0, -131064, 12, 0, -131063, 11, 0, -131062, 10, 0, -131061, 10, 0, -131060, 11, 0, -3, 10, 0, -2, 8, 0, -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -65533, 9, 0, -65532, 8, 0, -65531, 24, 0, -65530, 24, 0, -65529, 24, 0, -65528, 8, 0, -65527, 24, 0, -65526, 8, 0, -65525, 8, 0, -65524, 17, 0, 65533, 17, 0, 65534, 24, 0, 65535, 24, 0, 0, 8, 0, 1, 9, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 24, 0, 6, 9, 0, 7, 8, 0, 8, 9, 0, 9, 8, 0, 10, 24, 0, 11, 8, 0, 12, 10, 0, 131069, 10, 0, 131070, 8, 0, 131071, 9, 0, 65536, 8, 0, 65537, 8, 0, 65538, 8, 0, 65539, 9, 0, 65540, 8, 0, 65541, 8, 0, 65542, 8, 0, 65543, 9, 0, 65544, 8, 0, 65545, 8, 0, 65546, 8, 0, 65547, 8, 0, 65548, 10, 0, 196605, 17, 0, 196606, 24, 0, 196607, 24, 0, 131072, 24, 0, 131073, 8, 0, 131074, 8, 0, 131075, 8, 0, 131076, 24, 0, 131077, 24, 0, 131078, 9, 0, 131079, 8, 0, 131080, 8, 0, 131081, 9, 0, 131082, 8, 0, 131083, 8, 0, 131084, 17, 0, 262141, 10, 0, 262142, 9, 0, 262143, 9, 0, 196608, 8, 0, 196609, 8, 0, 196610, 8, 0, 196611, 24, 0, 196612, 24, 0, 196613, 8, 0, 196614, 8, 0, 196615, 8, 0, 196616, 8, 0, 196617, 8, 0, 196618, 8, 0, 196619, 8, 0, 196620, 10, 0, 327677, 11, 0, 327678, 8, 0, 327679, 8, 0, 262144, 8, 0, 262145, 24, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 9, 0, 262150, 24, 0, 262151, 8, 0, 262152, 8, 0, 262153, 8, 0, 262154, 8, 0, 262155, 8, 0, 262156, 11, 0, 393213, 11, 0, 393214, 9, 0, 393215, 8, 0, 327680, 9, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 24, 0, 327686, 8, 0, 327687, 8, 0, 327688, 8, 0, 327689, 9, 0, 327690, 8, 0, 327691, 8, 0, 327692, 17, 0, 458749, 12, 0, 458750, 8, 0, 458751, 8, 0, 393216, 9, 0, 393217, 8, 0, 393218, 9, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 393222, 8, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 8, 0, 393228, 11, 0, 524285, 12, 0, 524286, 9, 0, 524287, 9, 0, 458752, 9, 0, 458753, 9, 0, 458754, 9, 0, 458755, 9, 0, 458756, 19, 0, 458757, 19, 0, 458758, 9, 0, 458759, 9, 0, 458760, 9, 0, 458761, 9, 0, 458762, 9, 0, 458763, 9, 0, 458764, 16, 0, 589821, 16, 0, 589822, 9, 0, 589823, 9, 0, 524288, 9, 0, 524289, 9, 0, 524290, 9, 0, 524291, 9, 0, 524292, 19, 0, 524293, 19, 0, 524294, 9, 0, 524295, 9, 0, 524296, 9, 0, 524297, 9, 0, 524298, 9, 0, 524299, 9, 0, 524300, 16, 0, 655357, 13, 0, 655358, 9, 0, 655359, 9, 0, 589824, 9, 0, 589825, 9, 0, 589826, 9, 0, 589827, 9, 0, 589828, 19, 0, 589829, 19, 0, 589830, 9, 0, 589831, 9, 0, 589832, 9, 0, 589833, 9, 0, 589834, 9, 0, 589835, 9, 0, 589836, 13, 0, 720893, 16, 0, 720894, 9, 0, 720895, 9, 0, 655360, 9, 0, 655361, 9, 0, 655362, 9, 0, 655363, 9, 0, 655364, 19, 0, 655365, 19, 0, 655366, 9, 0, 655367, 9, 0, 655368, 9, 0, 655369, 9, 0, 655370, 9, 0, 655371, 9, 0, 655372, 16, 0, 786429, 13, 0, 786430, 9, 0, 786431, 9, 0, 720896, 9, 0, 720897, 9, 0, 720898, 9, 0, 720899, 9, 0, 720900, 19, 0, 720901, 19, 0, 720902, 9, 0, 720903, 9, 0, 720904, 9, 0, 720905, 9, 0, 720906, 9, 0, 720907, 9, 0, 720908, 16, 0, 851965, 16, 0, 851966, 16, 0, 851967, 13, 0, 786432, 16, 0, 786433, 16, 0, 786434, 14, 0, 786435, 16, 0, 786438, 16, 0, 786439, 17, 0, 786440, 16, 0, 786441, 13, 0, 786442, 16, 0, 786443, 17, 0, 786444, 16, 0 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="PlayerInterface" type="CanvasLayer" parent="." index="1"]
+[node name="YSort" type="YSort" parent="." index="1"]
 
 editor/display_folded = true
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 3 )]
-
-[node name="dialogue_system" parent="." index="2" instance=ExtResource( 4 )]
-
-wich_area = 2
-
-[node name="YSort" type="YSort" parent="." index="3"]
-
 sort_enabled = true
 _sections_unfolded = [ "Sort", "Transform", "Z Index" ]
 
-[node name="Graminha1" parent="YSort" index="0" instance=ExtResource( 5 )]
+[node name="Graminha1" parent="YSort" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 380, 160 )
 
-[node name="Graminha2" parent="YSort" index="1" instance=ExtResource( 5 )]
+[node name="Graminha2" parent="YSort" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 1000, 630 )
 
-[node name="Graminha3" parent="YSort" index="2" instance=ExtResource( 5 )]
+[node name="Graminha3" parent="YSort" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 130, 550 )
 
-[node name="Father" parent="YSort" index="3" instance=ExtResource( 6 )]
+[node name="Father" parent="YSort" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 937.04, 285.824 )
 
-[node name="Mother" parent="YSort" index="4" instance=ExtResource( 7 )]
+[node name="Mother" parent="YSort" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 78.9985, 252.32 )
 
-[node name="PlayerV2" parent="YSort" index="5" instance=ExtResource( 8 )]
-
-position = Vector2( 590, 1010 )
-_sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
-
-[node name="MotherSide" type="YSort" parent="YSort" index="6"]
+[node name="MotherSide" type="YSort" parent="YSort" index="5"]
 
 editor/display_folded = true
 sort_enabled = true
 
-[node name="OrangeSpirit" parent="YSort/MotherSide" index="0" instance=ExtResource( 9 )]
+[node name="OrangeSpirit" parent="YSort/MotherSide" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 130, 390 )
 
-[node name="OrangeSpirit12" parent="YSort/MotherSide" index="1" instance=ExtResource( 9 )]
+[node name="OrangeSpirit12" parent="YSort/MotherSide" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 230, 150 )
 
-[node name="OrangeSpirit13" parent="YSort/MotherSide" index="2" instance=ExtResource( 9 )]
+[node name="OrangeSpirit13" parent="YSort/MotherSide" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 140, 180 )
 
-[node name="OrangeSpirit14" parent="YSort/MotherSide" index="3" instance=ExtResource( 9 )]
+[node name="OrangeSpirit14" parent="YSort/MotherSide" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 240, 440 )
 
-[node name="FatherSide" type="YSort" parent="YSort" index="7"]
+[node name="FatherSide" type="YSort" parent="YSort" index="6"]
 
+editor/display_folded = true
 sort_enabled = true
 
-[node name="GreenSpikey" parent="YSort/FatherSide" index="0" instance=ExtResource( 10 )]
+[node name="GreenSpikey" parent="YSort/FatherSide" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 910, 440 )
 
-[node name="GreenSpikey8" parent="YSort/FatherSide" index="1" instance=ExtResource( 10 )]
+[node name="GreenSpikey8" parent="YSort/FatherSide" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 810, 160 )
 
-[node name="GreenSpikey9" parent="YSort/FatherSide" index="2" instance=ExtResource( 10 )]
+[node name="GreenSpikey9" parent="YSort/FatherSide" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( 890, 220 )
 
-[node name="GreenSpikey10" parent="YSort/FatherSide" index="3" instance=ExtResource( 10 )]
+[node name="GreenSpikey10" parent="YSort/FatherSide" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 830, 500 )
 
-[node name="Florzinha1" parent="YSort" index="8" instance=ExtResource( 11 )]
+[node name="Florzinha1" parent="YSort" index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 340, 630 )
 
-[node name="Florzinha2" parent="YSort" index="9" instance=ExtResource( 11 )]
+[node name="Florzinha2" parent="YSort" index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 290, 620 )
 
-[node name="Florzinha3" parent="YSort" index="10" instance=ExtResource( 11 )]
+[node name="Florzinha3" parent="YSort" index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 250, 630 )
 
-[node name="Tree1" parent="YSort" index="11" instance=ExtResource( 12 )]
+[node name="Tree1" parent="YSort" index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 1040, 1110 )
 
-[node name="Tree3" parent="YSort" index="12" instance=ExtResource( 12 )]
+[node name="Tree3" parent="YSort" index="11" instance=ExtResource( 9 )]
 
 position = Vector2( 1230, 1250 )
 
-[node name="Tree4" parent="YSort" index="13" instance=ExtResource( 12 )]
+[node name="Tree4" parent="YSort" index="12" instance=ExtResource( 9 )]
 
 position = Vector2( 1230, 1250 )
 
-[node name="Tree5" parent="YSort" index="14" instance=ExtResource( 12 )]
+[node name="Tree5" parent="YSort" index="13" instance=ExtResource( 9 )]
 
 position = Vector2( 1340, 1450 )
 
-[node name="Tree6" parent="YSort" index="15" instance=ExtResource( 12 )]
+[node name="Tree6" parent="YSort" index="14" instance=ExtResource( 9 )]
 
 position = Vector2( 890, 1390 )
 
-[node name="Tree9" parent="YSort" index="16" instance=ExtResource( 12 )]
+[node name="Tree9" parent="YSort" index="15" instance=ExtResource( 9 )]
 
 position = Vector2( 60, 1540 )
 
-[node name="Tree10" parent="YSort" index="17" instance=ExtResource( 12 )]
+[node name="Tree10" parent="YSort" index="16" instance=ExtResource( 9 )]
 
 position = Vector2( 1190, 90 )
 
-[node name="Tree11" parent="YSort" index="18" instance=ExtResource( 12 )]
+[node name="Tree11" parent="YSort" index="17" instance=ExtResource( 9 )]
 
 position = Vector2( 1190, 90 )
 
-[node name="Tree7" parent="YSort" index="19" instance=ExtResource( 12 )]
+[node name="Tree7" parent="YSort" index="18" instance=ExtResource( 9 )]
 
 position = Vector2( 210, 1270 )
 
-[node name="Tree8" parent="YSort" index="20" instance=ExtResource( 12 )]
+[node name="Tree8" parent="YSort" index="19" instance=ExtResource( 9 )]
 
 position = Vector2( -130, 1320 )
 
-[node name="Tree2" parent="YSort" index="21" instance=ExtResource( 12 )]
+[node name="Tree2" parent="YSort" index="20" instance=ExtResource( 9 )]
 
 position = Vector2( 30, 1110 )
 
-[node name="DialogueTrigger" type="Area2D" parent="." index="4"]
+[node name="DialogueTrigger" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 620, 690 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -210,7 +191,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 13 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" index="0"]
 
@@ -218,15 +199,16 @@ position = Vector2( -81.3046, 34.9999 )
 scale = Vector2( 5.89507, 8.57414 )
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="." index="5"]
+[node name="Timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="TimerInterface" type="CanvasLayer" parent="." index="6"]
+[node name="TimerInterface" type="CanvasLayer" parent="." index="4"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -257,11 +239,13 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[connection signal="body_entered" from="DialogueTrigger" to="." method="_on_DialogueTrigger_body_entered"]
+[node name="dialogue_system" parent="." index="5" instance=ExtResource( 11 )]
+
+wich_area = 2
+
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
 
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
-
-[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

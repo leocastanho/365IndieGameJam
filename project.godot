@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="365IndieGameJam"
-run/main_scene="res://Scenes/Level/Level.tscn"
+run/main_scene="res://Scenes/Level/BigScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -21,6 +21,8 @@ Global="*res://Scripts/Autoload/Global.gd"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
@@ -74,4 +76,5 @@ shield=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":""
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

@@ -1,17 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Level4.gd" type="Script" id=1]
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://interface/Interface.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/NPC.tscn" type="PackedScene" id=5]
-[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/MonsterRanged.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Background/Rock1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Background/Stone4.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Background/Stone1.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Background/Graminha3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=12]
+[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/NPC.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/MonsterRanged.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Background/Rock1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Background/Stone4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Background/Stone1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Background/Graminha3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -31,7 +29,7 @@ use_filter = false
 font_data = SubResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Level4" type="Node2D"]
+[node name="Level4" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -53,130 +51,118 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -393216, 1, 0, -393215, 1, 0, -393214, 1, 0, -393213, 1, 0, -393212, 18, 0, -393211, 18, 0, -393210, 1, 0, -393209, 1, 0, -393208, 1, 0, -393207, 1, 0, -327680, 1, 0, -327679, 1, 0, -327678, 1, 0, -327677, 1, 0, -327676, 18, 0, -327675, 18, 0, -327674, 1, 0, -327673, 1, 0, -327672, 1, 0, -327671, 1, 0, -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 18, 0, -262139, 18, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 18, 0, -196603, 18, 0, -196602, 1, 0, -196601, 1, 0, -196599, 1, 0, -65537, 13, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 18, 0, -131067, 18, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -131063, 1, 0, -131062, 13, 0, -1, 17, 0, -65536, 24, 0, -65535, 9, 0, -65534, 8, 0, -65533, 24, 0, -65532, 24, 0, -65531, 23, 0, -65530, 8, 0, -65529, 23, 0, -65528, 24, 0, -65527, 1, 0, -65526, 16, 0, 65535, 10, 0, 0, 24, 0, 1, 9, 0, 2, 0, 0, 3, 24, 0, 4, 8, 0, 5, 1, 0, 6, 23, 0, 7, 24, 0, 8, 24, 0, 9, 9, 0, 10, 17, 0, 131071, 17, 0, 65536, 24, 0, 65537, 0, 0, 65538, 1, 0, 65539, 1, 0, 65540, 0, 0, 65541, 23, 0, 65542, 1, 0, 65543, 8, 0, 65544, 24, 0, 65545, 9, 0, 65546, 13, 0, 196607, 10, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 0, 0, 131079, 24, 0, 131080, 8, 0, 131081, 1, 0, 131082, 16, 0, 262143, 13, 0, 196608, 24, 0, 196609, 1, 0, 196610, 0, 0, 196611, 23, 0, 196612, 23, 0, 196613, 0, 0, 196614, 1, 0, 196615, 1, 0, 196616, 0, 0, 196617, 1, 0, 196618, 17, 0, 327679, 10, 0, 262144, 24, 0, 262145, 23, 0, 262146, 23, 0, 262147, 0, 0, 262148, 1, 0, 262149, 1, 0, 262150, 0, 0, 262151, 24, 0, 262152, 8, 0, 262153, 1, 0, 262154, 13, 0, 393215, 13, 0, 327680, 7, 0, 327681, 24, 0, 327682, 9, 0, 327683, 24, 0, 327684, 1, 0, 327685, 1, 0, 327686, 8, 0, 327687, 24, 0, 327688, 9, 0, 327689, 9, 0, 327690, 16, 0, 458751, 14, 0, 393216, 17, 0, 393217, 15, 0, 393218, 15, 0, 393219, 14, 0, 393220, 15, 0, 393221, 17, 0, 393222, 14, 0, 393223, 15, 0, 393224, 14, 0, 393225, 17, 0, 393226, 16, 0 )
+tile_data = PoolIntArray( -393217, 13, 0, -458752, 14, 0, -458751, 13, 0, -458750, 13, 0, -458749, 13, 0, -458746, 13, 0, -458745, 13, 0, -458744, 14, 0, -458743, 13, 0, -458742, 13, 0, -327681, 13, 0, -393216, 1, 0, -393215, 1, 0, -393214, 1, 0, -393213, 1, 0, -393212, 18, 0, -393211, 18, 0, -393210, 1, 0, -393209, 1, 0, -393208, 1, 0, -393207, 1, 0, -393206, 14, 0, -262145, 14, 0, -327680, 1, 0, -327679, 1, 0, -327678, 1, 0, -327677, 1, 0, -327676, 18, 0, -327675, 18, 0, -327674, 1, 0, -327673, 1, 0, -327672, 1, 0, -327671, 1, 0, -327670, 13, 0, -196609, 13, 0, -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 18, 0, -262139, 18, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, -262135, 1, 0, -262134, 14, 0, -131073, 14, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -196605, 1, 0, -196604, 18, 0, -196603, 18, 0, -196602, 1, 0, -196601, 1, 0, -196599, 1, 0, -196598, 13, 0, -65537, 13, 0, -131072, 1, 0, -131071, 1, 0, -131070, 1, 0, -131069, 1, 0, -131068, 18, 0, -131067, 18, 0, -131066, 1, 0, -131065, 1, 0, -131064, 1, 0, -131063, 1, 0, -131062, 13, 0, -1, 17, 0, -65536, 24, 0, -65535, 9, 0, -65534, 8, 0, -65533, 24, 0, -65532, 24, 0, -65531, 23, 0, -65530, 8, 0, -65529, 23, 0, -65528, 24, 0, -65527, 1, 0, -65526, 16, 0, 65535, 10, 0, 0, 24, 0, 1, 9, 0, 2, 0, 0, 3, 24, 0, 4, 8, 0, 5, 1, 0, 6, 23, 0, 7, 24, 0, 8, 24, 0, 9, 9, 0, 10, 17, 0, 131071, 17, 0, 65536, 24, 0, 65537, 0, 0, 65538, 1, 0, 65539, 1, 0, 65540, 0, 0, 65541, 23, 0, 65542, 1, 0, 65543, 8, 0, 65544, 24, 0, 65545, 9, 0, 65546, 13, 0, 196607, 10, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 0, 0, 131079, 24, 0, 131080, 8, 0, 131081, 1, 0, 131082, 16, 0, 262143, 13, 0, 196608, 24, 0, 196609, 1, 0, 196610, 0, 0, 196611, 23, 0, 196612, 23, 0, 196613, 0, 0, 196614, 1, 0, 196615, 1, 0, 196616, 0, 0, 196617, 1, 0, 196618, 17, 0, 327679, 10, 0, 262144, 24, 0, 262145, 23, 0, 262146, 23, 0, 262147, 0, 0, 262148, 1, 0, 262149, 1, 0, 262150, 0, 0, 262151, 24, 0, 262152, 8, 0, 262153, 1, 0, 262154, 13, 0, 393215, 13, 0, 327680, 7, 0, 327681, 24, 0, 327682, 9, 0, 327683, 24, 0, 327684, 1, 0, 327685, 1, 0, 327686, 8, 0, 327687, 24, 0, 327688, 9, 0, 327689, 9, 0, 327690, 16, 0, 458751, 14, 0, 393216, 17, 0, 393217, 15, 0, 393218, 15, 0, 393219, 14, 0, 393220, 15, 0, 393221, 17, 0, 393222, 14, 0, 393223, 15, 0, 393224, 14, 0, 393225, 17, 0, 393226, 16, 0 )
 _sections_unfolded = [ "Cell", "Collision" ]
 
-[node name="PlayerInterface" type="CanvasLayer" parent="." index="1"]
-
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Interface" parent="PlayerInterface" index="0" instance=ExtResource( 3 )]
-
-[node name="dialogue_system" parent="." index="2" instance=ExtResource( 4 )]
+[node name="dialogue_system" parent="." index="1" instance=ExtResource( 3 )]
 
 wich_area = 4
 
-[node name="YSort" type="YSort" parent="." index="3"]
+[node name="YSort" type="YSort" parent="." index="2"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="NPC" parent="YSort" index="0" groups=[
 "Help",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 4 )]
 
 position = Vector2( 645.782, 306.592 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
 
-[node name="PlayerV2" parent="YSort" index="1" instance=ExtResource( 6 )]
+[node name="Monsters" type="YSort" parent="YSort" index="1"]
 
-position = Vector2( 634.438, -519.796 )
-_sections_unfolded = [ "Collision", "Material", "Transform", "Visibility" ]
-
-[node name="Monsters" type="YSort" parent="YSort" index="2"]
-
+editor/display_folded = true
 sort_enabled = true
 
-[node name="MonsterRanged" parent="YSort/Monsters" index="0" instance=ExtResource( 7 )]
+[node name="MonsterRanged" parent="YSort/Monsters" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 644.367, 14.0118 )
 timeReload = 2.0
 
-[node name="MonsterRanged2" parent="YSort/Monsters" index="1" instance=ExtResource( 7 )]
+[node name="MonsterRanged2" parent="YSort/Monsters" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 1075.83, 102.522 )
 timeReload = 1.75
 
-[node name="MonsterRanged3" parent="YSort/Monsters" index="2" instance=ExtResource( 7 )]
+[node name="MonsterRanged3" parent="YSort/Monsters" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 1098.64, 546.139 )
 timeReload = 5.0
 
-[node name="MonsterRanged6" parent="YSort/Monsters" index="3" instance=ExtResource( 7 )]
+[node name="MonsterRanged6" parent="YSort/Monsters" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 672.749, 686.095 )
 
-[node name="MonsterRanged4" parent="YSort/Monsters" index="4" instance=ExtResource( 7 )]
+[node name="MonsterRanged4" parent="YSort/Monsters" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 246.323, 512.264 )
 timeReload = 1.5
 
-[node name="MonsterRanged5" parent="YSort/Monsters" index="5" instance=ExtResource( 7 )]
+[node name="MonsterRanged5" parent="YSort/Monsters" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 245.36, 151.972 )
 timeReload = 1.0
 
-[node name="Rock1" parent="YSort" index="3" instance=ExtResource( 8 )]
+[node name="Rock1" parent="YSort" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 1075.8, 331.874 )
 
-[node name="Rock2" parent="YSort" index="4" instance=ExtResource( 8 )]
+[node name="Rock2" parent="YSort" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 396.029, 675.933 )
 
-[node name="Stone4" parent="YSort" index="5" instance=ExtResource( 9 )]
+[node name="Stone4" parent="YSort" index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 1075.53, -237.864 )
 
-[node name="Stone1" parent="YSort" index="6" instance=ExtResource( 10 )]
+[node name="Stone1" parent="YSort" index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 279.466, -590.741 )
 
-[node name="Graminha3" parent="YSort" index="7" instance=ExtResource( 11 )]
+[node name="Graminha3" parent="YSort" index="6" instance=ExtResource( 9 )]
 
 position = Vector2( 398.614, 119.32 )
 
-[node name="Graminha7" parent="YSort" index="8" instance=ExtResource( 11 )]
+[node name="Graminha7" parent="YSort" index="7" instance=ExtResource( 9 )]
 
 position = Vector2( 1171.92, 620.119 )
 
-[node name="Graminha12" parent="YSort" index="9" instance=ExtResource( 11 )]
+[node name="Graminha12" parent="YSort" index="8" instance=ExtResource( 9 )]
 
 position = Vector2( 129.723, 705.299 )
 
-[node name="Graminha10" parent="YSort" index="10" instance=ExtResource( 11 )]
+[node name="Graminha10" parent="YSort" index="9" instance=ExtResource( 9 )]
 
 position = Vector2( 996.55, 671.895 )
 
-[node name="Graminha11" parent="YSort" index="11" instance=ExtResource( 11 )]
+[node name="Graminha11" parent="YSort" index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 1124.04, 185.833 )
 
-[node name="Graminha8" parent="YSort" index="12" instance=ExtResource( 11 )]
+[node name="Graminha8" parent="YSort" index="11" instance=ExtResource( 9 )]
 
 position = Vector2( 497.889, 432.489 )
 
-[node name="Graminha9" parent="YSort" index="13" instance=ExtResource( 11 )]
+[node name="Graminha9" parent="YSort" index="12" instance=ExtResource( 9 )]
 
 position = Vector2( 222.626, 339.531 )
 
-[node name="Graminha4" parent="YSort" index="14" instance=ExtResource( 11 )]
+[node name="Graminha4" parent="YSort" index="13" instance=ExtResource( 9 )]
 
 position = Vector2( 480.742, 220.401 )
 
-[node name="Graminha5" parent="YSort" index="15" instance=ExtResource( 11 )]
+[node name="Graminha5" parent="YSort" index="14" instance=ExtResource( 9 )]
 
 position = Vector2( 761.42, 420.756 )
 
-[node name="Graminha6" parent="YSort" index="16" instance=ExtResource( 11 )]
+[node name="Graminha6" parent="YSort" index="15" instance=ExtResource( 9 )]
 
 position = Vector2( 851.718, 256.673 )
 
-[node name="DialogueTrigger" type="Area2D" parent="." index="4"]
+[node name="DialogueTrigger" type="Area2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 203.569, 144.349 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -185,7 +171,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 12 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" index="0"]
 
@@ -193,14 +179,14 @@ position = Vector2( 435.145, -242.698 )
 scale = Vector2( 25.7126, 1 )
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="." index="5"]
+[node name="Timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="TimerInterface" type="CanvasLayer" parent="." index="6"]
+[node name="TimerInterface" type="CanvasLayer" parent="." index="5"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -232,9 +218,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
 
-[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

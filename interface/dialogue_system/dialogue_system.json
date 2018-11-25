@@ -1,5 +1,10 @@
 [ 
-    {"initial_area":["you area ugly", "i hate you","choose wisely"],
+    {"initial_area":["this is your mind", "you are in conflict with yourself because of decisions you have to make",
+        "to make piece with yourself you must face these conflicts. To do that you must collect 4 Conflict Stones", 
+        "Love Stone, Family Stone, Spirit Stone, Friendship Stone", "The purple left path leads you to Love Conflict Area", 
+        "The up blue path lead you to the Family Conflict Area", "The right green path lead you to the Spirit Conflict Area",
+        "The down orange path lead you to the Friendship Conflict Area", 
+        "Face your conflicts and get the 4 stones and come back here to make piece with yourself"],
 
     "area1":["sniff sniff", "what?","no, nothing is alright, ok?","you don't love me as i deserve!","i can't do this anymore",
         "i wanna break up"],

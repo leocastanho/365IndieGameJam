@@ -8,6 +8,7 @@ var wich_object
 
 func _ready():
 	Global.Player = self
+	$CanvasModulate/AnimationPlayer.connect("animation_finished", get_node("/root/BigScene/Level/dialogue_system"), "_on_AnimationPlayer_animation_finished")
 
 func take_damage_from(attacker, amount, effect=null):
 	if self.is_a_parent_of(attacker):
@@ -46,7 +47,7 @@ func _on_Tween_tween_completed(object, key):
 	match wich_object:
 		Global.love_stone_texture:
 			Global.item_list.add_icon_item(Global.love_stone_texture, false)
-		Global.love_stone_texture:
+		Global.spirit_stone_texture:
 			Global.item_list.add_icon_item(Global.spirit_stone_texture, false)
 		Global.key_texture:
 			get_node("/root/Level3/PlayerInterface/Interface/Keys").add_icon_item(Global.key_texture, false)
