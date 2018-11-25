@@ -17,7 +17,6 @@ func _ready():
 	elif Global.language_on == Global.PORTUGUESE:
 		$Popup/DialogueBox/NextButton/Label.text = buttons[1]["next"][0]
 	dialogue_part = NORMALDIALOGUE
-	$Popup.show()
 	_on_NextButton_pressed()
 
 func get_from_json(filename):
@@ -64,6 +63,8 @@ func _on_NextButton_pressed():
 			FINALAREA:
 				wich_area(1, "final_area")
 	dialogue_count += 1
+	print(dialogue_count)
+	print(wich_area)
 
 func wich_area(language, area):
 	area_for_buttonB = area
@@ -168,10 +169,12 @@ func hide_option():
 func pop_up_show():
 	$Tween.interpolate_property($Popup, "modulate", Color(1,1,1,0), Color(1,1,1,1), 0.3, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
+	$Popup.show()
 
 func pop_up_hide():
 	$Tween.interpolate_property($Popup, "modulate", Color(1,1,1,1), Color(1,1,1,0), 0.3, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
+	$Popup.hide()
 
 func _on_CloseButtonA_pressed():
 	pop_up_hide()
@@ -261,10 +264,16 @@ func area4_after_protect_interation(option):
 	dialogue_count = 0
 	_on_NextButton_pressed()
 	pop_up_show()
-	
 
 func _on_CloseButtonFinal_pressed():
 	pop_up_hide()
+	$Popup/DialogueBox/CloseButtonFinal.visible = false
+	$Popup/DialogueBox/NextButton.visible = true
+	queue_free()
 
 func _on_DialogueTrigger_body_entered(body):
-	pop_up_show()
+	if body == Global.Player:
+		dialogue_count = 0
+		dialogue_part = NORMALDIALOGUE
+		_on_NextButton_pressed()
+		pop_up_show()

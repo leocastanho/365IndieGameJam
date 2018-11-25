@@ -10,6 +10,7 @@ var Weapon
 var Interface
 var item_list
 var state_move
+var dialogue_system_script
 
 #dialogues path -> need to change manually
 var dialogue_system = "res://interface/dialogue_system/dialogue_system.json"

@@ -8,6 +8,7 @@ var wich_object
 
 func _ready():
 	Global.Player = self
+	$CanvasModulate/AnimationPlayer.connect("animation_finished", get_node("/root/BigScene/Level/dialogue_system"), "_on_AnimationPlayer_animation_finished")
 
 func take_damage_from(attacker, amount, effect=null):
 	if self.is_a_parent_of(attacker):

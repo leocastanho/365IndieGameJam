@@ -54,6 +54,7 @@ func _change_state(new_state):
 			visible = false
 			monitoring = false
 		ATTACK:
+			combo_count = clamp(combo_count, 0, 3)
 			attack_current = combo[combo_count -1]
 			if combo_count == 3:
 				shaking_camera.amplitude = 15

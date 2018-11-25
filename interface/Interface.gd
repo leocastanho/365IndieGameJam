@@ -1,7 +1,7 @@
 extends Control
 
 signal health_changed(health)
-onready var health_node = get_node("../../YSort/PlayerV2/Health")
+onready var health_node = get_node("/root/BigScene/PlayerV2/Health")
 
 func _ready(): 
 	#passes the players max_health to the lifebar
