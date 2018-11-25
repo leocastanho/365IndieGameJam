@@ -5,7 +5,7 @@ onready var health_node = get_node("../Health")
 export var new_max_health = 14
 
 func _ready():
-	var life_bar = get_node("/root/Level/PlayerInterface/Interface/Bars/LifeBar/BarsContainers/Container")
+	var life_bar = get_node("/root/PlayerInterface/Interface/Bars/LifeBar/BarsContainers/Container")
 	life_bar.get_node("AnimationPlayer").play("stretch_life_bar")
 	life_bar.get_node("TextureProgress").max_value = new_max_health
 	life_bar.get_node("TextureProgress").value = new_max_health

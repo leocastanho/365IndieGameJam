@@ -78,6 +78,7 @@ func finishGame():
 		
 	isAreaFinish = true
 	Global.Player.unlock_object_anim(Global.family_stone_texture)
+	Global.family_stone_unlocked = true
 
 func _process(delta):
 	
@@ -90,7 +91,7 @@ func _process(delta):
 				finishGame()
 		elif(chooseOption == "OptionB"):
 			if($YSort/MotherSide.get_child_count() == 0):
-				$dialogue_system.area2_after_family_interation("optionA")
+				$dialogue_system.area2_after_family_interation("optionB")
 				finishGame()
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

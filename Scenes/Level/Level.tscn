@@ -1,18 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Level/PortalArea1.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Level/PortalArea2.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Level/PortalArea3.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Level/PortalArea4.gd" type="Script" id=8]
 
-[node name="Level" type="Node2D" groups=[
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 50 )
+
+[node name="Level" type="Node2D" index="0" groups=[
 "character",
 ]]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 
@@ -56,13 +63,105 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -262138, 10, 0, -262135, 10, 0, -196602, 10, 0, -196599, 10, 0, -131066, 16, 0, -131065, 19, 0, -131064, 19, 0, -131063, 16, 0, -65530, 16, 0, -65529, 19, 0, -65528, 19, 0, -65527, 16, 0, 6, 16, 0, 7, 19, 0, 8, 19, 0, 9, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 19, 0, 65544, 19, 0, 65545, 16, 0, 65546, 16, 0, 131076, 16, 0, 131077, 16, 0, 131078, 19, 0, 131079, 19, 0, 131080, 19, 0, 131081, 19, 0, 131082, 16, 0, 131083, 16, 0, 262142, 10, 0, 262143, 16, 0, 196608, 16, 0, 196609, 16, 0, 196610, 16, 0, 196611, 16, 0, 196612, 16, 0, 196613, 21, 0, 196618, 20, 0, 196619, 16, 0, 196620, 16, 0, 196621, 16, 0, 196622, 16, 0, 196623, 16, 0, 196624, 16, 0, 196625, 10, 0, 327679, 21, 0, 262144, 21, 0, 262145, 21, 0, 262146, 21, 0, 262147, 21, 0, 262148, 21, 0, 262149, 21, 0, 262154, 20, 0, 262155, 20, 0, 262156, 20, 0, 262157, 20, 0, 262158, 20, 0, 262159, 20, 0, 262160, 20, 0, 393215, 21, 0, 327680, 21, 0, 327681, 21, 0, 327682, 21, 0, 327683, 21, 0, 327684, 21, 0, 327685, 21, 0, 327690, 20, 0, 327691, 20, 0, 327692, 20, 0, 327693, 20, 0, 327694, 20, 0, 327695, 20, 0, 327696, 20, 0, 458750, 10, 0, 458751, 16, 0, 393216, 16, 0, 393217, 16, 0, 393218, 16, 0, 393219, 16, 0, 393220, 16, 0, 393221, 21, 0, 393226, 20, 0, 393227, 16, 0, 393228, 16, 0, 393229, 16, 0, 393230, 16, 0, 393231, 16, 0, 393232, 16, 0, 393233, 10, 0, 458756, 16, 0, 458757, 16, 0, 458758, 18, 0, 458759, 18, 0, 458760, 18, 0, 458761, 18, 0, 458762, 16, 0, 458763, 16, 0, 524293, 16, 0, 524294, 16, 0, 524295, 18, 0, 524296, 18, 0, 524297, 16, 0, 524298, 16, 0, 589830, 16, 0, 589831, 18, 0, 589832, 18, 0, 589833, 16, 0, 655366, 16, 0, 655367, 18, 0, 655368, 18, 0, 655369, 16, 0, 720902, 16, 0, 720903, 18, 0, 720904, 18, 0, 720905, 16, 0, 786438, 10, 0, 786441, 10, 0, 851974, 10, 0, 851977, 10, 0, 917510, 10, 0, 917513, 10, 0 )
+tile_data = PoolIntArray( -786426, 15, 0, -786425, 15, 0, -786424, 15, 0, -786423, 15, 0, -720890, 15, 0, -720887, 15, 0, -655354, 15, 0, -655351, 15, 0, -589818, 15, 0, -589815, 15, 0, -524282, 15, 0, -524279, 15, 0, -458746, 15, 0, -458743, 15, 0, -393210, 15, 0, -393207, 15, 0, -327674, 15, 0, -327671, 15, 0, -262138, 10, 0, -262135, 10, 0, -196602, 10, 0, -196599, 10, 0, -131066, 16, 0, -131065, 19, 0, -131064, 19, 0, -131063, 16, 0, -65530, 16, 0, -65529, 19, 0, -65528, 19, 0, -65527, 16, 0, 6, 16, 0, 7, 19, 0, 8, 19, 0, 9, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 19, 0, 65544, 19, 0, 65545, 16, 0, 65546, 16, 0, 131076, 16, 0, 131077, 16, 0, 131078, 19, 0, 131079, 19, 0, 131080, 19, 0, 131081, 19, 0, 131082, 16, 0, 131083, 16, 0, 262132, 15, 0, 262133, 15, 0, 262134, 15, 0, 262135, 15, 0, 262136, 15, 0, 262137, 15, 0, 262138, 15, 0, 262139, 15, 0, 262140, 15, 0, 262141, 15, 0, 262142, 10, 0, 262143, 16, 0, 196608, 16, 0, 196609, 16, 0, 196610, 16, 0, 196611, 16, 0, 196612, 16, 0, 196613, 21, 0, 196618, 20, 0, 196619, 16, 0, 196620, 16, 0, 196621, 16, 0, 196622, 16, 0, 196623, 16, 0, 196624, 16, 0, 196625, 10, 0, 196626, 15, 0, 196627, 15, 0, 196628, 15, 0, 196629, 15, 0, 196630, 15, 0, 196631, 15, 0, 196632, 15, 0, 196633, 15, 0, 196634, 15, 0, 196635, 15, 0, 196636, 15, 0, 196637, 15, 0, 327668, 15, 0, 327679, 21, 0, 262144, 21, 0, 262145, 21, 0, 262146, 21, 0, 262147, 21, 0, 262148, 21, 0, 262149, 21, 0, 262154, 20, 0, 262155, 20, 0, 262156, 20, 0, 262157, 20, 0, 262158, 20, 0, 262159, 20, 0, 262160, 20, 0, 262173, 15, 0, 393204, 15, 0, 393215, 21, 0, 327680, 21, 0, 327681, 21, 0, 327682, 21, 0, 327683, 21, 0, 327684, 21, 0, 327685, 21, 0, 327690, 20, 0, 327691, 20, 0, 327692, 20, 0, 327693, 20, 0, 327694, 20, 0, 327695, 20, 0, 327696, 20, 0, 327709, 15, 0, 458740, 15, 0, 458741, 15, 0, 458742, 15, 0, 458743, 15, 0, 458744, 15, 0, 458745, 15, 0, 458746, 15, 0, 458747, 15, 0, 458748, 15, 0, 458749, 15, 0, 458750, 10, 0, 458751, 16, 0, 393216, 16, 0, 393217, 16, 0, 393218, 16, 0, 393219, 16, 0, 393220, 16, 0, 393221, 21, 0, 393226, 20, 0, 393227, 16, 0, 393228, 16, 0, 393229, 16, 0, 393230, 16, 0, 393231, 16, 0, 393232, 16, 0, 393233, 10, 0, 393234, 15, 0, 393235, 15, 0, 393236, 15, 0, 393237, 15, 0, 393238, 15, 0, 393239, 15, 0, 393240, 15, 0, 393241, 15, 0, 393242, 15, 0, 393243, 15, 0, 393244, 15, 0, 393245, 15, 0, 458756, 16, 0, 458757, 16, 0, 458758, 18, 0, 458759, 18, 0, 458760, 18, 0, 458761, 18, 0, 458762, 16, 0, 458763, 16, 0, 524293, 16, 0, 524294, 16, 0, 524295, 18, 0, 524296, 18, 0, 524297, 16, 0, 524298, 16, 0, 589830, 16, 0, 589831, 18, 0, 589832, 18, 0, 589833, 16, 0, 655366, 16, 0, 655367, 18, 0, 655368, 18, 0, 655369, 16, 0, 720902, 16, 0, 720903, 18, 0, 720904, 18, 0, 720905, 16, 0, 786438, 10, 0, 786441, 10, 0, 851974, 10, 0, 851977, 10, 0, 917510, 10, 0, 917513, 10, 0, 983046, 15, 0, 983049, 15, 0, 1048582, 15, 0, 1048585, 15, 0, 1114118, 15, 0, 1114121, 15, 0, 1179654, 15, 0, 1179657, 15, 0, 1245190, 15, 0, 1245193, 15, 0, 1310726, 15, 0, 1310729, 15, 0, 1376262, 15, 0, 1376265, 15, 0, 1441798, 15, 0, 1441799, 15, 0, 1441800, 15, 0, 1441801, 15, 0 )
 _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
+editor/display_folded = true
 sort_enabled = true
 
-[node name="dialogue_system" parent="." index="3" instance=ExtResource( 3 )]
+[node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 510, 310 )
+
+[node name="dialogue_system" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="PortalArea1" type="Area2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( -660, 320 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea1" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PortalArea2" type="Area2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 510, -640 )
+rotation = 1.5708
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea2" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PortalArea3" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 1810, 320 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea3" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PortalArea4" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 515.146, 1342.76 )
+rotation = 1.5708
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea4" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="animation_finished" from="YSort/PlayerV2/CanvasModulate/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[connection signal="body_entered" from="PortalArea1" to="PortalArea1" method="_on_PortalArea1_body_entered"]
+
+[connection signal="body_entered" from="PortalArea2" to="PortalArea2" method="_on_PortalArea2_body_entered"]
+
+[connection signal="body_entered" from="PortalArea3" to="PortalArea3" method="_on_PortalArea3_body_entered"]
+
+[connection signal="body_entered" from="PortalArea4" to="PortalArea4" method="_on_PortalArea4_body_entered"]
 
 
+[editable path="YSort/PlayerV2"]

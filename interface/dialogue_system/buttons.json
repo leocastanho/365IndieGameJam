@@ -5,10 +5,10 @@
     "option1A":["Fight for her"],
     "option1B":["Let her go"],
     "close1A":["Fight"],
-    "close1B":["Run!"],
+    "close1B":["Run for your life!"],
    
-    "option2A":["Mother"],
-    "option2B":["Father"],
+    "option2A":["One of them", "Mother"],
+    "option2B":["None of them", "Father"],
     "close2A":["Go to Left Side"],
     "close2B":["Go to Right Side"],
 
@@ -17,7 +17,7 @@
     "close3A":["Go"],
     "close3B":["Good luck!"],
 
-    "option4A":["Life"],
+    "option4A":["Friends life"],
     "option4B":["Power"],
     "close4A":["Protect!"],
     "close4B":["Fight!"],

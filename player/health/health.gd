@@ -26,6 +26,7 @@ func _ready():
 	$PoisonTimer.connect('timeout', self, '_on_PoisonTimer_timeout')
 	$StunTimer.connect('timeout', self, '_on_StunTimer_timeout')
 	$MiniStunTimer.connect('timeout', self, '_on_MiniStunTimer_timeout')
+	connect("health_changed",get_node("/root/PlayerInterface/Interface"),"_on_Health_health_changed")
 
 func _process(delta):
 #	health_GUI.rect_rotation = - get_node("../").rotation_degrees
@@ -67,8 +68,6 @@ func take_damage(amount, effect=null):
 				owner.set_physics_process(false)
 				if not owner.get_node("AnimationPlayer").get_current_animation() == "death":
 					owner.get_node("AnimationPlayer").play("death")
-				var love_stone = Global.love_stone.instance()
-				Global.Player.add_child(love_stone)
 			elif (owner.is_in_group("Monsters")):
 				owner.died()
 				owner.set_physics_process(false)

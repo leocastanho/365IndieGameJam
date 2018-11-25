@@ -14,7 +14,6 @@ func _ready():
 func _input(event):
 	if Input.is_action_pressed("slow_time") and not time_potion_cd:
 		Engine.time_scale = 0.3
-		print("aasdasd")
 		state_move.MAX_WALK_SPEED /= time_scale
 		state_move.MAX_RUN_SPEED /= time_scale
 		$Timer.start()
