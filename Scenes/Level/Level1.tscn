@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/SemiBoss.tscn" type="PackedScene" id=2]
@@ -11,13 +11,14 @@
 [ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=9]
 [ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/PortalInitialArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SFX/Music/the love for life_Area1.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 181.741 )
 
-[node name="Level1" type="Node2D" index="0" groups=[
+[node name="Level1" type="Node2D" groups=[
 "character",
 ]]
 
@@ -111,9 +112,18 @@ wich_area = 1
 
 [node name="PortalInitialArea" parent="." index="4" instance=ExtResource( 11 )]
 
-[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
+
+[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
 
 
 [editable path="YSort/SemiBoss"]

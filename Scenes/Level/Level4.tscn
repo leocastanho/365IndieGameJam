@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Level4.gd" type="Script" id=1]
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/PortalInitialArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://SFX/Music/The value of blood_Area4.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -162,7 +163,7 @@ position = Vector2( 643.845, -815.878 )
 
 [node name="DialogueTrigger" type="Area2D" parent="." index="3"]
 
-position = Vector2( 203.569, 144.349 )
+position = Vector2( 644.136, 217.357 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -174,9 +175,9 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" index="0"]
 
-position = Vector2( 435.145, -242.698 )
 scale = Vector2( 25.7126, 1 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
@@ -223,6 +224,15 @@ position = Vector2( 628.572, -779.84 )
 rotation = 1.5708
 scale = Vector2( 1, 2.00004 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
 

@@ -17,16 +17,22 @@ var stun_cycles = 4
 
 func _ready():
 	health = max_health
+	print(health)
 	if owner.get_name() == "PlayerV2":
+		if Global.life_potion_unlock:
+			max_health = 14
+			health = max_health
+		connect("health_changed",get_node("/root/PlayerInterface/Interface"),"_on_Health_health_changed")
+#		get_node("/root/PlayerInterface/Interface").initialize(max_health)
 		#emit signal to Interface
-#		emit_signal("health_changed", health)
+		emit_signal("health_changed", health)
 		pass
 	else:
 		health_GUI = owner.get_node("HealthBar")
 	$PoisonTimer.connect('timeout', self, '_on_PoisonTimer_timeout')
 	$StunTimer.connect('timeout', self, '_on_StunTimer_timeout')
 	$MiniStunTimer.connect('timeout', self, '_on_MiniStunTimer_timeout')
-	connect("health_changed",get_node("/root/PlayerInterface/Interface"),"_on_Health_health_changed")
+
 
 func _process(delta):
 #	health_GUI.rect_rotation = - get_node("../").rotation_degrees
@@ -63,6 +69,18 @@ func take_damage(amount, effect=null):
 	if health <= 0:
 		if owner.get_name() == "PlayerV2":
 			owner.get_node("StateMachine/Stagger").emit_signal("finished", "dead")
+			if get_tree().get_current_scene().name == "Level1":
+				Global.sword_of_love_unlock = false
+				Global.freedom_cape_unlock = false
+			if get_tree().get_current_scene().name == "Level2":
+				pass
+			if get_tree().get_current_scene().name == "Level3":
+				Global.speed_boots_unlock = false
+				Global.time_potion_unlock = false
+			if get_tree().get_current_scene().name == "Level4":
+				Global.shield_of_friendship_unlock = false
+				Global.staff_of_rottenness_unlock = false
+			get_tree().reload_current_scene()
 		else:
 			if owner.name == "MonsterRangedSemiBoss":
 				owner.set_physics_process(false)
