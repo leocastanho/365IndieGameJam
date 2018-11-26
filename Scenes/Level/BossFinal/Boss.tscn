@@ -118,7 +118,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Boss" type="KinematicBody2D" groups=[
+[node name="Boss" type="KinematicBody2D" index="0" groups=[
 "Monsters",
 ]]
 
