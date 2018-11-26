@@ -85,15 +85,19 @@ func _on_Tween_tween_completed(object, key):
 	match wich_object:
 		Global.love_stone_texture:
 			Global.item_list.add_icon_item(Global.love_stone_texture, false)
+			Global.love_stone_unlocked = true
 			wich_object = null
 		Global.family_stone_texture:
 			Global.item_list.add_icon_item(Global.family_stone_texture, false)
+			Global.family_stone_unlocked = true
 			wich_object = null
 		Global.spirit_stone_texture:
 			Global.item_list.add_icon_item(Global.spirit_stone_texture, false)
 			wich_object = null
+			Global.spirit_stone_unlocked = true
 		Global.friendship_stone_texture:
 			Global.item_list.add_icon_item(Global.friendship_stone_texture, false)
+			Global.friendship_stone_unlocked = true
 			wich_object = null
 		Global.key_texture:
 			get_node("/root/PlayerInterface/Interface/Keys").add_icon_item(Global.key_texture, false)
