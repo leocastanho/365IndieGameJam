@@ -116,7 +116,7 @@ func _on_AnimatedSprite_animation_finished():
 			else:
 				_change_state(IDLE)
 		DIE:
-			anim.stop()
+			get_tree().change_scene("res://EndGame/EndGame.tscn")
 			return
 			
 	

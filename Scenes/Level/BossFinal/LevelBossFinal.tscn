@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Level/BossFinal/LevelBossFinal.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Level/BossFinal/map.png" type="Texture" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://Art/Symbols/4-PB.png" type="Texture" id=4]
 [ext_resource path="res://Art/Symbols/3-PB.png" type="Texture" id=5]
 [ext_resource path="res://Art/Symbols/1-PB.png" type="Texture" id=6]
-[ext_resource path="res://maze/Walls.tres" type="TileSet" id=7]
-[ext_resource path="res://Scenes/Level/BossFinal/Boss.tscn" type="PackedScene" id=8]
-[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Art/Symbols/5-PB.png" type="Texture" id=7]
+[ext_resource path="res://maze/Walls.tres" type="TileSet" id=8]
+[ext_resource path="res://Scenes/Level/BossFinal/Boss.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=10]
 
 [node name="LevelBossFinal" type="Node2D"]
 
@@ -71,11 +72,18 @@ scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
+[node name="YouSymbol" type="Sprite" parent="Background" index="4"]
+
+position = Vector2( 20.9747, 7.89557 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="TileMap" type="TileMap" parent="." index="2"]
 
 position = Vector2( -119.217, -25.7266 )
 mode = 0
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 8 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -96,7 +104,7 @@ tile_data = PoolIntArray( -851979, 0, 655360, -851978, 0, 655362, -851977, 0, 65
 
 sort_enabled = true
 
-[node name="Boss" parent="YSort" index="0" instance=ExtResource( 8 )]
+[node name="Boss" parent="YSort" index="0" instance=ExtResource( 9 )]
 
 editor/display_folded = true
 position = Vector2( 563.972, 267.804 )
@@ -156,7 +164,7 @@ position = Vector2( -351.37, 784.452 )
 
 position = Vector2( 13.2527, -518.907 )
 
-[node name="PlayerV2" parent="YSort" index="1" instance=ExtResource( 9 )]
+[node name="PlayerV2" parent="YSort" index="1" instance=ExtResource( 10 )]
 
 position = Vector2( 578.075, 494.59 )
 
