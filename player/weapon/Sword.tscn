@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/weapon/Sword.gd" type="Script" id=1]
-[ext_resource path="res://player/weapon/sword.png" type="Texture" id=2]
+[ext_resource path="res://player/itens/Espada basica.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -126,9 +126,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.15, 0.2 ),
-"transitions": PoolRealArray( 0.439427, 1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -80.0, 85.0, 75.0 ]
+"values": [ -90.0, 85.0, 75.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:scale")
@@ -233,9 +233,9 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[node name="Sword" type="Area2D" index="0"]
+[node name="Sword" type="Area2D"]
 
-rotation = -1.38696
+rotation = -1.5708
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -267,13 +267,16 @@ _sections_unfolded = [ "Playback Options" ]
 [node name="sword" type="Sprite" parent="." index="1"]
 
 position = Vector2( 4, 0 )
+rotation = 2.33874
+scale = Vector2( 0.13, 0.14 )
 texture = ExtResource( 2 )
-offset = Vector2( 67, 0 )
+centered = false
+offset = Vector2( -1100, -1100 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
 
 build_mode = 0
-polygon = PoolVector2Array( 28.0001, -15.9999, 136, -15.9995, 160, 0, 136, 16.0005, 27.9999, 16.0001 )
+polygon = PoolVector2Array( 57.9022, -12.0284, 135.68, -16.0912, 205.669, 4.8601, 140.834, 21.505, 58.8398, 14.7889 )
 
 

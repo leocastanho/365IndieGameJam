@@ -55,7 +55,7 @@ var speed_boots_texture = preload("res://player/itens/Bota-da-agilidade.png")
 var time_potion = preload("res://player/itens/TimePotion.tscn")
 var time_potion_texture = preload("res://player/itens/Poção-2.png")
 var key_count = 0
-var key_texture = preload("res://Art/Key_Gold.png")
+var key_texture = preload("res://Art/key_t.png")
 var lightON = true
 #area4
 var staff_of_rottenness = preload("res://player/itens/StaffOfRottenness.tscn")

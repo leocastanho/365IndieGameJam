@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 20.5831, 15.489 )
 
-[node name="Graminha2" type="Area2D"]
+[node name="Graminha2" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

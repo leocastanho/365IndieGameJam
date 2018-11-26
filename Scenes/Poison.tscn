@@ -56,9 +56,9 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Gravity", "Initial Velocity", "Linear Accel", "Scale", "Spread" ]
 
-[node name="Blood" type="Particles2D"]
+[node name="Poison" type="Particles2D"]
 
-modulate = Color( 0.695313, 0.149384, 0.149384, 0.963922 )
+modulate = Color( 0.0152435, 0.433594, 0.0511955, 0.788667 )
 position = Vector2( 1.92882, 4.14621 )
 emitting = false
 amount = 10

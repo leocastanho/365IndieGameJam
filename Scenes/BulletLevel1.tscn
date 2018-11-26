@@ -1,18 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/BulletLevel1.gd" type="Script" id=1]
-[ext_resource path="res://Art/square.png" type="Texture" id=2]
+[ext_resource path="res://Art/Pixel Heart-export.png" type="Texture" id=2]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 12.5
-
-[sub_resource type="CircleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 15.0
 
 [node name="BulletLevel1" type="RigidBody2D" groups=[
 "character",
@@ -42,15 +37,19 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 damage = 1
 min_speed_multiplier = 2
-max_speed_multiplier = 4
+max_speed_multiplier = 5
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.08, 0.08 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Collision" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 0.0993004, 2.78049 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
 
@@ -58,13 +57,13 @@ rect = Rect2( -10, -10, 20, 20 )
 
 [node name="DamageSource" parent="." index="3" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 damage = 1
 effect = 0
 
-[node name="Collision2" type="CollisionShape2D" parent="DamageSource" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DamageSource" index="0"]
 
-shape = SubResource( 2 )
+build_mode = 0
+polygon = PoolVector2Array( -14.4911, -9.12281, -6.78364, -9.57091, -0.6894, -4.0144, 7.73499, -9.75015, 14.2773, -9.48129, 17.4141, -4.73137, 17.5933, 1.63174, 0.20681, 17.4947, -16.8212, 1.09401, -16.9108, -6.16531 )
 
 [connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
 

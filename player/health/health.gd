@@ -75,7 +75,7 @@ func take_damage(amount, effect=null):
 				Global.sword_of_love_unlock = false
 				Global.freedom_cape_unlock = false
 			if get_tree().get_current_scene().name == "Level2":
-				pass
+				Global.life_potion_unlock = false
 			if get_tree().get_current_scene().name == "Level3":
 				Global.speed_boots_unlock = false
 				Global.time_potion_unlock = false
