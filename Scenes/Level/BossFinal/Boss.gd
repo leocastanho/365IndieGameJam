@@ -68,21 +68,25 @@ func _change_state(new_state):
 	pass
 
 func _next_phase(new_phase):
-	
 	match new_phase:
 		EASY:
+			$CanvasLayer/Back/HealthBar.get("custom_styles/fg").bg_color = Color(0.3, 0.6, 0.3)
 			timesAttack = 1
 			timesTeleport = 1
 		NORMAL:
+			$CanvasLayer/Back/HealthBar.get("custom_styles/fg").bg_color = Color(1, 0.7, 0.2)
 			timesAttack = 2
 			timesTeleport = 2
 		HARD:
+			$CanvasLayer/Back/HealthBar.get("custom_styles/fg").bg_color = Color(1, 0.5, 0.1)
 			timesAttack = 3
 			timesTeleport = 3
 		MASTER:
+			$CanvasLayer/Back/HealthBar.get("custom_styles/fg").bg_color = Color(1, 0, 0)
 			timesAttack = 4
 			timesTeleport = 4
 			
+	$CanvasLayer/Back/HealthBar.update()
 	phase = new_phase
 	
 	pass
@@ -90,11 +94,11 @@ func _next_phase(new_phase):
 func _process(delta):
 	
 	if(state != DIE):
-		if($Health.health/$Health.max_health <= 0.8 && phase > NORMAL):
+		if(float($Health.health)/float($Health.max_health) <= 0.6 && phase < NORMAL):
 			_next_phase(NORMAL)
-		elif ($Health.health/$Health.max_health <= 0.5 && phase > HARD):
+		elif (float($Health.health)/float($Health.max_health) <= 0.3 && phase < HARD):
 			_next_phase(HARD)
-		elif ($Health.health/$Health.max_health <= 0.3 && phase > MASTER):
+		elif (float($Health.health)/float($Health.max_health) <= 0.2 && phase < MASTER):
 			_next_phase(MASTER)
 		
 	pass
