@@ -123,11 +123,13 @@ func _on_AnimatedSprite_animation_finished():
 	
 	pass # replace with function body
 func died():
-	state = DIE
-	_change_state(DIE)
-	$Health.queue_free()
-	$DamageSource.queue_free()
-	$Timer.queue_free()
+	
+	if(state != DIE):
+		state = DIE
+		_change_state(DIE)
+		$Health.queue_free()
+		$DamageSource.queue_free()
+		$Timer.queue_free()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match state:
