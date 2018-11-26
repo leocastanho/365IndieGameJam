@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://player/HitBox.tscn" type="PackedScene" id=2]
@@ -21,46 +21,17 @@
 [ext_resource path="res://interface/bar/stones_bar/LoveStone.png" type="Texture" id=19]
 [ext_resource path="res://player/Torch.tscn" type="PackedScene" id=20]
 
-[sub_resource type="RectangleShape2D" id=10]
-
-custom_solver_bias = 0.0
-extents = Vector2( 74.4841, 128.545 )
-
 [sub_resource type="Animation" id=1]
 
 length = 1.0
-loop = true
+loop = false
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("BodyPivot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("BodyPivot:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
 
 [sub_resource type="Animation" id=2]
 
-length = 0.45
+length = 0.6
 loop = false
-step = 0.05
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Body:modulate")
 tracks/0/interp = 1
@@ -76,21 +47,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 
-length = 0.4
-loop = true
+length = 1.0
+loop = false
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("BodyPivot:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -5.0, 5.0 ]
-}
 
 [sub_resource type="DynamicFont" id=4]
 
@@ -275,11 +234,6 @@ scale = Vector2( 0.4, 0.4 )
 collision_layer = 1
 collision_mask = 8
 
-[node name="CollisionShape2D" parent="HitBox" index="0"]
-
-position = Vector2( -16.8662, -12.8102 )
-shape = SubResource( 10 )
-
 [node name="StateMachine" type="Node" parent="." index="1"]
 
 editor/display_folded = true
@@ -356,7 +310,6 @@ _sections_unfolded = [ "Animation", "Region", "Transform" ]
 
 [node name="Light2D" type="Light2D" parent="BodyPivot/Body" index="0"]
 
-visible = false
 position = Vector2( 2.20117, -7.72668 )
 scale = Vector2( 0.55, 0.55 )
 enabled = true
@@ -390,15 +343,15 @@ script = ExtResource( 13 )
 
 [node name="Offset" type="Position2D" parent="WeaponPivot" index="0"]
 
-position = Vector2( 83.1208, 0 )
+position = Vector2( 110, 0 )
 
 [node name="Sword" parent="WeaponPivot/Offset" index="0" instance=ExtResource( 14 )]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="6"]
 
-position = Vector2( -6.02039, 42.2576 )
+position = Vector2( -6.43909, 41.2108 )
 build_mode = 0
-polygon = PoolVector2Array( -27.5194, 2.50513, -27.7765, -30.394, 27.2268, -29.623, 28.2549, 2.50513 )
+polygon = PoolVector2Array( -31.2603, 4.37152, -31.8271, -33.2269, 31.4667, -32.4712, 32.4114, 2.67108 )
 
 [node name="Health" parent="." index="7" instance=ExtResource( 15 )]
 
@@ -490,7 +443,7 @@ blend_times = [  ]
 
 [node name="Torch" parent="." index="16" instance=ExtResource( 20 )]
 
-position = Vector2( -6.10156, 22.0013 )
+position = Vector2( -0.765991, -5.66443 )
 rotation = -1.5708
 scale = Vector2( 6, 6 )
 color = Color( 1, 1, 1, 0 )
@@ -498,7 +451,7 @@ _sections_unfolded = [ "Shadow", "Transform" ]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="17"]
 
-color = Color( 1, 1, 1, 1 )
+color = Color( 1, 1, 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 
@@ -526,4 +479,3 @@ blend_times = [  ]
 [connection signal="animation_finished" from="CanvasModulate/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 
-[editable path="HitBox"]
