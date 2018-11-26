@@ -15,9 +15,13 @@ var monster_can_shoot = false
 #levels paths -> need to change manually
 var initial_level = "res://Scenes/Level/Level.tscn"
 var level1 = "res://Scenes/Level/Level1.tscn"
+var level1dialogue = "res://Scenes/Level/Level1Dialogue.tscn"
 var level2 = "res://Scenes/Level/Level2.tscn"
+var level2dialogue = "res://Scenes/Level/Level2Dialogue.tscn"
 var level3 = "res://Scenes/Level/Level3.tscn"
+var level3dialogue = "res://Scenes/Level/Level3Dialogue.tscn"
 var level4 = "res://Scenes/Level/Level4.tscn"
+var level4dialogue = "res://Scenes/Level/Level4Dialogue.tscn"
 var final_area
 var porta_final_area = preload ("res://Scenes/Level/PortalFinalArea.tscn")
 

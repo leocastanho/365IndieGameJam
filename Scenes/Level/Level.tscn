@@ -73,12 +73,16 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 position = Vector2( 510, 310 )
+
+[node name="StateMachine" parent="YSort/PlayerV2" index="1"]
+
+editor/display_folded = false
 
 [node name="dialogue_system" parent="." index="3" instance=ExtResource( 4 )]
 

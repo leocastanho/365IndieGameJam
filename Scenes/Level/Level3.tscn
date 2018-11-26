@@ -29,7 +29,7 @@ extents = Vector2( 372.689, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 372.077, 10 )
 
-[node name="Level3" type="Node2D" index="0" groups=[
+[node name="Level3" type="Node2D" groups=[
 "character",
 ]]
 
@@ -60,6 +60,7 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="Maze" type="TileMap" parent="Floors" index="0"]
 
+editor/display_folded = true
 scale = Vector2( 2, 2 )
 mode = 0
 tile_set = ExtResource( 2 )
@@ -314,7 +315,7 @@ color = Color( 1, 1, 1, 0.603098 )
 [node name="dialogue_system" parent="." index="1" instance=ExtResource( 16 )]
 
 editor/display_folded = true
-wich_area = 3
+wich_area = 6
 
 [node name="PortalInitialArea" parent="." index="2" instance=ExtResource( 17 )]
 

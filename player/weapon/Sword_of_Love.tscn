@@ -266,14 +266,15 @@ _sections_unfolded = [ "Playback Options" ]
 [node name="sword" type="Sprite" parent="." index="1"]
 
 rotation = 0.785398
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
 offset = Vector2( 600, -600 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
 
+position = Vector2( 77.9201, 0 )
 build_mode = 0
-polygon = PoolVector2Array( 28.0001, -15.9999, 136, -15.9995, 160, 0, 136, 16.0005, 27.9999, 16.0001 )
+polygon = PoolVector2Array( 28.0001, -15.9999, 108.581, -27.1267, 174.739, 0.0718079, 99.0244, 20.6545, 29.1904, 8.89294 )
 
 
