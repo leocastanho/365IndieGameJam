@@ -116,6 +116,7 @@ func _on_AnimatedSprite_animation_finished():
 			else:
 				_change_state(IDLE)
 		DIE:
+			yield(get_tree().create_timer(1.0), "timeout")
 			get_tree().change_scene("res://EndGame/EndGame.tscn")
 			return
 			

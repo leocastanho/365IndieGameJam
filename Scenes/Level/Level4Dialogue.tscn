@@ -5,7 +5,7 @@
 [ext_resource path="res://player/Hero-portrait.png" type="Texture" id=3]
 [ext_resource path="res://SFX/Music/The value of blood_Area4.wav" type="AudioStream" id=4]
 
-[node name="Level4Dialogue" type="Node2D" groups=[
+[node name="Level4Dialogue" type="Node2D" index="0" groups=[
 "character",
 ]]
 

@@ -9,6 +9,7 @@ onready var anim = $AnimationPlayer
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	get_node("/root/PlayerInterface/Interface").visible = false
 	anim.play("Text1")
 	
 	pass

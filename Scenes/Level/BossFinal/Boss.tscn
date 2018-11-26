@@ -3,13 +3,13 @@
 [ext_resource path="res://Scenes/Level/BossFinal/Boss.gd" type="Script" id=1]
 [ext_resource path="res://player/shadow.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Level/BossFinal/Idle/Idle.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack1.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack2.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack3.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack4.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Level/BossFinal/Die/Die1.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/Level/BossFinal/Die/Die2.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Level/BossFinal/Die/Die3.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Level/BossFinal/Die/Die1.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Level/BossFinal/Die/Die2.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Level/BossFinal/Die/Die3.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack1.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack2.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack3.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack4.png" type="Texture" id=10]
 [ext_resource path="res://Art/Sprite-0001.png" type="Texture" id=11]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=12]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=13]
@@ -22,15 +22,15 @@ animations = [ {
 "name": "Idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Attack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Die",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 10.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -118,7 +118,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Boss" type="KinematicBody2D" groups=[
+[node name="Boss" type="KinematicBody2D" index="0" groups=[
 "Monsters",
 ]]
 
@@ -237,7 +237,7 @@ shape = SubResource( 5 )
 
 [node name="Health" parent="." index="5" instance=ExtResource( 13 )]
 
-max_health = 100
+max_health = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 

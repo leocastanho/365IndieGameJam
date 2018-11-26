@@ -29,7 +29,7 @@ extents = Vector2( 372.689, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 372.077, 10 )
 
-[node name="Level3" type="Node2D" groups=[
+[node name="Level3" type="Node2D" index="0" groups=[
 "character",
 ]]
 
