@@ -10,6 +10,7 @@ export var timeReload = 3
 var can_shoot = false
 
 func _ready():
+	randomize()
 	var array = $YSort/Monsters.get_children()
 	for i in range(0, array.size()):
 		array[i].set_physics_process(false)
@@ -21,6 +22,7 @@ func _process(delta):
 	if can_shoot and not isAreaFinish:
 		timePassed += delta
 	#	timePassed = timeReload
+		print(timePassed)
 		if(timePassed > timeReload):
 			make_monsters_shoot()
 	
@@ -38,6 +40,7 @@ func _process(delta):
 
 func make_monsters_shoot():
 	var rand = randi() % 6 + 1
+	print(rand)
 	if rand == 1:
 		if $YSort/Monsters/MonsterRanged != null:
 			get_tree().call_group("Monster1","shoot")
@@ -72,9 +75,9 @@ func make_monsters_shoot():
 
 func startAGame(option):
 	if(option == "OptionA"):
-		timeReload = 3
+		timeReload = 2
 		var timer = $Timer
-		timer.wait_time = 30
+		timer.wait_time = 40
 		timer.start()
 		var timerInterface = $TimerInterface/Interface
 		timerInterface.text = str(timer.time_left)
@@ -105,5 +108,3 @@ func _on_Timer_timeout():
 	var array = $YSort/Monsters.get_children()
 	for i in range(0, array.size()):
 			array[i].set_physics_process(false)
-			
-	pass # replace with function body

@@ -77,7 +77,6 @@ _sections_unfolded = [ "Theme", "Visibility" ]
 
 [node name="DialogueBox" type="NinePatchRect" parent="Popup" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -127,7 +126,6 @@ _sections_unfolded = [ "Margin", "Theme" ]
 
 [node name="NextButton" type="TextureButton" parent="Popup/DialogueBox" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -169,7 +167,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "NEXT"
 align = 1
 valign = 1
@@ -190,7 +187,6 @@ blend_times = [  ]
 
 [node name="CloseButtonFinal" type="TextureButton" parent="Popup/DialogueBox" index="2"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -233,7 +229,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "NEXT"
 align = 1
 valign = 1
@@ -254,7 +249,6 @@ blend_times = [  ]
 
 [node name="OptionA" type="TextureButton" parent="Popup/DialogueBox" index="3"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -296,7 +290,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OPTION A"
 align = 1
 valign = 1
@@ -307,7 +300,6 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="OptionB" type="TextureButton" parent="Popup/DialogueBox" index="4"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -349,7 +341,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OPTION B"
 align = 1
 valign = 1
@@ -360,7 +351,6 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="CloseButtonA" type="TextureButton" parent="Popup/DialogueBox" index="5"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -402,7 +392,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OPTION A"
 align = 1
 valign = 1
@@ -413,7 +402,6 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="CloseButtonB" type="TextureButton" parent="Popup/DialogueBox" index="6"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -455,7 +443,6 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OPTION A"
 align = 1
 valign = 1

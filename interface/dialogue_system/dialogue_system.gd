@@ -4,7 +4,7 @@ var dialogue_count = 0
 enum dialogue_part {NORMALDIALOGUE, DIALOGUEA, DIALOGUEAFINAL, DIALOGUEB, DIALOGUEBFINAL}
 var dialogue
 var buttons
-enum WICHAREA {INITIALAREA, AREA1, AREA2, AREA3, AREA4, FINALAREA}
+enum WICHAREA {INITIALAREA, MINDAREA1, AREA1, MINDAREA2, AREA2, MINDAREA3, AREA3, MINDAREA4 AREA4, FINALAREA}
 export(WICHAREA) var wich_area = WICHAREA.INITIALAREA
 var area_for_buttonB
 var language_for_area2
@@ -13,7 +13,6 @@ var time_button_area2_pressed = 0
 func _ready():
 	dialogue = get_from_json(Global.dialogue_system)
 	buttons = get_from_json(Global.buttons)
-	Global.language_on = Global.ENGLISH
 	if Global.language_on == Global.ENGLISH:
 		$Popup/DialogueBox/NextButton/Label.text = buttons[0]["next"][0]
 		language_for_area2 = 0
@@ -36,15 +35,23 @@ func _on_NextButton_pressed():
 		match wich_area:
 			INITIALAREA:
 				wich_area(0, "initial_area")
+			MINDAREA1:
+				wich_area(0, "mind_area1")
 			AREA1:
 				wich_area_button(0, "option1A", "option1B", "close1A", "close1B")
 				wich_dialogue(0, "area1", "area1A", "area1AFinal", "area1B", "area1BFinal")
+			MINDAREA2:
+				wich_area(0, "mind_area2")
 			AREA2:
 				wich_area_button(0, "option2A", "option2B", "close2A", "close2B")
 				wich_dialogue(0, "area2", "area2A", "area2AFinal", "area2B", "area2BFinal")
+			MINDAREA3:
+				wich_area(0, "mind_area3")
 			AREA3:
 				wich_area_button(0, "option3A", "option3B", "close3A", "close3B")
 				wich_dialogue(0, "area3", "area3A", "area3AFinal", "area3B", "area3BFinal")
+			MINDAREA4:
+				wich_area(0, "mind_area4")
 			AREA4:
 				wich_area_button(0, "option4A", "option4B", "close4A", "close4B")
 				wich_dialogue(0, "area4", "area4A", "area4AFinal", "area4B", "area4BFinal")
@@ -54,16 +61,26 @@ func _on_NextButton_pressed():
 		match wich_area:
 			INITIALAREA:
 				wich_area(1, "initial_area")
+			MINDAREA1:
+				wich_area(1, "mind_area1")
 			AREA1:
 				wich_area_button(1, "option1A", "option1B", "close1A", "close1B")
 				wich_dialogue(1, "area1", "area1A", "area1AFinal", "area1B", "area1BFinal")
+			MINDAREA2:
+				wich_area(1, "mind_area2")
 			AREA2:
-				wich_dialogue(1, "area2", "area2A", "area2B")
+				wich_area_button(1, "option2A", "option2B", "close2A", "close2B")
+				wich_dialogue(1, "area2", "area2A", "area2AFinal", "area2B", "area2BFinal")
+			MINDAREA3:
+				wich_area(1, "mind_area3")
 			AREA3:
 				wich_area_button(1, "option3A", "option3B", "close3A", "close3B")
 				wich_dialogue(1, "area3", "area3A", "area3AFinal", "area3B", "area3BFinal")
+			MINDAREA4:
+				wich_area(1, "mind_area4")
 			AREA4:
-				wich_dialogue(1, "area4", "area4A", "area4B")
+				wich_area_button(1, "option4A", "option4B", "close4A", "close4B")
+				wich_dialogue(1, "area4", "area4A", "area4AFinal", "area4B", "area4BFinal")
 			FINALAREA:
 				wich_area(1, "final_area")
 	dialogue_count += 1
@@ -74,6 +91,22 @@ func wich_area(language, area):
 	$Popup/DialogueBox/Label.text = dialogue[language][area][dialogue_count]
 	if area == "initial_area":
 		if dialogue_count == dialogue[0]["initial_area"].size() - 1:
+			$Popup/DialogueBox/CloseButtonFinal.visible = true
+			$Popup/DialogueBox/NextButton.visible = false
+	if area == "mind_area1":
+		if dialogue_count == dialogue[0]["mind_area1"].size() - 1:
+			$Popup/DialogueBox/CloseButtonFinal.visible = true
+			$Popup/DialogueBox/NextButton.visible = false
+	if area == "mind_area2":
+		if dialogue_count == dialogue[0]["mind_area2"].size() - 1:
+			$Popup/DialogueBox/CloseButtonFinal.visible = true
+			$Popup/DialogueBox/NextButton.visible = false
+	if area == "mind_area3":
+		if dialogue_count == dialogue[0]["mind_area3"].size() - 1:
+			$Popup/DialogueBox/CloseButtonFinal.visible = true
+			$Popup/DialogueBox/NextButton.visible = false
+	if area == "mind_area4":
+		if dialogue_count == dialogue[0]["mind_area4"].size() - 1:
 			$Popup/DialogueBox/CloseButtonFinal.visible = true
 			$Popup/DialogueBox/NextButton.visible = false
 
@@ -104,11 +137,11 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 							$Popup/DialogueBox/CloseButtonB.visible = true
 							$Popup/DialogueBox/NextButton.visible= false
 					else:
-						if dialogue_count == 1 and time_button_area2_pressed == 0:
+						if dialogue_count == 3 and time_button_area2_pressed == 0:
 							Global.Player.unlock_object_anim(Global.family_stone_texture)
-						if dialogue_count == 2 and time_button_area2_pressed == 0:
-							pop_up_hide()
-						if dialogue_count == dialogue[0][dialogue_b].size() - 1 and time_button_area2_pressed >= 1:
+							$Popup/DialogueBox/CloseButtonFinal.visible = true
+							$Popup/DialogueBox/NextButton.visible= false
+						if dialogue_count == dialogue[0][dialogue_b].size() and time_button_area2_pressed >= 1:
 							$Popup/DialogueBox/CloseButtonB.visible = true
 							$Popup/DialogueBox/NextButton.visible= false
 					wich_area(language, dialogue_b)
@@ -145,7 +178,7 @@ func _on_OptionA_pressed():
 				$Popup/DialogueBox/OptionB/Label.text = buttons[language_for_area2]["option2B"][1]
 				time_button_area2_pressed += 1
 			elif time_button_area2_pressed >= 1:
-				get_node("..").startAGame("OptionA")
+#				get_node("..").startAGame("OptionA")
 				hide_option()
 				_on_NextButton_pressed()
 		AREA3:
@@ -177,9 +210,11 @@ func _on_OptionB_pressed():
 				hide_option()
 				_on_NextButton_pressed()
 			elif time_button_area2_pressed >= 1:
-				get_node("..").startAGame("OptionB")
+#				get_node("..").startAGame("OptionB")
+#				$Popup/DialogueBox/OptionA.visible = false
+#				$Popup/DialogueBox/OptionB.visible = false
 				hide_option()
-				dialogue_count = 2
+				dialogue_count = 5
 				_on_NextButton_pressed()
 		AREA3:
 			pass
@@ -228,7 +263,10 @@ func _on_CloseButtonA_pressed():
 			semi_boss.get_node("DamageSource/CollisionShape2D").disabled = false
 			semi_boss.get_node("Collision").disabled = false
 		AREA2:
-			pass
+			if time_button_area2_pressed >= 1:
+				get_node("..").startAGame("OptionA")
+#				hide_option()
+#				_on_NextButton_pressed()
 		AREA3:
 			get_tree().call_group("DoorEasy","open_door")
 		AREA4:
@@ -249,7 +287,11 @@ func _on_CloseButtonB_pressed():
 			semi_boss.get_node("AnimationPlayer").play("normal_move", -1, 0.8)
 			semi_boss.get_node("RunTimer").start()
 		AREA2:
-			pass
+			if time_button_area2_pressed >= 1:
+				get_node("..").startAGame("OptionB")
+#				hide_option()
+#				dialogue_count = 5
+#				_on_NextButton_pressed()
 		AREA3:
 			get_tree().call_group("DoorHard","open_door")
 		AREA4:
@@ -306,6 +348,18 @@ func _on_CloseButtonFinal_pressed():
 	pop_up_hide()
 	$Popup/DialogueBox/CloseButtonFinal.visible = false
 	$Popup/DialogueBox/NextButton.visible = true
+	if area_for_buttonB == "mind_area1":
+		get_tree().change_scene(Global.level1)
+		get_node("/root/PlayerInterface/Interface").visible = true
+	if area_for_buttonB == "mind_area2":
+		get_tree().change_scene(Global.level2)
+		get_node("/root/PlayerInterface/Interface").visible = true
+	if area_for_buttonB == "mind_area3":
+		get_tree().change_scene(Global.level3)
+		get_node("/root/PlayerInterface/Interface").visible = true
+	if area_for_buttonB == "mind_area4":
+		get_tree().change_scene(Global.level4)
+		get_node("/root/PlayerInterface/Interface").visible = true
 	queue_free()
 
 func _on_DialogueTrigger_body_entered(body):

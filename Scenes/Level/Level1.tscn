@@ -18,10 +18,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 181.741 )
 
-[node name="Level1" type="Node2D" index="0" groups=[
+[node name="Level1" type="Node2D" groups=[
 "character",
 ]]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
@@ -49,10 +50,12 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="YSort" type="YSort" parent="." index="1"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="SemiBoss" parent="YSort" index="0" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 position = Vector2( 420, 340 )
 _sections_unfolded = [ "Transform" ]
 
@@ -107,7 +110,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="dialogue_system" parent="." index="3" instance=ExtResource( 10 )]
 
-wich_area = 1
+wich_area = 2
 
 [node name="PortalInitialArea" parent="." index="4" instance=ExtResource( 11 )]
 

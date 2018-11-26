@@ -61,7 +61,7 @@ _sections_unfolded = [ "Cell", "Collision" ]
 
 [node name="dialogue_system" parent="." index="1" instance=ExtResource( 3 )]
 
-wich_area = 4
+wich_area = 8
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
@@ -91,13 +91,13 @@ position = Vector2( 1075.83, 102.522 )
 position = Vector2( 1098.64, 546.139 )
 
 [node name="MonsterRanged4" parent="YSort/Monsters" index="3" groups=[
-"Monter4",
+"Monster4",
 ] instance=ExtResource( 4 )]
 
 position = Vector2( 246.323, 512.264 )
 
 [node name="MonsterRanged5" parent="YSort/Monsters" index="4" groups=[
-"Monter5",
+"Monster5",
 ] instance=ExtResource( 4 )]
 
 position = Vector2( 245.36, 151.972 )
@@ -114,6 +114,7 @@ position = Vector2( 672.749, 686.095 )
 
 position = Vector2( 645.782, 306.592 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
+life = 50
 
 [node name="Rock1" parent="YSort" index="2" instance=ExtResource( 6 )]
 

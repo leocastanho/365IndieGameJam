@@ -90,6 +90,7 @@ tracks/0/keys = {
 "Monsters",
 ]]
 
+editor/display_folded = true
 position = Vector2( -1.13803, 0 )
 input_pickable = false
 collision_layer = 2

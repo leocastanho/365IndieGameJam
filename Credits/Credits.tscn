@@ -69,7 +69,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Credits" type="CanvasLayer"]
 
-layer = 1
+layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )

@@ -122,7 +122,8 @@ margin_right = -10.0
 margin_bottom = 79.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-hint_tooltip = "If you get stuck, please click here to restart the level!"
+hint_tooltip = "This is a Panic Button! 
+If you get stuck, please click here to restart the level!"
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0

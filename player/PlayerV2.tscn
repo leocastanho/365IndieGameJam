@@ -21,12 +21,12 @@
 [ext_resource path="res://interface/bar/stones_bar/LoveStone.png" type="Texture" id=19]
 [ext_resource path="res://player/Torch.tscn" type="PackedScene" id=20]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 86.7656, 133.546 )
+extents = Vector2( 97.0161, 229.145 )
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
 length = 1.0
 loop = false
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 length = 0.6
 loop = false
@@ -74,7 +74,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 0.4
 loop = true
@@ -92,7 +92,7 @@ tracks/0/keys = {
 "values": [ 0.0, 5.0, 0.0, -5.0 ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 
 size = 20
 use_mipmaps = false
@@ -100,9 +100,8 @@ use_filter = true
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource_name = "unlock_object"
 length = 1.0
 loop = false
 step = 0.1
@@ -143,9 +142,8 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
-resource_name = "BeginAnim"
 length = 7.5
 loop = false
 step = 0.1
@@ -162,9 +160,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.206196 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.43298 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.675255 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 0.148706, 1, 1, 1 ), Color( 0.148706, 0.424863, 1, 1 ), Color( 1, 0.424863, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
-resource_name = "idle"
 length = 1.0
 loop = false
 step = 0.1
@@ -193,7 +190,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 length = 1.0
 loop = false
@@ -223,7 +220,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.896902 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
 length = 1.0
 loop = false
@@ -277,8 +274,8 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 
-position = Vector2( -13.176, -16.3282 )
-shape = SubResource( 10 )
+position = Vector2( -15.3765, -106.554 )
+shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="1"]
 
@@ -329,20 +326,22 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/idle = SubResource( 1 )
-anims/stagger = SubResource( 2 )
-anims/walk = SubResource( 3 )
+anims/idle = SubResource( 2 )
+anims/stagger = SubResource( 3 )
+anims/walk = SubResource( 4 )
 blend_times = [  ]
 
 [node name="Shadow" type="Sprite" parent="." index="3"]
 
 self_modulate = Color( 1, 1, 1, 0.361098 )
-position = Vector2( -6.16174, 28.5694 )
+position = Vector2( -6.58838, 37.4179 )
+scale = Vector2( 1.07619, 1 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="4"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Body" type="Sprite" parent="BodyPivot" index="0"]
@@ -382,11 +381,13 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="WeaponPivot" type="Position2D" parent="." index="5"]
 
+editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
 script = ExtResource( 13 )
 
 [node name="Offset" type="Position2D" parent="WeaponPivot" index="0"]
 
+editor/display_folded = true
 position = Vector2( 81.3212, 61.7202 )
 
 [node name="Sword" parent="WeaponPivot/Offset" index="0" instance=ExtResource( 14 )]
@@ -395,7 +396,7 @@ position = Vector2( 81.3212, 61.7202 )
 
 position = Vector2( -6.43909, 41.2108 )
 build_mode = 0
-polygon = PoolVector2Array( -31.2603, 4.37152, -31.8271, -33.2269, 31.4667, -32.4712, 32.4114, 2.67108 )
+polygon = PoolVector2Array( -27.6469, 0.24292, -27.2972, -31.5752, 28.9963, -30.5262, 30.7446, 0.59259 )
 
 [node name="Health" parent="." index="7" instance=ExtResource( 15 )]
 
@@ -417,7 +418,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Test"
 align = 1
 valign = 1
@@ -482,7 +483,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/unlock_object = SubResource( 5 )
+anims/unlock_object = SubResource( 6 )
 blend_times = [  ]
 
 [node name="Torch" parent="." index="16" instance=ExtResource( 20 )]
@@ -504,10 +505,10 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/BeginAnim = SubResource( 6 )
-anims/idle = SubResource( 7 )
-anims/lights_off = SubResource( 8 )
-anims/lights_on = SubResource( 9 )
+anims/BeginAnim = SubResource( 7 )
+anims/idle = SubResource( 8 )
+anims/lights_off = SubResource( 9 )
+anims/lights_on = SubResource( 10 )
 blend_times = [  ]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
