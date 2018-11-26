@@ -58,6 +58,7 @@ func chooseOpition():
 				get_tree().change_scene("res://Scenes/Level/Level.tscn")
 				return
 			CREDITS:
+				get_tree().change_scene("res://Credits/Credits.tscn")
 				return
 			EXIT:
 				get_tree().quit()
