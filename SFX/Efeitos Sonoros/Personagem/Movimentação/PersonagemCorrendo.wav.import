@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PersonagemCorrendo.wav-4617153b98bd59b30fb235ae4d60e623.sample"
+
+[deps]
+
+source_file="res://SFX/Efeitos Sonoros/Personagem/Movimentação/PersonagemCorrendo.wav"
+dest_files=[ "res://.import/PersonagemCorrendo.wav-4617153b98bd59b30fb235ae4d60e623.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

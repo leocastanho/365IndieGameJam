@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Machado.wav-709c67147a6e0d351929363af4a54f36.sample"
+
+[deps]
+
+source_file="res://SFX/Efeitos Sonoros/Personagem/Armas/Machado.wav"
+dest_files=[ "res://.import/Machado.wav-709c67147a6e0d351929363af4a54f36.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

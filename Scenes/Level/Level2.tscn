@@ -61,7 +61,6 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="YSort" type="YSort" parent="." index="1"]
 
-editor/display_folded = true
 sort_enabled = true
 _sections_unfolded = [ "Sort", "Transform", "Z Index" ]
 
@@ -87,7 +86,6 @@ position = Vector2( 78.9985, 252.32 )
 
 [node name="MotherSide" type="YSort" parent="YSort" index="5"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="OrangeSpirit" parent="YSort/MotherSide" index="0" instance=ExtResource( 6 )]
@@ -108,7 +106,6 @@ position = Vector2( 240, 440 )
 
 [node name="FatherSide" type="YSort" parent="YSort" index="6"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="GreenSpikey" parent="YSort/FatherSide" index="0" instance=ExtResource( 7 )]
@@ -265,9 +262,9 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 
-[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
-
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
+
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

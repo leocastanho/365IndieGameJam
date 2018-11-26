@@ -18,7 +18,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 181.741 )
 
-[node name="Level1" type="Node2D" groups=[
+[node name="Level1" type="Node2D" index="0" groups=[
 "character",
 ]]
 
@@ -121,9 +121,9 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 
-[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
-
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_DialogueTrigger_body_entered"]
+
+[connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
 
 
 [editable path="YSort/SemiBoss"]

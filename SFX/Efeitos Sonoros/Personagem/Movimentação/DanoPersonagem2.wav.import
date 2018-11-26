@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DanoPersonagem2.wav-2d24f2ae5208fdd87aa759e77057968b.sample"
+
+[deps]
+
+source_file="res://SFX/Efeitos Sonoros/Personagem/Movimentação/DanoPersonagem2.wav"
+dest_files=[ "res://.import/DanoPersonagem2.wav-2d24f2ae5208fdd87aa759e77057968b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
