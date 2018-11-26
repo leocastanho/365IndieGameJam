@@ -22,7 +22,6 @@ func _process(delta):
 	if($YSort/Monsters.get_child_count() == 0 && !isAreaFinish):
 		$dialogue_system.area4_after_protect_interation("optionB")
 		Global.Player.unlock_object_anim(Global.friendship_stone_texture)
-		Global.friendship_stone_unlocked = true
 		isAreaFinish = true
 	
 #	# Called every frame. Delta is time since last frame.
@@ -53,7 +52,6 @@ func startAGame(option):
 func _on_Timer_timeout():
 	isAreaFinish = true
 	Global.Player.unlock_object_anim(Global.friendship_stone_texture)
-	Global.friendship_stone_unlocked = true
 	$dialogue_system.area4_after_protect_interation("optionA")
 	$TimerInterface/Interface.hide()
 	

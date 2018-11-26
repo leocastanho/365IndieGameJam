@@ -94,7 +94,6 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 					if wich_area == AREA3:
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
-							Global.spirit_stone_unlocked = true
 					if dialogue_count == dialogue[0][final_dialogue_a].size():
 						pop_up_hide()
 					wich_area(language, final_dialogue_a)
@@ -107,7 +106,6 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 					else:
 						if dialogue_count == 1 and time_button_area2_pressed == 0:
 							Global.Player.unlock_object_anim(Global.family_stone_texture)
-							Global.family_stone_unlocked = true
 						if dialogue_count == 2 and time_button_area2_pressed == 0:
 							pop_up_hide()
 						if dialogue_count == dialogue[0][dialogue_b].size() - 1 and time_button_area2_pressed >= 1:
@@ -119,11 +117,9 @@ func wich_dialogue(language, normal_dialogue, dialogue_a, final_dialogue_a, dial
 					if wich_area == AREA1:
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.love_stone_texture)
-							Global.love_stone_unlocked = true
 					if wich_area == AREA3:
 						if dialogue_count == dialogue[0][final_dialogue_b].size() - 1:
 							Global.Player.unlock_object_anim(Global.spirit_stone_texture)
-							Global.spirit_stone_unlocked = true
 					if dialogue_count == dialogue[0][final_dialogue_b].size():
 						pop_up_hide()
 					wich_area(language, final_dialogue_b)

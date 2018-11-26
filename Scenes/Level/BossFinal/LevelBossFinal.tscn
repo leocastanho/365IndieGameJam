@@ -109,8 +109,6 @@ sort_enabled = true
 
 [node name="Teleport" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Right" type="Position2D" parent="Teleport" index="0"]
 
 position = Vector2( 819.061, 281.878 )

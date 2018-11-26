@@ -77,7 +77,6 @@ func finishGame():
 	else:
 		isAreaFinish = true
 		Global.Player.unlock_object_anim(Global.family_stone_texture)
-		Global.family_stone_unlocked = true
 
 func _process(delta):
 	

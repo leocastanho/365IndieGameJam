@@ -97,7 +97,6 @@ func take_damage(damage_dealer,damage,effect):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":
 		Global.Player.unlock_object_anim(Global.love_stone_texture)
-		Global.love_stone_unlocked = true
 		get_node("/root/Level1/dialogue_system").area1_after_semiboss_interation("optionA")
 		queue_free()
 
