@@ -38,7 +38,7 @@ func take_damage(damage_dealer,damage,effect):
 func _ready():
 	lifeBar.value = lifeBar.max_value
 	state = IDLE
-	timeReload = randi() % timeReloadMax + timeReloadMin
+	timeReload = randf()* timeReloadMax + timeReloadMin
 	pass
 
 func activate_damage():
@@ -57,7 +57,7 @@ func _physics_process(delta):
 	if(timePassed > timeReload):
 		can_shoot = true
 		timePassed = 0
-		timeReload = randi() % timeReloadMax + timeReloadMin
+		timeReload = randf() * timeReloadMax + timeReloadMin
 	
 	update()
 	if(target):
