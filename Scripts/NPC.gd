@@ -8,6 +8,7 @@ export(int) var life
 
 var died = false
 var canDamage = true
+var friends_death = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -43,6 +44,9 @@ func take_Damage(value):
 func activate_dont_damage():
 	canDamage = false
 
+func friends_death_equals_game_over():
+	friends_death = true
+
 func _on_NPC_body_entered(body):
 
 	if(body.is_in_group("Bullet") && !died):
@@ -56,6 +60,11 @@ func _on_NPC_body_entered(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	
 	if(anim_name == "Die"):
+		if friends_death:
+			if get_tree().get_current_scene().name == "Level4":
+				Global.shield_of_friendship_unlock = false
+				Global.staff_of_rottenness_unlock = false
+			get_tree().reload_current_scene()
 		queue_free()
 	
 	pass # replace with function body

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Art/square.png" type="Texture" id=2]
+[ext_resource path="res://player/itens/Oitavo-item.png" type="Texture" id=2]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16.1738, 16.097 )
+extents = Vector2( 27.5654, 28.0176 )
 
 [node name="Bullet" type="RigidBody2D" groups=[
 "Bullet",
@@ -37,10 +37,14 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+modulate = Color( 0.691406, 0.0702209, 0.0702209, 1 )
+scale = Vector2( 0.06, 0.06 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Collision" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 shape = SubResource( 1 )
 
 [node name="DamageSource" parent="." index="2" instance=ExtResource( 3 )]

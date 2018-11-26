@@ -10,6 +10,7 @@ var item_list
 var state_move
 var dialogue_system_script
 var begin_anim_once = false
+var monster_can_shoot = false
 
 #levels paths -> need to change manually
 var initial_level = "res://Scenes/Level/Level.tscn"

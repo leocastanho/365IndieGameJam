@@ -8,6 +8,8 @@ var damage
 var speed
 var direction
 
+onready var destroy_effect = preload("res://Scenes/Blood.tscn")
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -29,6 +31,8 @@ func _process(delta):
 
 
 func _on_Bullet_body_entered(body):
+	var destroy_effect_spawn = destroy_effect.instance()
+	body.add_child(destroy_effect_spawn)
 	queue_free()
 
 	pass # replace with function body

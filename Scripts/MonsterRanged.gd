@@ -22,8 +22,8 @@ onready var smokeDie = preload("res://Scenes/Monsters/Smoke.tscn")
 onready var anim = get_node("AnimationPlayer")
 
 export(int) var speed = 0
-export(float) var timeReloadMax = 10
-export(float) var timeReloadMin = 5
+#export(float) var timeReloadMax = 10
+#export(float) var timeReloadMin = 5
 var timeReload
 
 onready var lifeBar = $HealthBar
@@ -38,7 +38,7 @@ func take_damage(damage_dealer,damage,effect):
 func _ready():
 	lifeBar.value = lifeBar.max_value
 	state = IDLE
-	timeReload = randf()* timeReloadMax + timeReloadMin
+#	timeReload = randf()* 1 + 6
 	pass
 
 func activate_damage():
@@ -53,11 +53,12 @@ func _physics_process(delta):
 	if(!target):
 		target = get_node("../../PlayerV2")
 
-	timePassed += delta
-	if(timePassed > timeReload):
-		can_shoot = true
-		timePassed = 0
-		timeReload = randf() * timeReloadMax + timeReloadMin
+##	timePassed += delta
+#	timePassed = timeReload
+#	if(timePassed > timeReload):
+#		can_shoot = true
+#		timePassed = 0
+##		timeReload = randf() * timeReloadMax + timeReloadMin
 	
 	update()
 	if(target):
@@ -94,16 +95,16 @@ func shoot():
 	shoot.rotation = rotation
 	$Bullets.add_child(shoot)
 	shoot.changeDirection(target.position - position)
-	
+#	set_physics_process(false)
 	pass
 
-func _draw():
-	
-	if(hit_pos):
-		draw_circle((hit_pos - position).rotated(-rotation), 5, laser_color)
-		draw_line(Vector2(), (hit_pos - position).rotated(-rotation), laser_color, 2)
-		
-	pass
+#func _draw():
+#
+#	if(hit_pos):
+#		draw_circle((hit_pos - position).rotated(-rotation), 5, laser_color)
+#		draw_line(Vector2(), (hit_pos - position).rotated(-rotation), laser_color, 2)
+#
+#	pass
 
 func _on_MonsterRanged_body_shape_entered(body_id, body, body_shape, local_shape):
 

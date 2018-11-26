@@ -32,10 +32,11 @@ use_filter = false
 font_data = SubResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Level4" type="Node2D"]
+[node name="Level4" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+timeReload = 3
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -64,7 +65,6 @@ wich_area = 4
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="Monsters" type="YSort" parent="YSort" index="0"]
@@ -72,41 +72,41 @@ sort_enabled = true
 editor/display_folded = true
 sort_enabled = true
 
-[node name="MonsterRanged" parent="YSort/Monsters" index="0" instance=ExtResource( 4 )]
+[node name="MonsterRanged" parent="YSort/Monsters" index="0" groups=[
+"Monster1",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 644.367, 14.0118 )
-timeReloadMax = 12.0
-timeReloadMin = 5
 
-[node name="MonsterRanged2" parent="YSort/Monsters" index="1" instance=ExtResource( 4 )]
+[node name="MonsterRanged2" parent="YSort/Monsters" index="1" groups=[
+"Monster2",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 1075.83, 102.522 )
-timeReloadMax = 10
-timeReloadMin = 5
 
-[node name="MonsterRanged3" parent="YSort/Monsters" index="2" instance=ExtResource( 4 )]
+[node name="MonsterRanged3" parent="YSort/Monsters" index="2" groups=[
+"Monster3",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 1098.64, 546.139 )
-timeReloadMax = 10
-timeReloadMin = 5
 
-[node name="MonsterRanged6" parent="YSort/Monsters" index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 672.749, 686.095 )
-timeReloadMax = 10
-timeReloadMin = 5
-
-[node name="MonsterRanged4" parent="YSort/Monsters" index="4" instance=ExtResource( 4 )]
+[node name="MonsterRanged4" parent="YSort/Monsters" index="3" groups=[
+"Monter4",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 246.323, 512.264 )
-timeReloadMax = 10
-timeReloadMin = 5
 
-[node name="MonsterRanged5" parent="YSort/Monsters" index="5" instance=ExtResource( 4 )]
+[node name="MonsterRanged5" parent="YSort/Monsters" index="4" groups=[
+"Monter5",
+] instance=ExtResource( 4 )]
 
 position = Vector2( 245.36, 151.972 )
-timeReloadMax = 10
-timeReloadMin = 5
+
+[node name="MonsterRanged6" parent="YSort/Monsters" index="5" groups=[
+"Monster6",
+] instance=ExtResource( 4 )]
+
+position = Vector2( 672.749, 686.095 )
 
 [node name="NPC" parent="YSort" index="1" groups=[
 "Help",
