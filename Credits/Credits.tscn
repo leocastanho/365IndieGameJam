@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Credits/Credits.gd" type="Script" id=1]
 
@@ -26,19 +26,6 @@ size = 50
 use_mipmaps = false
 use_filter = false
 font_data = SubResource( 3 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[sub_resource type="DynamicFontData" id=5]
-
-hinting = 2
-font_path = "res://Main Menu/Fonts/MyriadPro-SemiboldIt.otf"
-
-[sub_resource type="DynamicFont" id=6]
-
-size = 50
-use_mipmaps = false
-use_filter = false
-font_data = SubResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFontData" id=7]
@@ -80,7 +67,7 @@ use_filter = false
 font_data = SubResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Credits" type="CanvasLayer" index="0"]
+[node name="Credits" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -145,8 +132,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 27.0
 margin_right = 572.0
-margin_bottom = 100.0
+margin_bottom = 127.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -167,9 +155,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 104.0
+margin_top = 131.0
 margin_right = 572.0
-margin_bottom = 155.0
+margin_bottom = 182.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -184,38 +172,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Name2" type="Label" parent="NinePatchRect/VBoxContainer" index="2"]
+[node name="Name3" type="Label" parent="NinePatchRect/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 159.0
+margin_top = 186.0
 margin_right = 572.0
-margin_bottom = 210.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
-text = "Ju Hamdeh: Script"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="Name3" type="Label" parent="NinePatchRect/VBoxContainer" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 214.0
-margin_right = 572.0
-margin_bottom = 265.0
+margin_bottom = 237.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -230,15 +195,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Name4" type="Label" parent="NinePatchRect/VBoxContainer" index="4"]
+[node name="Name4" type="Label" parent="NinePatchRect/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 269.0
+margin_top = 241.0
 margin_right = 572.0
-margin_bottom = 320.0
+margin_bottom = 292.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -253,15 +218,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Name5" type="Label" parent="NinePatchRect/VBoxContainer" index="5"]
+[node name="Name5" type="Label" parent="NinePatchRect/VBoxContainer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 324.0
+margin_top = 296.0
 margin_right = 572.0
-margin_bottom = 375.0
+margin_bottom = 347.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -269,7 +234,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 12 )
-text = "Yoraanny: Graphic artist"
+text = "Raniery: Graphic artist"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
