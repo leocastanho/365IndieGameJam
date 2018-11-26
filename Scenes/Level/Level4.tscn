@@ -64,10 +64,12 @@ wich_area = 4
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="Monsters" type="YSort" parent="YSort" index="0"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="MonsterRanged" parent="YSort/Monsters" index="0" instance=ExtResource( 4 )]

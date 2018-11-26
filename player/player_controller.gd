@@ -71,7 +71,7 @@ func unlock_object_anim(object):
 	if object == Global.love_stone_texture or object == Global.family_stone_texture or object == Global.spirit_stone_texture or object == Global.friendship_stone_texture:
 		$object.scale = Vector2(0.31,0.31)
 	elif object == Global.key_texture:
-		$object.scale = Vector2(1,1)
+		$object.scale = Vector2(0.15,0.15)
 	else:
 		$object.scale = Vector2(0.1,0.1)
 	$ObjectsAnimator.play("unlock_object")

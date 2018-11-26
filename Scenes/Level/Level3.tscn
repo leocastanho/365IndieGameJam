@@ -3,18 +3,18 @@
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://maze/Walls.tres" type="TileSet" id=2]
 [ext_resource path="res://maze/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://maze/AltarLight.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/LightOn.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/LightOff.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Monsters/Slimes/BlueSlime.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Monsters/Slimes/GreenSlime.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Monsters/Slimes/OrangeSlime.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Monsters/Slimes/RedSlime.tscn" type="PackedScene" id=11]
-[ext_resource path="res://maze/Key.tscn" type="PackedScene" id=12]
-[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=13]
-[ext_resource path="res://player/itens/TimePotionPickup.tscn" type="PackedScene" id=14]
-[ext_resource path="res://player/itens/SpeedBootsPickup.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/LightOn.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/LightOff.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Monsters/Slimes/BlueSlime.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Monsters/Slimes/GreenSlime.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Monsters/Slimes/OrangeSlime.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Monsters/Slimes/RedSlime.tscn" type="PackedScene" id=10]
+[ext_resource path="res://maze/Key.tscn" type="PackedScene" id=11]
+[ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://player/itens/TimePotionPickup.tscn" type="PackedScene" id=13]
+[ext_resource path="res://player/itens/SpeedBootsPickup.tscn" type="PackedScene" id=14]
+[ext_resource path="res://player/Torch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/PortalInitialArea.tscn" type="PackedScene" id=17]
 [ext_resource path="res://SFX/Music/The spirit moves_Area3.wav" type="AudioStream" id=18]
@@ -29,7 +29,7 @@ extents = Vector2( 372.689, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 372.077, 10 )
 
-[node name="Level3" type="Node2D" groups=[
+[node name="Level3" type="Node2D" index="0" groups=[
 "character",
 ]]
 
@@ -106,12 +106,7 @@ position = Vector2( -674.953, -3276.78 )
 scale = Vector2( 5.36704, 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AltarLight" parent="Floors/Maze" index="3" instance=ExtResource( 4 )]
-
-visible = false
-position = Vector2( -809.137, -808.822 )
-
-[node name="LightOn" type="Area2D" parent="Floors/Maze" index="4"]
+[node name="LightOn" type="Area2D" parent="Floors/Maze" index="3"]
 
 editor/display_folded = true
 position = Vector2( -4.30231, 46.3582 )
@@ -122,16 +117,33 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Maze/LightOn" index="0"]
 
 shape = SubResource( 1 )
 
-[node name="LightOff" type="Area2D" parent="Floors/Maze" index="5"]
+[node name="LightOff" type="Area2D" parent="Floors/Maze" index="4"]
 
 editor/display_folded = true
-position = Vector2( -4.30231, -19.532 )
+position = Vector2( -4.30295, -195.759 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Maze/LightOff" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="DialogueTrigger" type="Area2D" parent="Floors/Maze" index="5"]
+
+editor/display_folded = true
+position = Vector2( -3.50992, -193.527 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -141,119 +153,163 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Maze/LightOff" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="DialogueTrigger" type="Area2D" parent="Floors/Maze" index="6"]
-
-editor/display_folded = true
-position = Vector2( -3.50928, -17.3001 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 7 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Maze/DialogueTrigger" index="0"]
 
 position = Vector2( 0, -5.57901 )
 shape = SubResource( 2 )
 
-[node name="YSort" type="YSort" parent="Floors/Maze" index="7"]
+[node name="YSort" type="YSort" parent="Floors/Maze" index="6"]
 
 rotation = -1.5708
 sort_enabled = true
 
 [node name="Monsters" type="Node2D" parent="Floors/Maze/YSort" index="0"]
 
-[node name="BlueSlime" parent="Floors/Maze/YSort/Monsters" index="0" instance=ExtResource( 8 )]
+editor/display_folded = true
+
+[node name="BlueSlime" parent="Floors/Maze/YSort/Monsters" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 1935.2, 592.799 )
 
-[node name="BlueSlime4" parent="Floors/Maze/YSort/Monsters" index="1" instance=ExtResource( 8 )]
+[node name="BlueSlime7" parent="Floors/Maze/YSort/Monsters" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 1608.85, 919.15 )
+
+[node name="BlueSlime5" parent="Floors/Maze/YSort/Monsters" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 1806.27, -448.235 )
+
+[node name="BlueSlime8" parent="Floors/Maze/YSort/Monsters" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 2437.5, 459.042 )
+
+[node name="BlueSlime4" parent="Floors/Maze/YSort/Monsters" index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 2783.73, 132.088 )
 
-[node name="BlueSlime2" parent="Floors/Maze/YSort/Monsters" index="2" instance=ExtResource( 8 )]
+[node name="BlueSlime2" parent="Floors/Maze/YSort/Monsters" index="5" instance=ExtResource( 7 )]
 
-position = Vector2( 900.666, 621.867 )
+position = Vector2( 1026.81, 495.725 )
 _sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index", "collision" ]
 
-[node name="BlueSlime3" parent="Floors/Maze/YSort/Monsters" index="3" instance=ExtResource( 8 )]
+[node name="BlueSlime6" parent="Floors/Maze/YSort/Monsters" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 703.043, 668.119 )
+_sections_unfolded = [ "Collision", "Pause", "Transform", "Z Index", "collision" ]
+
+[node name="BlueSlime3" parent="Floors/Maze/YSort/Monsters" index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 1322.99, -240.822 )
 
-[node name="GreenSlime" parent="Floors/Maze/YSort/Monsters" index="4" instance=ExtResource( 9 )]
+[node name="GreenSlime" parent="Floors/Maze/YSort/Monsters" index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 1943.17, 820.586 )
 
-[node name="GreenSlime3" parent="Floors/Maze/YSort/Monsters" index="5" instance=ExtResource( 9 )]
+[node name="GreenSlime3" parent="Floors/Maze/YSort/Monsters" index="9" instance=ExtResource( 8 )]
 
-position = Vector2( 1315.43, -437.404 )
+position = Vector2( 1231.02, -441.926 )
 
-[node name="GreenSlime2" parent="Floors/Maze/YSort/Monsters" index="6" instance=ExtResource( 9 )]
+[node name="GreenSlime2" parent="Floors/Maze/YSort/Monsters" index="10" instance=ExtResource( 8 )]
 
 position = Vector2( 1289.02, 1238 )
 
-[node name="GreenSlime4" parent="Floors/Maze/YSort/Monsters" index="7" instance=ExtResource( 9 )]
+[node name="GreenSlime6" parent="Floors/Maze/YSort/Monsters" index="11" instance=ExtResource( 8 )]
 
-position = Vector2( 1445.04, -57.5221 )
+position = Vector2( 2830.1, -248.352 )
 
-[node name="OrangeSlime" parent="Floors/Maze/YSort/Monsters" index="8" instance=ExtResource( 10 )]
+[node name="GreenSlime4" parent="Floors/Maze/YSort/Monsters" index="12" instance=ExtResource( 8 )]
+
+position = Vector2( 2273.39, -57.5221 )
+
+[node name="GreenSlime5" parent="Floors/Maze/YSort/Monsters" index="13" instance=ExtResource( 8 )]
+
+position = Vector2( 1594.13, 496.515 )
+
+[node name="OrangeSlime" parent="Floors/Maze/YSort/Monsters" index="14" instance=ExtResource( 9 )]
 
 position = Vector2( 1696.87, 592.931 )
 
-[node name="OrangeSlime3" parent="Floors/Maze/YSort/Monsters" index="9" instance=ExtResource( 10 )]
+[node name="OrangeSlime6" parent="Floors/Maze/YSort/Monsters" index="15" instance=ExtResource( 9 )]
+
+position = Vector2( 2061.17, 881.334 )
+
+[node name="OrangeSlime3" parent="Floors/Maze/YSort/Monsters" index="16" instance=ExtResource( 9 )]
 
 position = Vector2( 2269.99, -542.563 )
 
-[node name="OrangeSlime2" parent="Floors/Maze/YSort/Monsters" index="10" instance=ExtResource( 10 )]
+[node name="OrangeSlime5" parent="Floors/Maze/YSort/Monsters" index="17" instance=ExtResource( 9 )]
+
+position = Vector2( 1810.82, 686.945 )
+
+[node name="OrangeSlime2" parent="Floors/Maze/YSort/Monsters" index="18" instance=ExtResource( 9 )]
 
 position = Vector2( 1285.8, 932.896 )
 
-[node name="RedSlime" parent="Floors/Maze/YSort/Monsters" index="11" instance=ExtResource( 11 )]
+[node name="OrangeSlime4" parent="Floors/Maze/YSort/Monsters" index="19" instance=ExtResource( 9 )]
+
+position = Vector2( 1937.84, -351.046 )
+
+[node name="RedSlime" parent="Floors/Maze/YSort/Monsters" index="20" instance=ExtResource( 10 )]
 
 position = Vector2( 1701.5, 828.24 )
 
-[node name="RedSlime2" parent="Floors/Maze/YSort/Monsters" index="12" instance=ExtResource( 11 )]
+[node name="RedSlime2" parent="Floors/Maze/YSort/Monsters" index="21" instance=ExtResource( 10 )]
 
 position = Vector2( 2234.21, 437.823 )
 
-[node name="RedSlime3" parent="Floors/Maze/YSort/Monsters" index="13" instance=ExtResource( 11 )]
+[node name="RedSlime4" parent="Floors/Maze/YSort/Monsters" index="22" instance=ExtResource( 10 )]
+
+position = Vector2( 1969.87, -521.357 )
+
+[node name="RedSlime3" parent="Floors/Maze/YSort/Monsters" index="23" instance=ExtResource( 10 )]
 
 position = Vector2( 1561.71, 145.298 )
 
+[node name="RedSlime5" parent="Floors/Maze/YSort/Monsters" index="24" instance=ExtResource( 10 )]
+
+position = Vector2( 2047.44, 494.418 )
+
 [node name="Keys" type="Node2D" parent="Floors/Maze/YSort" index="1"]
 
-[node name="Key" parent="Floors/Maze/YSort/Keys" index="0" instance=ExtResource( 12 )]
+editor/display_folded = true
+
+[node name="Key" parent="Floors/Maze/YSort/Keys" index="0" instance=ExtResource( 11 )]
 
 position = Vector2( 2212.75, 705.495 )
 
-[node name="Key2" parent="Floors/Maze/YSort/Keys" index="1" instance=ExtResource( 12 )]
+[node name="Key2" parent="Floors/Maze/YSort/Keys" index="1" instance=ExtResource( 11 )]
 
 position = Vector2( 2042.11, -416.286 )
 
-[node name="Key3" parent="Floors/Maze/YSort/Keys" index="2" instance=ExtResource( 12 )]
+[node name="Key3" parent="Floors/Maze/YSort/Keys" index="2" instance=ExtResource( 11 )]
 
 position = Vector2( 2822.2, 338.953 )
 
-[node name="PlayerV2" parent="Floors/Maze/YSort" index="2" instance=ExtResource( 13 )]
+[node name="PlayerV2" parent="Floors/Maze/YSort" index="2" instance=ExtResource( 12 )]
 
-position = Vector2( -325.579, 7.59616 )
+position = Vector2( -307.956, -7.50906 )
 
-[node name="TimePotionPickup" parent="Floors/Maze" index="8" instance=ExtResource( 14 )]
+[node name="TimePotionPickup" parent="Floors/Maze" index="7" instance=ExtResource( 13 )]
 
 position = Vector2( -655.129, -3378.04 )
 rotation = -1.5708
 
-[node name="SpeedBootsPickup" parent="Floors/Maze" index="9" instance=ExtResource( 15 )]
+[node name="SpeedBootsPickup" parent="Floors/Maze" index="8" instance=ExtResource( 14 )]
 
-position = Vector2( -1005.3, -453.935 )
+position = Vector2( -1055.27, -320.69 )
 rotation = -1.5708
+
+[node name="Torch" parent="Floors/Maze" index="9" instance=ExtResource( 15 )]
+
+position = Vector2( -1063.59, -501.724 )
+scale = Vector2( 6.814, 7.95724 )
+color = Color( 1, 1, 1, 0.613373 )
+
+[node name="Torch2" parent="Floors/Maze" index="10" instance=ExtResource( 15 )]
+
+position = Vector2( -654.232, -3378.23 )
+scale = Vector2( 6.814, 7.95724 )
+color = Color( 1, 1, 1, 0.603098 )
 
 [node name="dialogue_system" parent="." index="1" instance=ExtResource( 16 )]
 
