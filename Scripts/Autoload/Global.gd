@@ -5,9 +5,7 @@ var language_on
 
 #Global variables
 var Player
-var PlayerHealth
-var Weapon
-var Interface
+var player_position = null
 var item_list
 var state_move
 var dialogue_system_script
@@ -20,6 +18,7 @@ var level2 = "res://Scenes/Level/Level2.tscn"
 var level3 = "res://Scenes/Level/Level3.tscn"
 var level4 = "res://Scenes/Level/Level4.tscn"
 var final_area
+var porta_final_area = preload ("res://Scenes/Level/PortalFinalArea.tscn")
 
 #dialogues path -> need to change manually
 var dialogue_system = "res://interface/dialogue_system/dialogue_system.json"
@@ -44,25 +43,25 @@ var friendship_stone_unlocked = false
 #itens paths -> need to change manually
 #area1
 var sword_of_love = preload("res://player/weapon/Sword_of_Love.tscn")
-var sword_of_love_texture = preload("res://Art/timepotion.png")
+var sword_of_love_texture = preload("res://player/itens/Espada-do-amor.png")
 var freedom_cape = preload("res://player/itens/FreedomCape.tscn")
-var freedom_cape_texture = preload("res://Art/timepotion.png")
+var freedom_cape_texture = preload("res://player/itens/Capa-Dash.png")
 #area2
 var life_potion = preload("res://player/itens/LifePotion.tscn")
-var flife_potion_texture = preload("res://Art/timepotion.png")
+var flife_potion_texture = preload("res://player/itens/Poção-1.png")
 #area3
 var speed_boots = preload("res://player/itens/SpeedBoots.tscn")
-var speed_boots_texture = preload("res://Art/timepotion.png")
+var speed_boots_texture = preload("res://player/itens/Bota-da-agilidade.png")
 var time_potion = preload("res://player/itens/TimePotion.tscn")
-var time_potion_texture = preload("res://Art/timepotion.png")
+var time_potion_texture = preload("res://player/itens/Poção-2.png")
 var key_count = 0
 var key_texture = preload("res://Art/Key_Gold.png")
 var lightON = true
 #area4
 var staff_of_rottenness = preload("res://player/itens/StaffOfRottenness.tscn")
-var staff_of_rottenness_texture = preload("res://Art/timepotion.png")
+var staff_of_rottenness_texture = preload("res://player/itens/Cajado-podre.png")
 var shield_of_friendship = preload("res://player/itens/ShieldOfFriendShip.tscn")
-var shield_of_friendship_texture = preload("res://Art/timepotion.png")
+var shield_of_friendship_texture = preload("res://player/itens/Escudo-da-amizade.png")
 
 #itens saves
 #area1

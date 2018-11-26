@@ -27,12 +27,10 @@ func is_outside_view_bounds():
 #	draw_circle(Vector2(), $CollisionShape2D.shape.radius, Color('#ffffff'))
 
 func _on_DamageDealer_body_entered(body):
-	print("trigou")
 	if not body.has_node('Health'):
 		return
 	if body.get_rid().get_id() in hit_objects:
 		return
 	hit_objects.append(body.get_rid().get_id())
-	print("chegou aqui")
 	body.take_damage(self, damage, global_constants.STATUS_POISONED)
 	queue_free()

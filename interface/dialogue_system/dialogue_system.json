@@ -4,7 +4,8 @@
         "Love Stone, Family Stone, Spirit Stone, Friendship Stone", "The purple left path leads you to Love Conflict Area", 
         "The up blue path lead you to the Family Conflict Area", "The right green path lead you to the Spirit Conflict Area",
         "The down orange path lead you to the Friendship Conflict Area", 
-        "Face your conflicts and get the 4 stones and come back here to make piece with yourself"],
+        "Face your conflicts and get the 4 stones and come back here to make piece with yourself", 
+        "use WASD to move and 'F' to attack, that bar on the right upper corner is you HP"],
 
     "area1":["Sniff sniff", "What?","No, nothing is alright, ok?","You don't love me as i deserve!","I can't do this anymore",
         "I wanna break up"],
@@ -18,7 +19,7 @@
     "Choose who you prefer or dont choose anyone"],
     "area2A":["Protect the Mother", "fight for her!"],
 	"area2AFinal":["You received the Family stone","Theres only one mother in the world, you made the right choice, now go make your homework"],
-    "area2B":["You received the Life Potion","You completed the Family Conflict, you received the Family Stone",
+    "area2B":["You received the Life Potion, now you have more HP","You completed the Family Conflict, you received the Family Stone",
         "Protect the Father", "fight for him!"],
     "area2BFinal":["You received the Family stone", "Thanks my son", "Now lets drink a beer"],
 
@@ -31,15 +32,19 @@
         "You completed the Spirit Conflict, here is your prize", "You received the Spirit Stone"],
     "area3B":["Youve chosen the hard path", "In this path, you must enter the spirit maze and find three keys to open the door for your prize", 
         "Go through the down door"],
-    "area3BFinal":["You received the Time Potion, drink it and you will be able to freeze time for a while, press 3 to use its power",
+    "area3BFinal":["You received the Time Potion, drink it and you will be able to freeze time for a while, press 'E' to use its power",
         "You completed the Spirit Conflict","You received the Spirit Stone"],
 
-    "area4":["What's your decision?", "Save your friends life or...", "...forget him and get more POWER!"],
-    "area4A":["You received the Shield of Friendship","Snif, snif, snif", "Tha..nk..you...", "...my dearest friend."],
+    "area4":["You friends live is at steak, whay are you going to do?", "Save your friends life or...", 
+        "...forget him and get more POWER!"],
+    "area4A":["You received the Shield of Friendship, press 'R' to use it, it makes you invicible for 5 seconds, but makes you slower",
+        "Snif, snif, snif", "Tha..nk..you...", "...my dearest friend."],
 	"area4AFinal":["You completed the Friendship Conflict, you received the Friendship Stone", "Thanks so much!!"],
-    "area4B":["You received the Staff of rottenness", "Go my friend, defeat all enemies", "I'll die sooner or later", 
+    "area4B":["You received the Staff of Rottenness, press 'R' to use it, it fires poison balls that damages your enemy over the time",
+         "Go my friend, defeat all enemies", "I'll die sooner or later", 
         "I hope you don't regreat on your choice","Good Bye!!!"],
-	"area4BFinal":["You killed all the enemies", "You completed the Friendship Conflict, you received the Friendship Stone"],
+    "area4BFinal":["You killed all the enemies and now you are powerfull","It costed your friends life, was it worth it?", 
+        "You completed the Friendship Conflict, you received the Friendship Stone"],
 
     "final_area":["you area ugly", "i hate you","choose wisely","fight"] },
 

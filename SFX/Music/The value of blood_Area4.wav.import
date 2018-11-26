@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/The value of blood_Area4.wav-9b4d8a8a79109d535d3bb4dbdbb23bc8.sample"
+
+[deps]
+
+source_file="res://SFX/Music/The value of blood_Area4.wav"
+dest_files=[ "res://.import/The value of blood_Area4.wav-9b4d8a8a79109d535d3bb4dbdbb23bc8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

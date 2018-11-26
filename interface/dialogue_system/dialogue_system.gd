@@ -67,8 +67,6 @@ func _on_NextButton_pressed():
 			FINALAREA:
 				wich_area(1, "final_area")
 	dialogue_count += 1
-	print(dialogue_count)
-	print(wich_area)
 
 func wich_area(language, area):
 	area_for_buttonB = area
@@ -158,7 +156,7 @@ func _on_OptionA_pressed():
 			pass
 		AREA4:
 			var shield = Global.shield_of_friendship.instance()
-			Global.Player.add_child(shield)
+			Global.Player.get_node("WeaponPivot/Offset").add_child(shield)
 			Global.Player.unlock_object_anim(Global.shield_of_friendship_texture)
 			Global.shield_of_friendship_unlock = true
 	if not wich_area == AREA2:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://maze/Walls.tres" type="TileSet" id=2]
@@ -17,18 +17,19 @@
 [ext_resource path="res://player/itens/SpeedBootsPickup.tscn" type="PackedScene" id=15]
 [ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/PortalInitialArea.tscn" type="PackedScene" id=17]
+[ext_resource path="res://SFX/Music/The spirit moves_Area3.wav" type="AudioStream" id=18]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 372.689, 10 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 372.077, 10 )
 
-[node name="Level3" type="Node2D" index="0" groups=[
+[node name="Level3" type="Node2D" groups=[
 "character",
 ]]
 
@@ -36,6 +37,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Floors" type="TileMap" parent="." index="0"]
 
+editor/display_folded = true
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 mode = 0
@@ -123,7 +125,7 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Maze/LightOn" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="LightOff" type="Area2D" parent="Floors/Maze" index="5"]
 
@@ -140,7 +142,7 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Maze/LightOff" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="DialogueTrigger" type="Area2D" parent="Floors/Maze" index="6"]
 
@@ -158,7 +160,7 @@ script = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Maze/DialogueTrigger" index="0"]
 
 position = Vector2( 0, -5.57901 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="YSort" type="YSort" parent="Floors/Maze" index="7"]
 
@@ -262,6 +264,15 @@ wich_area = 3
 position = Vector2( -355.593, -5.81097 )
 rotation = -3.14159
 _sections_unfolded = [ "Transform" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="Floors/Maze/LightOn" to="Floors/Maze/LightOn" method="_on_LightOn_body_entered"]
 

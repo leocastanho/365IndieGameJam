@@ -10,10 +10,14 @@ var canDamage = true
 
 func _ready():
 	Global.Player = self
+	if Global.player_position != null and get_tree().get_current_scene().name == "Level":
+		position = Global.player_position
 #	$CanvasModulate/AnimationPlayer.connect("animation_finished", get_node("/root/Level/dialogue_system"), "_on_AnimationPlayer_animation_finished")
-	if not Global.begin_anim_once:
+	if Global.begin_anim_once:
+		$CanvasModulate/AnimationPlayer.play("idle")
+	elif not Global.begin_anim_once:
 		$CanvasModulate/AnimationPlayer.play("BeginAnim")
-		Global.begin_anim_once = true
+
 	#this part verify if the player already unlocked an item or stone
 	#Area1
 	if Global.sword_of_love_unlock:
@@ -24,8 +28,7 @@ func _ready():
 		var cape = Global.freedom_cape.instance()
 		Global.Player.add_child(cape)
 	#Area2
-	if Global.life_potion_unlock:
-		$Health.max_health = 14
+	#Life potion on health script
 	#Area3
 	if Global.speed_boots_unlock:
 		var speed_boots = Global.speed_boots.instance()
@@ -36,7 +39,7 @@ func _ready():
 	#Area4
 	if Global.shield_of_friendship_unlock:
 		var shield = Global.shield_of_friendship.instance()
-		Global.Player.add_child(shield)
+		Global.Player.get_node("WeaponPivot/Offset").add_child(shield)
 	if Global.staff_of_rottenness_unlock:
 		var staff = Global.staff_of_rottenness.instance()
 		Global.Player.add_child(staff)
@@ -67,8 +70,10 @@ func unlock_object_anim(object):
 	$object.texture = object
 	if object == Global.love_stone_texture or object == Global.family_stone_texture or object == Global.spirit_stone_texture or object == Global.friendship_stone_texture:
 		$object.scale = Vector2(0.31,0.31)
-	else:
+	elif object == Global.key_texture:
 		$object.scale = Vector2(1,1)
+	else:
+		$object.scale = Vector2(0.1,0.1)
 	$ObjectsAnimator.play("unlock_object")
 	wich_object = object
 

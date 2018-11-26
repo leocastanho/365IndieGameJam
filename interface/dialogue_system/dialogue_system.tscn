@@ -1,67 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interface/dialogue_system/dialogue_system.gd" type="Script" id=1]
-[ext_resource path="res://interface/Player-portrait.png" type="Texture" id=2]
+[ext_resource path="res://interface/dialogue_system/Default_theme.tres" type="Theme" id=2]
 [ext_resource path="res://interface/dialogue_system/Dialogue-box.png" type="Texture" id=3]
 [ext_resource path="res://interface/dialogue_system/Advance-text-arrow.png" type="Texture" id=4]
 [ext_resource path="res://interface/dialogue_system/Choice-button.png" type="Texture" id=5]
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="Animation" id=7]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 170, 170 )
-margin_left = 0.0
-margin_right = 0.0
-margin_top = 0.0
-margin_bottom = 0.0
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-modulate_color = Color( 1, 1, 1, 1 )
-draw_center = true
-
-[sub_resource type="StyleBoxTexture" id=2]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 170, 170 )
-margin_left = 0.0
-margin_right = 0.0
-margin_top = 0.0
-margin_bottom = 0.0
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-modulate_color = Color( 1, 1, 1, 1 )
-draw_center = true
-
-[sub_resource type="Theme" id=3]
-
-Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
-Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
-Button/constants/hseparation = 2
-Button/fonts/font = null
-Button/styles/disabled = null
-Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = SubResource( 1 )
-Button/styles/pressed = SubResource( 2 )
-_sections_unfolded = [ "Button", "Button/styles" ]
-
-[sub_resource type="Animation" id=4]
-
-resource_name = "Moving"
 length = 0.5
 loop = true
 step = 0.05
@@ -78,9 +24,8 @@ tracks/0/keys = {
 "values": [ Vector2( 690, 130 ), Vector2( 690, 140 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource_name = "Moving"
 length = 0.5
 loop = true
 step = 0.05
@@ -97,7 +42,7 @@ tracks/0/keys = {
 "values": [ Vector2( 690, 130 ), Vector2( 690, 140 ) ]
 }
 
-[node name="dialogue_system" type="CanvasLayer"]
+[node name="dialogue_system" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -109,8 +54,6 @@ wich_area = 0
 
 [node name="Popup" type="Popup" parent="." index="0"]
 
-editor/display_folded = true
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.0
@@ -127,12 +70,13 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme = SubResource( 3 )
+theme = ExtResource( 2 )
 popup_exclusive = false
-_sections_unfolded = [ "Margin", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Theme", "Visibility" ]
 
 [node name="DialogueBox" type="NinePatchRect" parent="Popup" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -152,7 +96,7 @@ patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
-_sections_unfolded = [ "Patch Margin" ]
+_sections_unfolded = [ "Patch Margin", "Visibility" ]
 
 [node name="Label" type="Label" parent="Popup/DialogueBox" index="0"]
 
@@ -170,7 +114,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+theme = ExtResource( 2 )
 align = 1
 valign = 1
 autowrap = true
@@ -178,7 +122,7 @@ clip_text = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors" ]
+_sections_unfolded = [ "Margin", "Theme" ]
 
 [node name="NextButton" type="TextureButton" parent="Popup/DialogueBox" index="1"]
 
@@ -198,6 +142,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -239,7 +184,7 @@ autoplay = "Moving"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Moving = SubResource( 4 )
+anims/Moving = SubResource( 7 )
 blend_times = [  ]
 
 [node name="CloseButtonFinal" type="TextureButton" parent="Popup/DialogueBox" index="2"]
@@ -261,6 +206,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -302,7 +248,7 @@ autoplay = "Moving"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Moving = SubResource( 5 )
+anims/Moving = SubResource( 6 )
 blend_times = [  ]
 
 [node name="OptionA" type="TextureButton" parent="Popup/DialogueBox" index="3"]
@@ -324,6 +270,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -376,6 +323,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -428,6 +376,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -480,6 +429,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
