@@ -10,7 +10,6 @@ var isAreaFinish = false
 
 
 func _ready():
-	
 	$YSort/Mother.set_process(false)
 	$YSort/Father.set_process(false)
 	

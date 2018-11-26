@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scripts/DialogueTrigger.gd" type="Script" id=11]
 [ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/PortalInitialArea.tscn" type="PackedScene" id=13]
+[ext_resource path="res://SFX/Music/Family_Area2.wav" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -188,8 +189,7 @@ position = Vector2( 538.429, 1600.74 )
 
 [node name="DialogueTrigger" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
-position = Vector2( 620, 690 )
+position = Vector2( 616.575, 535.886 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -255,6 +255,15 @@ position = Vector2( 526.589, 1637.43 )
 rotation = 1.5708
 scale = Vector2( 1, 2.26278 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="DialogueTrigger" to="dialogue_system" method="_on_DialogueTrigger_body_entered"]
 

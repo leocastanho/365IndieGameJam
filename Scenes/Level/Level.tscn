@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Art/tiles/Tiles.tres" type="TileSet" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://Scenes/Level/PortalArea4.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 50 )
+
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 50 )
@@ -68,10 +73,12 @@ _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="PlayerV2" parent="YSort" index="0" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 position = Vector2( 510, 310 )
 
 [node name="dialogue_system" parent="." index="3" instance=ExtResource( 4 )]
@@ -88,6 +95,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea1" index="0"]
 
@@ -111,7 +119,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea2" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="PortalArea3" type="Area2D" parent="." index="6"]
@@ -129,7 +137,7 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea3" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="PortalArea4" type="Area2D" parent="." index="7"]
@@ -149,8 +157,12 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea4" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Position2D" type="Position2D" parent="." index="8"]
+
+position = Vector2( 510, 320 )
 
 [connection signal="animation_finished" from="YSort/PlayerV2/CanvasModulate/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

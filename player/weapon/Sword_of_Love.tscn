@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/weapon/sword_of_love.gd" type="Script" id=1]
-[ext_resource path="res://Art/sword_enemy.png" type="Texture" id=2]
+[ext_resource path="res://player/itens/Espada-do-amor.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -265,9 +265,10 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="sword" type="Sprite" parent="." index="1"]
 
-position = Vector2( 4, 0 )
+rotation = 0.785398
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
-offset = Vector2( 67, 0 )
+offset = Vector2( 600, -600 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
