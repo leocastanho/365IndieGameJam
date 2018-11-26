@@ -50,11 +50,12 @@ func _physics_process(delta):
 
 
 func died():
-	state = DIE
-	anim.play("Die")
-	var inst = smokeDie.instance()
-	add_child(inst)
-	inst.play("SmokeDie")
+	if(state != DIE):
+		state = DIE
+		anim.play("Die")
+		var inst = smokeDie.instance()
+		add_child(inst)
+		inst.play("SmokeDie")
 	pass
 	
 func activate_dont_damage():

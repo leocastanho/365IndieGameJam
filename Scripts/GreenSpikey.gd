@@ -71,12 +71,13 @@ func isDied():
 	return false
 
 func died():
-	state = DIE
-	$Collision.hide()
-	anim.play("Die")
-	var inst = smokeDie.instance()
-	add_child(inst)
-	inst.play("SmokeDie")
+	if(state != DIE):
+		state = DIE
+		$Collision.hide()
+		anim.play("Die")
+		var inst = smokeDie.instance()
+		add_child(inst)
+		inst.play("SmokeDie")
 	pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):
