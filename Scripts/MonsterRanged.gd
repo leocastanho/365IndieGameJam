@@ -22,7 +22,9 @@ onready var smokeDie = preload("res://Scenes/Monsters/Smoke.tscn")
 onready var anim = get_node("AnimationPlayer")
 
 export(int) var speed = 0
-export(float) var timeReload = 5
+export(float) var timeReloadMax = 10
+export(float) var timeReloadMin = 5
+var timeReload
 
 onready var lifeBar = $HealthBar
 var timePassed = 0
@@ -36,7 +38,7 @@ func take_damage(damage_dealer,damage,effect):
 func _ready():
 	lifeBar.value = lifeBar.max_value
 	state = IDLE
-	
+	timeReload = randi() % timeReloadMax + timeReloadMin
 	pass
 
 func activate_damage():
@@ -55,6 +57,7 @@ func _physics_process(delta):
 	if(timePassed > timeReload):
 		can_shoot = true
 		timePassed = 0
+		timeReload = randi() % timeReloadMax + timeReloadMin
 	
 	update()
 	if(target):

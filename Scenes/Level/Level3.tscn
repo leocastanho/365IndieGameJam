@@ -37,7 +37,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Floors" type="TileMap" parent="." index="0"]
 
-editor/display_folded = true
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 mode = 0
@@ -83,6 +82,7 @@ _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="DoorEasy" parent="Floors/Maze" index="0" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 position = Vector2( -128.503, -395.903 )
 scale = Vector2( 2.34072, 1 )
 
@@ -92,6 +92,7 @@ scale = Vector2( 2.34072, 1 )
 
 [node name="DoorHard" parent="Floors/Maze" index="1" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 position = Vector2( 129.514, -394.433 )
 scale = Vector2( 2.34072, 1 )
 
