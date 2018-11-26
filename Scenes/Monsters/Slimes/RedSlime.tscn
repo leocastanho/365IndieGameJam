@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Monster.gd" type="Script" id=1]
-[ext_resource path="res://Art/emote_exclamation.png" type="Texture" id=2]
+[ext_resource path="res://Art/warning.png" type="Texture" id=2]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art/Red-slime.png" type="Texture" id=5]
@@ -313,7 +313,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="exclamation" type="Sprite" parent="." index="2"]
 
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -0.291985, -94.2092 )
+position = Vector2( -39.8086, -64.8711 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]

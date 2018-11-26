@@ -23,6 +23,8 @@ func _ready():
 		pass
 	else:
 		health_GUI = owner.get_node("HealthBar")
+		if(!health_GUI):
+			health_GUI = owner.get_node("CanvasLayer/Back/HealthBar")
 	$PoisonTimer.connect('timeout', self, '_on_PoisonTimer_timeout')
 	$StunTimer.connect('timeout', self, '_on_StunTimer_timeout')
 	$MiniStunTimer.connect('timeout', self, '_on_MiniStunTimer_timeout')

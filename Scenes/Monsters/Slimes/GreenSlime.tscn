@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Monster.gd" type="Script" id=1]
-[ext_resource path="res://Art/emote_exclamation.png" type="Texture" id=2]
+[ext_resource path="res://Art/warning.png" type="Texture" id=2]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=4]
 [ext_resource path="res://player/shadow.png" type="Texture" id=5]
@@ -110,7 +110,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=8]
 
 resource_name = "Died"
 length = 1.0
@@ -129,9 +129,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
-resource_name = "Idle"
 length = 1.0
 loop = false
 step = 0.1
@@ -160,9 +159,8 @@ tracks/1/keys = {
 "values": [ Vector2( 0.15, 0.15 ), Vector2( 0.15, 0.162195 ), Vector2( 0.15, 0.15 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
-resource_name = "Prepare_Attack"
 length = 1.0
 loop = false
 step = 0.1
@@ -179,9 +177,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
-resource_name = "Take_Damage"
 length = 1.0
 loop = false
 step = 0.1
@@ -198,7 +195,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=12]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -226,7 +223,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=13]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -254,7 +251,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=14]
 
 custom_solver_bias = 0.0
 radius = 26.0251
@@ -316,7 +313,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="exclamation" type="Sprite" parent="." index="2"]
 
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -0.291985, -94.2092 )
+position = Vector2( -37.8429, -61.0474 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -329,10 +326,10 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Attacking = SubResource( 7 )
-anims/Died = SubResource( 14 )
-anims/Idle = SubResource( 8 )
-anims/Prepare_Attack = SubResource( 9 )
-anims/Take_Damage = SubResource( 10 )
+anims/Died = SubResource( 8 )
+anims/Idle = SubResource( 9 )
+anims/Prepare_Attack = SubResource( 10 )
+anims/Take_Damage = SubResource( 11 )
 blend_times = [  ]
 
 [node name="Timer" type="Timer" parent="." index="4"]
@@ -358,8 +355,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 11 )
-custom_styles/bg = SubResource( 12 )
+custom_styles/fg = SubResource( 12 )
+custom_styles/bg = SubResource( 13 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -378,7 +375,7 @@ _sections_unfolded = [ "Percent", "custom_styles" ]
 
 position = Vector2( -0.360059, 0.350752 )
 scale = Vector2( 1.0222, 0.964884 )
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="Shadow" type="Sprite" parent="." index="8"]
 
@@ -399,7 +396,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 position = Vector2( -0.360059, 0.350752 )
 scale = Vector2( 1.0222, 0.964884 )
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
 
