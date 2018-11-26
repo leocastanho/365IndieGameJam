@@ -3,13 +3,13 @@
 [ext_resource path="res://Scenes/Level/BossFinal/Boss.gd" type="Script" id=1]
 [ext_resource path="res://player/shadow.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Level/BossFinal/Idle/Idle.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Level/BossFinal/Die/Die1.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Level/BossFinal/Die/Die2.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Level/BossFinal/Die/Die3.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack1.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack2.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack3.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack4.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack1.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack2.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack3.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack4.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Level/BossFinal/Die/Die1.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Level/BossFinal/Die/Die2.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Level/BossFinal/Die/Die3.png" type="Texture" id=10]
 [ext_resource path="res://Art/Sprite-0001.png" type="Texture" id=11]
 [ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=12]
 [ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=13]
@@ -22,19 +22,19 @@ animations = [ {
 "name": "Idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Die",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Attack",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Die",
+"speed": 3.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -62,25 +62,25 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=3]
 
 hinting = 2
 font_path = "res://Main Menu/Fonts/MyriadPro-BoldCond.otf"
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 
 size = 100
 use_mipmaps = false
 use_filter = false
-font_data = SubResource( 5 )
+font_data = SubResource( 3 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 40.6079
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 resource_name = "Hide"
 length = 1.0
@@ -99,7 +99,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 resource_name = "Show"
 length = 1.0
@@ -187,7 +187,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 9 )
+custom_styles/fg = SubResource( 2 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -214,7 +214,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 text = "Boss"
 percent_visible = 1.0
 lines_skipped = 0
@@ -225,7 +225,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 position = Vector2( 20, 90.902 )
 scale = Vector2( 1, 0.479316 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="DamageSource" parent="." index="4" instance=ExtResource( 12 )]
 
@@ -233,7 +233,7 @@ shape = SubResource( 2 )
 
 position = Vector2( 20, 90.902 )
 scale = Vector2( 1, 0.479316 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Health" parent="." index="5" instance=ExtResource( 13 )]
 
@@ -246,8 +246,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Hide = SubResource( 7 )
-anims/Show = SubResource( 8 )
+anims/Hide = SubResource( 6 )
+anims/Show = SubResource( 7 )
 blend_times = [  ]
 
 [node name="Timer" type="Timer" parent="." index="7"]
