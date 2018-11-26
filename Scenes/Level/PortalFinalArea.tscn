@@ -388,7 +388,7 @@ tracks/14/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[node name="PortalFinalArea" type="Area2D" index="0"]
+[node name="PortalFinalArea" type="Area2D"]
 
 scale = Vector2( 2, 2 )
 input_pickable = true

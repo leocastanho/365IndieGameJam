@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	if Global.love_stone_unlocked and Global.family_stone_unlocked and Global.family_stone_unlocked and Global.friendship_stone_unlocked:
+	if Global.love_stone_unlocked and Global.family_stone_unlocked and Global.spirit_stone_unlocked and Global.friendship_stone_unlocked:
 		var final_portal = Global.porta_final_area.instance()
 		$Position2D.add_child(final_portal)
 

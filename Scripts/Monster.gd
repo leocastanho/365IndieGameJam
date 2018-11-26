@@ -117,12 +117,12 @@ func _on_Detection_body_entered(body):
 	pass # replace with function body
 
 func died():
+	$DamageSource.queue_free()
 	state = DIED
 	var inst = smokeDie.instance()
 	add_child(inst)
 	inst.play("SmokeDie")
 	anim_player.play("Died")
-	$DamageSource.queue_free()
 
 func _on_MonsterMelee_body_entered(body):
 	
