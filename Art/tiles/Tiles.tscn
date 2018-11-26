@@ -247,7 +247,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite18" type="Sprite" parent="." index="17"]
 
-editor/display_folded = true
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 454, 444, 130, 130 )
