@@ -2,9 +2,8 @@
 
 [ext_resource path="res://player/bullet/bullet_spawner.gd" type="Script" id=1]
 
-[node name="StaffOfRottenness" type="Node2D"]
+[node name="StaffOfRottenness" type="Node2D" index="0"]
 
-editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -12,7 +11,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CooldownTimer" type="Timer" parent="." index="0"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 autostart = false
 

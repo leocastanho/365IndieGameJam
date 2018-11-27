@@ -9,13 +9,9 @@ func initialize(maximum):
 	$BarsContainers/Container/TextureProgress.max_value = maximum
 
 func _on_Interface_health_changed(health):
-	print($BarsContainers/Container/TextureProgress.value)
-	print(health)
 	animate_value(current_health, health)
 	current_health = health
 
 func animate_value(start, end):
-	print(start)
-	print(end)
 	$BarsContainers/Tween.interpolate_property($BarsContainers/Container/TextureProgress, "value", start, end, 0.3, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
 	$BarsContainers/Tween.start()

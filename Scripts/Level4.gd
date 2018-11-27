@@ -22,7 +22,6 @@ func _process(delta):
 	if can_shoot and not isAreaFinish:
 		timePassed += delta
 	#	timePassed = timeReload
-		print(timePassed)
 		if(timePassed > timeReload):
 			make_monsters_shoot()
 	
@@ -40,7 +39,6 @@ func _process(delta):
 
 func make_monsters_shoot():
 	var rand = randi() % 6 + 1
-	print(rand)
 	if rand == 1:
 		if $YSort/Monsters/MonsterRanged != null:
 			get_tree().call_group("Monster1","shoot")

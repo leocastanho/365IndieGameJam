@@ -12,7 +12,6 @@ func _ready():
 
 func _input(event):
 	if Input.is_action_pressed("shield") and not shield_on_cd:
-		print("eita")
 		#Global.Player.get_node("HitBox/CollisionShape2D").disabled = true
 		Global.Player.canDamage = false
 		state_move.MAX_WALK_SPEED = 100

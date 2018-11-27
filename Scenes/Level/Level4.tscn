@@ -65,6 +65,7 @@ wich_area = 8
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
+editor/display_folded = true
 sort_enabled = true
 
 [node name="Monsters" type="YSort" parent="YSort" index="0"]
@@ -113,8 +114,9 @@ position = Vector2( 672.749, 686.095 )
 ] instance=ExtResource( 5 )]
 
 position = Vector2( 645.782, 306.592 )
+scale = Vector2( 1.5, 1.5 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "collision" ]
-life = 50
+life = 70
 
 [node name="Rock1" parent="YSort" index="2" instance=ExtResource( 6 )]
 
@@ -190,6 +192,7 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" index="0"]
 
+position = Vector2( -10.2527, 98.4259 )
 scale = Vector2( 25.7126, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]

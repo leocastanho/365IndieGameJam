@@ -3,7 +3,7 @@
 [ext_resource path="res://player/itens/ShieldOfFriendShip.gd" type="Script" id=1]
 [ext_resource path="res://player/itens/Escudo-da-amizade.png" type="Texture" id=2]
 
-[node name="ShieldOfFriendShip" type="Node2D"]
+[node name="ShieldOfFriendShip" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 

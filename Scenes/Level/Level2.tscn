@@ -61,7 +61,6 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="YSort" type="YSort" parent="." index="1"]
 
-editor/display_folded = true
 sort_enabled = true
 _sections_unfolded = [ "Sort", "Transform", "Z Index" ]
 
@@ -189,6 +188,7 @@ position = Vector2( 538.429, 1600.74 )
 
 [node name="DialogueTrigger" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 616.575, 535.886 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

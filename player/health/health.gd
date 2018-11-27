@@ -17,10 +17,9 @@ var stun_cycles = 4
 
 func _ready():
 	health = max_health
-	print(health)
 	if owner.get_name() == "PlayerV2":
 		if Global.life_potion_unlock:
-			max_health = 14
+			max_health = 18
 			health = max_health
 		connect("health_changed",get_node("/root/PlayerInterface/Interface"),"_on_Health_health_changed")
 #		get_node("/root/PlayerInterface/Interface").initialize(max_health)
@@ -98,11 +97,9 @@ func take_damage(amount, effect=null):
 		return
 	match effect:
 		global_constants.STATUS_POISONED:
-			print("poison")
 			_change_status(global_constants.STATUS_POISONED)
 #			poison_cycles = effect[1]
 		global_constants.STATUS_STUNNED:
-			print("stuned")
 			if owner.get_name() == "PlayerV2":
 				_change_status(global_constants.STATUS_STUNNED)
 #	print("%s got hit and took %s damage. Health: %s/%s" % [get_name(), amount, health, max_health])
@@ -118,7 +115,6 @@ func heal(amount):
 #	print("%s got healed by %s points. Health: %s/%s" % [get_name(), amount, health, max_health])
 
 func _on_PoisonTimer_timeout():
-	print("poisoncycle")
 	take_damage(POISON_DAMAGE)
 	poison_cycles -= 1
 	if poison_cycles == 0:
@@ -127,7 +123,6 @@ func _on_PoisonTimer_timeout():
 	$PoisonTimer.start()
 	
 func _on_StunTimer_timeout():
-	print (stun_cycles)
 	stun_cycles -= 1
 	owner.get_node("StateMachine/Move").emit_signal("finished", "stagger")
 	if stun_cycles == 0:
