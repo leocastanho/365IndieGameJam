@@ -27,9 +27,10 @@ func _ready():
 	waitIdle = 5
 	timesAttack = 1
 	timesTeleport = 1
-	
-	_change_state(IDLE)
-	_next_phase(EASY)
+	$dialogue_system.pop_up_show()
+#
+#	_change_state(IDLE)
+#	_next_phase(EASY)
 
 	
 	pass
@@ -110,8 +111,6 @@ func _on_AnimatedSprite_animation_finished():
 		ATTACK:
 			count += 1
 			if(count < timesAttack):
-				print(timesAttack)
-				print(count)
 				_change_state(ATTACK)
 			else:
 				_change_state(IDLE)

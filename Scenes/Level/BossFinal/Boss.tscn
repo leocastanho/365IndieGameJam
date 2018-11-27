@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/Level/BossFinal/Boss.gd" type="Script" id=1]
 [ext_resource path="res://player/shadow.png" type="Texture" id=2]
@@ -11,8 +11,10 @@
 [ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack3.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Level/BossFinal/Attack/Attack4.png" type="Texture" id=10]
 [ext_resource path="res://Art/Sprite-0001.png" type="Texture" id=11]
-[ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=12]
-[ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Level/BossFinal/Theme.tres" type="StyleBox" id=12]
+[ext_resource path="res://player/DamageSource.tscn" type="PackedScene" id=13]
+[ext_resource path="res://player/health/Health.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interface/dialogue_system/dialogue_system.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -33,34 +35,6 @@ animations = [ {
 "speed": 10.0
 } ]
 _sections_unfolded = [ "Resource" ]
-
-[sub_resource type="StyleBoxFlat" id=2]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.386719, 0, 0, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
-border_color = Color( 0.8, 0.8, 0.8, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [sub_resource type="DynamicFontData" id=3]
 
@@ -146,6 +120,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -178,16 +153,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 27.0
-margin_right = 1010.0
-margin_bottom = 20.0
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 995.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 2 )
+custom_styles/fg = ExtResource( 12 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -196,7 +172,7 @@ value = 100.0
 exp_edit = false
 rounded = false
 percent_visible = false
-_sections_unfolded = [ "Percent", "Radial Fill", "Textures", "custom_styles" ]
+_sections_unfolded = [ "Percent", "Radial Fill", "Textures" ]
 
 [node name="Name" type="Label" parent="CanvasLayer" index="1"]
 
@@ -227,7 +203,9 @@ position = Vector2( 20, 90.902 )
 scale = Vector2( 1, 0.479316 )
 shape = SubResource( 5 )
 
-[node name="DamageSource" parent="." index="4" instance=ExtResource( 12 )]
+[node name="DamageSource" parent="." index="4" instance=ExtResource( 13 )]
+
+editor/display_folded = true
 
 [node name="Collision2" type="CollisionShape2D" parent="DamageSource" index="0"]
 
@@ -235,9 +213,9 @@ position = Vector2( 20, 90.902 )
 scale = Vector2( 1, 0.479316 )
 shape = SubResource( 5 )
 
-[node name="Health" parent="." index="5" instance=ExtResource( 13 )]
+[node name="Health" parent="." index="5" instance=ExtResource( 14 )]
 
-max_health = 10
+max_health = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 
@@ -256,6 +234,10 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="dialogue_system" parent="." index="8" instance=ExtResource( 15 )]
+
+wich_area = 10
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 

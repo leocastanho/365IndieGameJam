@@ -268,6 +268,7 @@ __meta__ = {
 
 [node name="HitBox" parent="." index="0" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 scale = Vector2( 0.4, 0.4 )
 collision_layer = 1
 collision_mask = 8
@@ -396,9 +397,11 @@ position = Vector2( 81.3212, 61.7202 )
 
 position = Vector2( -6.43909, 41.2108 )
 build_mode = 0
-polygon = PoolVector2Array( -27.6469, 0.24292, -27.2972, -31.5752, 28.9963, -30.5262, 30.7446, 0.59259 )
+polygon = PoolVector2Array( -23.9716, -1.70776, -20.3867, -62.6503, 20.4807, -62.6503, 26.9335, -0.273804 )
 
 [node name="Health" parent="." index="7" instance=ExtResource( 15 )]
+
+max_health = 10
 
 [node name="StateNameDisplayer" type="Label" parent="." index="8"]
 
@@ -496,7 +499,7 @@ _sections_unfolded = [ "Shadow", "Transform" ]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="17"]
 
-color = Color( 1, 1, 1, 1 )
+color = Color( 1, 1, 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate" index="0"]
 
@@ -510,6 +513,10 @@ anims/idle = SubResource( 8 )
 anims/lights_off = SubResource( 9 )
 anims/lights_on = SubResource( 10 )
 blend_times = [  ]
+
+[node name="SmokeDashPivot" type="Position2D" parent="." index="18"]
+
+position = Vector2( -5.8396, 45.8094 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
 

@@ -4,7 +4,7 @@ var dialogue_count = 0
 enum dialogue_part {NORMALDIALOGUE, DIALOGUEA, DIALOGUEAFINAL, DIALOGUEB, DIALOGUEBFINAL}
 var dialogue
 var buttons
-enum WICHAREA {INITIALAREA, MINDAREA1, AREA1, MINDAREA2, AREA2, MINDAREA3, AREA3, MINDAREA4 AREA4, FINALAREA}
+enum WICHAREA {INITIALAREA, MINDAREA1, AREA1, MINDAREA2, AREA2, MINDAREA3, AREA3, MINDAREA4 AREA4, FINALAREA, BOSSAREA}
 export(WICHAREA) var wich_area = WICHAREA.INITIALAREA
 var area_for_buttonB
 var language_for_area2
@@ -57,6 +57,8 @@ func _on_NextButton_pressed():
 				wich_dialogue(0, "area4", "area4A", "area4AFinal", "area4B", "area4BFinal")
 			FINALAREA:
 				wich_area(0, "final_area")
+			BOSSAREA:
+				wich_area(0, "boss_area")
 	elif Global.language_on == Global.PORTUGUESE:
 		match wich_area:
 			INITIALAREA:
@@ -83,6 +85,8 @@ func _on_NextButton_pressed():
 				wich_dialogue(1, "area4", "area4A", "area4AFinal", "area4B", "area4BFinal")
 			FINALAREA:
 				wich_area(1, "final_area")
+			BOSSAREA:
+				wich_area(1, "boss_area")
 	dialogue_count += 1
 
 func wich_area(language, area):
@@ -107,6 +111,14 @@ func wich_area(language, area):
 			$Popup/DialogueBox/NextButton.visible = false
 	if area == "mind_area4":
 		if dialogue_count == dialogue[0]["mind_area4"].size() - 1:
+			$Popup/DialogueBox/CloseButtonFinal.visible = true
+			$Popup/DialogueBox/NextButton.visible = false
+	if area == "final_area":
+		if dialogue_count == dialogue[0]["final_area"].size() - 1:
+			$Popup/DialogueBox/CloseButtonFinal.visible = true
+			$Popup/DialogueBox/NextButton.visible = false
+	if area == "boss_area":
+		if dialogue_count == dialogue[0]["boss_area"].size() - 1:
 			$Popup/DialogueBox/CloseButtonFinal.visible = true
 			$Popup/DialogueBox/NextButton.visible = false
 
@@ -360,6 +372,11 @@ func _on_CloseButtonFinal_pressed():
 	if area_for_buttonB == "mind_area4":
 		get_tree().change_scene(Global.level4)
 		get_node("/root/PlayerInterface/Interface").visible = true
+	if area_for_buttonB == "final_area":
+		get_node("../Position2D/PortalFinalArea/CollisionShape2D").disabled = false
+	if area_for_buttonB == "boss_area":
+		get_node("..")._change_state(get_node("..").IDLE)
+		get_node("..")._next_phase(get_node("..").EASY)
 	queue_free()
 
 func _on_DialogueTrigger_body_entered(body):

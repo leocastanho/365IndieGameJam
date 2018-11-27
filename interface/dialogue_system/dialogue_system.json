@@ -88,9 +88,17 @@
     "area4BFinal":["Gregório killed all the enemies and now Gregório is powerfull.","It costed Jorges life, was it worth it?", 
         "Gregório completed the Friendship Conflict, Gregório received the Friendship Stone."],
 
-    "final_area":["you area ugly", "i hate you","choose wisely","fight"] },
+    "final_area":["Well done Gregório, youve unlocked all the Conflict Stones. You managed to deal with all your internal conflicts.",
+        "Now, its time to face the decisions youve made.", "I know you already made yours decisions, but are you sure they were right?",
+        "The only way to be sure, is if theres not a single drop of doubt inside you.", 
+        "This portal that just opened in the middle of 4 paths will tell you if you really managed your conflicts or not. Get inside of it."],
+        "boss_area":["GregóriosDoubt: MUUUHAHAHAHAHAHAHAHA",
+            "GregóriosDoubt: You are not sure abou the decisions youve made and now, me, your doubts, im here to kill you!",
+            "GregóriosDoubt: You will be consumed about your doubts and will never have peace Gregório!",
+            "Gregório: Oh yeh? This is what we will see! Im sure that ive made the right decisions!", "KILL YOUR DOUBTS!!"]},
 
-    
+
+
 
     {"initial_area":["Gregório: Onde eu estou? O que estou fazendo aqui? Será que estou sonhando?",
         ".....",".....",
@@ -181,7 +189,15 @@
     "area4BFinal":["Gregório matou todos os inimigos e agora é mais forte","Isso custou a vida de Jorge. Valeu a pena?", 
         "Gregório completou o Conflito da Amizade, Gregório recebeu a Pedra da Amizade."],
 
-    "final_area":["you area ugly", "i hate you","choose wisely","fight"]}
+    "final_area":["Parabéns Gregório, você conquistou as Pedras dos Conflitos. Você conseguiu lidar com seus conflitos internos.",
+        "Agora, chegou a hora de lidar com as decisões que tomou.", "Eu sei que você já tomou suas decisões, mas tem certeza que foram as corretas?",
+        "O único jeito de ter certeza, é se não houver qualquer dúvida dentro de você.", 
+        "Esse portal que se abriu no meio dos 4 caminhos te dirá se você realmente acabou com seus conflitos ou não. Entre nele."],
+    
+    "boss_area":["DúvidasDoGregório: MUUUHAHAHAHAHAHAHAHA",
+        "DúvidasDoGregório: Você não tem certeza das decisões que tomou e agora eu vim aqui para acabar com você.",
+        "DúvidasDoGregório: Você será consumido pela sua dúvida e nunca conseguirá ter paz Gregório!",
+        "Gregório: Ah é? Isso que é o que vamos ver! Eu tenho certeza de que fiz as escolhas certas!","MATE SUAS DÚVIDAS!"]}
 
 ]
 

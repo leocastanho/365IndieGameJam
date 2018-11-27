@@ -8,7 +8,7 @@ export var dashVelocityMultiplier = 6
 var dashCD = false
 
 #usando particle blood por enquanto, depois tem que fazeruma pro dash
-onready var freedom_particle = preload ("res://Scenes/Blood.tscn")
+onready var freedom_particle = preload ("res://Scenes/DashSmoke.tscn")
 
 func _ready():
 	Global.state_move = self
@@ -52,7 +52,7 @@ func dash():
 	velocityMultiplier = dashVelocityMultiplier
 	get_node("../../Dash").start()
 	var freedom = freedom_particle.instance()
-	Global.Player.add_child(freedom)
+	Global.Player.get_node("SmokeDashPivot").add_child(freedom)
 
 	#Dash option 2 - move to mouse location
 #	var dash_vector = (get_global_mouse_position() - position).clamped(dashDistance)

@@ -12,7 +12,7 @@
 [ext_resource path="res://player/PlayerV2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://SFX/Music/Choices_Area4Boss.wav" type="AudioStream" id=11]
 
-[node name="LevelBossFinal" type="Node2D" index="0"]
+[node name="LevelBossFinal" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -106,17 +106,19 @@ tile_data = PoolIntArray( -851979, 0, 655360, -851978, 0, 655362, -851977, 0, 65
 
 [node name="YSort" type="YSort" parent="." index="3"]
 
-editor/display_folded = true
 sort_enabled = true
 
 [node name="Boss" parent="YSort" index="0" instance=ExtResource( 9 )]
 
-editor/display_folded = true
 position = Vector2( 563.972, 267.804 )
 
 [node name="PHASES" type="Node2D" parent="YSort/Boss" index="6"]
 
+editor/display_folded = true
+
 [node name="EASY" type="Node2D" parent="YSort/Boss/PHASES" index="0"]
+
+editor/display_folded = true
 
 [node name="Position2D9" type="Position2D" parent="YSort/Boss/PHASES/EASY" index="0"]
 

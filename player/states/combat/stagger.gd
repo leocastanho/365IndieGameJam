@@ -20,5 +20,4 @@ func enter():
 	tween.start()
 
 func _on_animation_finished(anim_name):
-	print("finished stagger")
 	emit_signal("finished", "idle")

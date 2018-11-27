@@ -22,7 +22,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Smoke" type="AnimatedSprite"]
+[node name="Smoke" type="AnimatedSprite" index="0"]
 
 scale = Vector2( 0.14, 0.14 )
 frames = SubResource( 1 )

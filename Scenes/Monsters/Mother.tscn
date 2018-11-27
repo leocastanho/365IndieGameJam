@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Mother.gd" type="Script" id=1]
 [ext_resource path="res://player/shadow.png" type="Texture" id=2]
 [ext_resource path="res://Art/Fire-spirit.png" type="Texture" id=3]
+[ext_resource path="res://interface/theme/default_theme.tres" type="Theme" id=4]
 
 [sub_resource type="Gradient" id=1]
 
@@ -176,7 +177,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.448307, 0.55547 ), Vector2( 0.448307, 0.55547 ) ]
 }
 
-[node name="Mother" type="KinematicBody2D"]
+[node name="Mother" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -248,20 +249,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -20.0
-margin_top = -122.0
-margin_right = 30.0
-margin_bottom = -108.0
+margin_left = -53.0
+margin_top = -163.0
+margin_right = 62.0
+margin_bottom = -128.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = ExtResource( 4 )
 text = "Mother"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Theme", "custom_colors" ]
 
 [node name="Timer" type="Timer" parent="." index="6"]
 

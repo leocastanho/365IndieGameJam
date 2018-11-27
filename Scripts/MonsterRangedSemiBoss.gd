@@ -41,7 +41,6 @@ func _physics_process(delta):
 		can_shoot = true
 #		timePassed = 0
 		var rand = randi() % 4
-		print(rand)
 		if rand == 0:
 			timePassed = 0
 		else:
@@ -61,7 +60,7 @@ func aim():
 	if result:
 		hit_pos = result.position
 		if result.collider.name == "HitBox":
-			rotation = (target.position - global_position).angle()
+#			rotation = (target.position - global_position).angle()
 			if(can_shoot):
 				shoot()
 				can_shoot = false

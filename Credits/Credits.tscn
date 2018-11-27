@@ -28,6 +28,19 @@ use_filter = false
 font_data = SubResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+[sub_resource type="DynamicFontData" id=5]
+
+hinting = 2
+font_path = "res://Main Menu/Fonts/MyriadPro-SemiboldIt.otf"
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
 [sub_resource type="DynamicFontData" id=7]
 
 hinting = 2
@@ -54,20 +67,7 @@ use_filter = false
 font_data = SubResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFontData" id=11]
-
-hinting = 2
-font_path = "res://Main Menu/Fonts/MyriadPro-SemiboldIt.otf"
-
-[sub_resource type="DynamicFont" id=12]
-
-size = 50
-use_mipmaps = false
-use_filter = false
-font_data = SubResource( 11 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[node name="Credits" type="CanvasLayer"]
+[node name="Credits" type="CanvasLayer" index="0"]
 
 layer = 2
 offset = Vector2( 0, 0 )
@@ -132,9 +132,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 27.0
 margin_right = 572.0
-margin_bottom = 127.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -155,9 +154,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 131.0
+margin_top = 104.0
 margin_right = 572.0
-margin_bottom = 182.0
+margin_bottom = 155.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -178,16 +177,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 186.0
+margin_top = 159.0
 margin_right = 572.0
-margin_bottom = 237.0
+margin_bottom = 210.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 text = "Leo Castanho: Programmer"
 align = 1
 percent_visible = 1.0
@@ -195,15 +194,61 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Name4" type="Label" parent="NinePatchRect/VBoxContainer" index="3"]
+[node name="Name2" type="Label" parent="NinePatchRect/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 241.0
+margin_top = 214.0
 margin_right = 572.0
-margin_bottom = 292.0
+margin_bottom = 265.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+text = "Ju Hamdeh: Dialogues"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name4" type="Label" parent="NinePatchRect/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 269.0
+margin_right = 572.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+text = "Eulina Melo: Composer"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Name5" type="Label" parent="NinePatchRect/VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 324.0
+margin_right = 572.0
+margin_bottom = 375.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -211,29 +256,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 10 )
-text = "Lina Meloo: Composer"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="Name5" type="Label" parent="NinePatchRect/VBoxContainer" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 296.0
-margin_right = 572.0
-margin_bottom = 347.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 12 )
 text = "Raniery: Graphic artist"
 align = 1
 percent_visible = 1.0

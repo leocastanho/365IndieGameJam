@@ -256,7 +256,7 @@ anti_aliasing_size = 1
 custom_solver_bias = 0.0
 radius = 26.0251
 
-[node name="BlueSlime" type="KinematicBody2D" groups=[
+[node name="BlueSlime" type="KinematicBody2D" index="0" groups=[
 "Monsters",
 ]]
 
@@ -370,6 +370,8 @@ _sections_unfolded = [ "Percent", "custom_styles" ]
 [node name="Health" parent="." index="6" instance=ExtResource( 3 )]
 
 [node name="DamageSource" parent="." index="7" instance=ExtResource( 4 )]
+
+damage = 1
 
 [node name="Collision2" type="CollisionShape2D" parent="DamageSource" index="0"]
 
